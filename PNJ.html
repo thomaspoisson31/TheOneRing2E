@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionnaire de PNJ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .filters {
+            width: 300px;
+        }
+        .character-info {
+            flex-grow: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .info-field {
+            margin-bottom: 10px;
+        }
+        .info-field strong {
+            color: #444;
+        }
+        .error {
+            color: red;
+            padding: 10px;
+            border: 1px solid red;
+            background-color: #fff8f8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestionnaire de PNJ</h1>
+    
+    <div class="container">
+        <div class="filters">
+            <h2>Filtres</h2>
+            <select id="adventureFilter">
+                <option value="">Toutes les aventures</option>
+            </select>
+            
+            <select id="characterSelect">
+                <option value="">Sélectionnez un personnage</option>
+            </select>
+        </div>
+        
+        <div class="character-info" id="characterInfo">
+            <p>Sélectionnez un personnage pour voir ses informations</p>
+        </div>
+    </div>
+
+    <script>
+        let characters = [];
+
+        // Chargement du fichier XML
+        async function loadCharacters() {
+            try {
+                const response = await fetch('/data/PNJ.xml');
+                const xmlText = await response.text();
+
+                // Parser le fichier XML
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+                // Obtenir tous les PNJ à partir du fichier XML
+                const pnjElements = xmlDoc.getElementsByTagName('personnage');
+
+                // Transforme chaque <PNJ> en un objet JavaScript
+                characters = Array.from(pnjElements).map(pnj => ({
+                    nom: pnj.getElementsByTagName('nom')[0]?.textContent || '',
+                    nom_aventure: pnj.getElementsByTagName('aventure')[0]?.textContent || '',
+                    descriptif: pnj.getElementsByTagName('description')[0]?.textContent || '',
+                    occupation: pnj.getElementsByTagName('occupation')[0]?.textContent || '',
+                    particularites: pnj.getElementsByTagName('particularites')[0]?.textContent || ''
+                }));
+
+                // Initialiser les filtres une fois les données chargées
+                initializeFilters();
+            } catch (error) {
+                // Gestion des erreurs si le fichier XML ne peut pas être lu ou parsé
+                document.getElementById('characterInfo').innerHTML = `
+                    <div class="error">
+                        Erreur lors du chargement des données : ${error.message}<br>
+                        Vérifiez que le fichier XML est bien présent dans le répertoire /data/
+                    </div>`;
+            }
+        }
+
+        // Initialiser les filtres et remplir les options de la page
+        function initializeFilters() {
+            const adventureFilter = document.getElementById('adventureFilter');
+            
+            // Récupérer les aventures uniques
+            const adventures = [...new Set(characters.map(char => char.nom_aventure))];
+            adventures.forEach(adventure => {
+                const option = document.createElement('option');
+                option.value = adventure;
+                option.textContent = adventure;
+                adventureFilter.appendChild(option);
+            });
+
+            // Remplir la liste des personnages
+            updateCharacterList();
+        }
+
+        // Mise à jour de la liste des personnages en fonction du filtre
+        function updateCharacterList() {
+            const adventureFilter = document.getElementById('adventureFilter');
+            const characterSelect = document.getElementById('characterSelect');
+            const selectedAdventure = adventureFilter.value;
+
+            // Vider la liste des personnages
+            characterSelect.innerHTML = '<option value="">Sélectionnez un personnage</option>';
+
+            // Filtrer les personnages en fonction de l'aventure choisie
+            const filteredCharacters = selectedAdventure
+                ? characters.filter(char => char.nom_aventure.includes(selectedAdventure))
+                : characters;
+
+            filteredCharacters.forEach(char => {
+                const option = document.createElement('option');
+                option.value = char.nom;
+                option.textContent = char.nom;
+                characterSelect.appendChild(option);
+            });
+        }
+
+        // Affichage des informations d'un personnage sélectionné
+        function displayCharacterInfo() {
+            const characterSelect = document.getElementById('characterSelect');
+            const characterInfo = document.getElementById('characterInfo');
+            const selectedName = characterSelect.value;
+
+            if (!selectedName) {
+                characterInfo.innerHTML = '<p>Sélectionnez un personnage pour voir ses informations</p>';
+                return;
+            }
+
+            // Recherche du personnage sélectionné dans la liste
+            const character = characters.find(char => char.nom === selectedName);
+            
+            // Affichage des informations
+            characterInfo.innerHTML = `
+                <h2>${character.nom}</h2>
+                <div class="info-field">
+                    <strong>Aventure :</strong> ${character.nom_aventure}
+                </div>
+                <div class="info-field">
+                    <strong>Descriptif :</strong> ${character.descriptif}
+                </div>
+                <div class="info-field">
+                    <strong>Occupation :</strong> ${character.occupation}
+                </div>
+                <div class="info-field">
+                    <strong>Particularités :</strong> ${character.particularites}
+                </div>
+            `;
+        }
+
+        // Initialisation au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCharacters();
+
+            // Détection des changements dans les filtres
+            document.getElementById('adventureFilter').addEventListener('change', updateCharacterList);
+            document.getElementById('characterSelect').addEventListener('change', displayCharacterInfo);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Télécharger les fichiers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <button onclick="downloadFiles()">Télécharger tous les fichiers</button>
+
+    <script>
+        const files = {
+            "index.html": `<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOR2E - Visualiseur d'adversaires</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header></header>
+
+    <div class="selector">
+        <select id="creatureSelect">
+            <option value="">Choix Adversaire</option>
+        </select>
+        <select id="combattantsSelect">
+            <option value="">Combattants :</option> 
+        </select> 
+    </div>     
+    <div id="creatureCard" class="creature-card"></div>
+
+    <div id="fullScreenImage" class="full-screen-image">
+        <img id="creatureImage" src="" alt="Image de la créature">
+    </div>
+
+    <script src="js/constants.js"></script>
+    <script src="js/domElements.js"></script>
+    <script src="js/creatureDisplay.js"></script>
+    <script src="js/eventHandlers.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>`,
+            "styles/main.css": `:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --text-color: #ecf0f1;
+    --accent-color: #e74c3c;
+    --title-color: #b30f04;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    color: var(--primary-color);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.5rem;
+    background: #f5f6fa;
+    font-size: 14px;
+}
+
+/* ... reste du CSS ... */`,
+            "js/constants.js": `const specialDescriptions = {
+    "Brise Bouclier": "L'attaque frappe plusieurs fois le bouclier du Héros ciblé...",
+    "Étreinte": "L'attaquant se saisit de la cible...",
+    "Perforation": "L'attaquant a porté un coup précis..."
+};`,
+            "js/domElements.js": `const creatureSelect = document.getElementById('creatureSelect');
+const creatureCard = document.getElementById('creatureCard');
+const fullScreenImage = document.getElementById('fullScreenImage');
+const creatureImage = document.getElementById('creatureImage');
+let xmlDoc = null;`,
+            "js/main.js": `window.addEventListener('DOMContentLoaded', function () {
+    fetch('Adversaires2.xml')
+        .then(response => response.text())
+        .then(str => {
+            const parser = new DOMParser();
+            xmlDoc = parser.parseFromString(str, "text/xml");
+            populateCreatureSelect();
+        })
+        .catch(error => alert('Erreur lors du chargement du fichier XML'));
+});`
+        };
+
+        async function downloadFiles() {
+            const zip = new JSZip();
+            
+            // Ajouter les fichiers au ZIP
+            for (const [path, content] of Object.entries(files)) {
+                zip.file(path, content);
+            }
+
+            // Générer et télécharger le ZIP
+            const content = await zip.generateAsync({type: "blob"});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(content);
+            link.download = "tor2e-viewer.zip";
+            link.click();
+        }
+    </script>
+</body>
+</html>

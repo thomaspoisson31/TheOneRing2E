@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adversaires>
+    <famille nom="Récits Terres Solitaires">
+        <son1>MortsVivants.mp3</son1>
+        <son2>MortsVivants2.mp3</son2>
+        <son3>MortsVivants3.mp3</son3>
+
+        <creature>
+            <nom>Osmer le « Magicien »</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <determination>4</determination>
+                <parade>1</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularités>Charlatan, Malin</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Bâton</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/12</degats_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Épée</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/16</degats_arme>
+                    <special_arme>Perçant</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Chasseur Lossoth</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>3</haine>
+                <parade>1</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Endurci, Rapide</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Lance</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Cuir robuste</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Détermination pour gagner (2d) à un jet de Protection.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Esprit des Bois</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>-</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Malin, Vengeur</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Griffes</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Abomination</Titre_Capacite>
+                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue d'une ou plusieurs créatures dotées de cette capacité gagnent 2 points d'Ombre (Terreur). Ceux qui ratent leur test d'Ombre sont découragés et ne peuvent pas dépenser d'Espoir pour tout le reste du combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Habitant des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Immortel</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour éliminer une Blessure. Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, dépensez 1 point de Haine pour restaurer ses points d'Endurance au maximum. Cette capacité est inefficace contre un Héros maniant une arme magique ayant pour Cible les Morts-Vivants.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>La créature n'est pas affectée par la manœuvre de combat Intimider l'adversaire, sauf en cas d'une Réussite magique.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Peur du Feu</Titre_Capacite>
+                    <Detail_Capacite>Au début de chaque round où la créature est engagée en combat rapproché contre un adversaire portant une torche ou tout autre objet enflammé, elle perd 1 point de Haine.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Dépouille possédée de Gwendaith</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>-</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Maligne, Vengeresse</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Toucher glacial</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>5/12</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Abomination</Titre_Capacite>
+                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue d'une ou plusieurs créatures dotées de cette capacité gagnent 2 points d'Ombre (Terreur). Ceux qui ratent leur test d'Ombre sont découragés et ne peuvent pas dépenser d'Espoir pour tout le reste du combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>La créature perd 1 point de Haine au début de chaque round qu'elle passe exposée à la lumière directe du soleil.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Épouvantables sortilèges</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour infliger 3 points d'Ombre (Sorcellerie) à un Héros. Une cible Mélancolique ou qui rate son test d'Ombre tombe inconsciente et ne peut être réveillée que grâce à un test réussi de CHANT.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Habitante des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Immortelle</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour éliminer une Blessure. Quand une attaque est censée faire tomber son Endurance à zéro, dépensez 1 point de Haine pour restaurer ses points d'Endurance au maximum. Cette capacité est inefficace contre un Héros maniant une arme magique ayant pour Cible les Morts-Vivants.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>La créature n'est pas affectée par la manœuvre de combat Intimider l'adversaire, sauf en cas d'une Réussite magique.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>L'Orque Snava</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>48</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>4</parade>
+                <armure>4</armure>
+            </attributs>
+            <Particularités>Circonspect, Malin</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Grande lance</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Cri de triomphe</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour restaurer 1 point de Haine à tous les autres Orques et Morts-Vivants participant au combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Épouvantables sortilèges</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour infliger 3 points d'Ombre (Sorcellerie) à un Héros. Une cible Mélancolique ou qui rate son test d'Ombre est assaillie par un esprit désincarné qui lui fait perdre 2 points d'Endurance à la fin de chaque round jusqu'à ce qu'elle réussisse un test de VAILLANCE.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Esprit de la Colline</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>6</haine>
+                <parade>-</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Affamé, Vengeur</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Épée antique</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Abomination</Titre_Capacite>
+                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue d'une ou plusieurs créatures dotées de cette capacité gagnent 3 points d'Ombre (Terreur). Ceux qui ratent leur test d'Ombre sont découragés et ne peuvent pas dépenser d'Espoir pour tout le reste du combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>La créature perd 1 point de Haine au début de chaque round qu'elle passe exposée à la lumière directe du soleil.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Habitant des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Immortel</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour éliminer une Blessure. Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, dépensez 1 point de Haine pour restaurer ses points d'Endurance au maximum. Cette capacité est inefficace contre un Héros maniant une arme magique ayant pour Cible les Morts-Vivants.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>La créature n'est pas affectée par la manœuvre de combat Intimider l'adversaire, sauf en cas d'une Réussite magique.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Présence redoutable</Titre_Capacite>
+                    <Detail_Capacite>Quand un adversaire tente une manœuvre de combat, dépensez 1 point de Haine pour qu'il perde (1d) durant cette manœuvre.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Ver Fantôme</nom>
+            <attributs>
+                <niveau>10</niveau>
+                <endurance>120</endurance>
+                <puissance>3</puissance>
+                <haine>10</haine>
+                <parade>-</parade>
+                <armure>5</armure>
+            </attributs>
+            <Particularités>Impétueux, Vengeur</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>6/20</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Queue</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>10/12</degats_arme>
+                    <special_arme>Brise bouclier</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Abomination</Titre_Capacite>
+                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue d'une ou plusieurs créatures dotées de cette capacité gagnent 4 points d'Ombre (Terreur). Ceux qui ratent leur test d'Ombre sont découragés et ne peuvent pas dépenser d'Espoir pour tout le reste du combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>La créature perd 1 point de Haine au début de chaque round qu'elle passe exposée à la lumière directe du soleil.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Force effroyable</Titre_Capacite>
+                    <Detail_Capacite>Si une attaque de la créature inflige un Coup perforant, dépensez 1 point de Haine pour rendre le jet de Protection de la cible défavorisé.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Immortel</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour éliminer une Blessure. Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, dépensez 1 point de Haine pour restaurer ses points d'Endurance au maximum. Cette capacité est inefficace contre un Héros maniant une arme magique ayant pour Cible les Morts-Vivants.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>La créature n'est pas affectée par la manœuvre de combat Intimider l'adversaire, sauf en cas d'une Réussite magique.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Point faible</Titre_Capacite>
+                    <Detail_Capacite>Quelle que soit leur position, les Héros peuvent tenter d'effectuer une manœuvre de combat spéciale contre la créature : un Héros agissant ainsi utilise son action principale pour faire un test de CONNAISSANCES ou d'INSPECTION ; en cas de réussite, le Ver fantôme perd (1d) à son prochain jet de Protection, plus (1d) pour chaque symbole de Réussite ( ) obtenu.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+    </famille>
+</adversaires>

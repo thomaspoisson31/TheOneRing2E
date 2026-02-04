@@ -1,0 +1,637 @@
+<Players>
+
+  <Player_Character>
+    <Name>Odovacar</Name>
+    <Heroic_Culture>Homme des Bois (Protecteur)</Heroic_Culture>
+    <Cultural_Blessing></Cultural_Blessing>
+    <Calling></Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path></Shadow_Path>
+    <Standard_of_Living></Standard_of_Living>
+    <Age>38</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Patient</feature>
+      <feature>Malin</feature>
+      <feature>Conscient de l'Ombre</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>3</STRENGTH>
+    <TN-Strength>15</TN-Strength>
+    <Endurance>25</Endurance>
+    <HEART>4</HEART>
+    <TN-Heart>14</TN-Heart>
+    <Hope>12</Hope>
+    <WITS>7</WITS>
+    <TN-Wits>10</TN-Wits>
+    <Parry>17</Parry>
+    <SKILLS>
+      <Awe><Value>1</Value><Favored>0</Favored></Awe>
+      <Athletics><Value>0</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>2</Value><Favored>0</Favored></Awareness>
+      <Hunting><Value>2</Value><Favored>0</Favored></Hunting>
+      <Song><Value>0</Value><Favored>0</Favored></Song>
+      <Craft><Value>2</Value><Favored>0</Favored></Craft>
+      <Enhearten><Value>0</Value><Favored>0</Favored></Enhearten>
+      <Travel><Value>1</Value><Favored>0</Favored></Travel>
+      <Insight><Value>2</Value><Favored>0</Favored></Insight>
+      <Healing><Value>3</Value><Favored>1</Favored></Healing>
+      <Courtesy><Value>1</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>0</Value><Favored>0</Favored></Battle>
+      <Persuade><Value>2</Value><Favored>1</Favored></Persuade>
+      <Stealth><Value>0</Value><Favored>0</Favored></Stealth>
+      <Scan><Value>2</Value><Favored>0</Favored></Scan>
+      <Explore><Value>2</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>0</Value><Favored>0</Favored></Riddle>
+      <Lore><Value>1</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>0</Axes>
+      <Bows>2</Bows>
+      <Spears>3</Spears>
+      <Swords>0</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Great_Lance>
+        <Damage>5</Damage>
+        <Injury>16*</Injury>
+        <Encumbrance>4</Encumbrance>
+        <Notes>Acérée : Coup perforant sur 9+*</Notes>
+      </Great_Lance>
+      <Bow>
+        <Damage>3</Damage>
+        <Injury>14</Injury>
+        <Encumbrance>2</Encumbrance>
+        <Notes></Notes>
+      </Bow>
+    </WEAPONS>
+    <ARMOUR>
+      <Leather_Corslet>
+        <Protection>2D</Protection>
+        <Encumbrance>6</Encumbrance>
+        <Notes>Casque. Forestier : +2 Parade en forêt</Notes> <!-- Note "Forestier" added here as it relates to overall defense in forest -->
+      </Leather_Corslet>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Cristal "attrape lumière"</Name><Bonus>+1D Inspection</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>1</VALOUR>
+    <WISDOM>3</WISDOM>
+    <REWARDS>
+      <reward>Grande Lance Acérée : Coup perforant sur 9+*</reward>
+      <reward></reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Maîtrise : 2 compétences favorites supplémentaires</virtue>
+      <virtue>Habileté : SR réduit de 1 en Esprit (compté)</virtue>
+      <virtue>Herbes Médicinales : durée récupération Blessure divisée par 2 (nécessite tests Exploration et Soins)</virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Odovacar</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Anòrel</Name>
+    <Heroic_Culture>Elfe Sylvestre (Messagère)</Heroic_Culture>
+    <Cultural_Blessing>Peuple du crépuscule : en forêt ou de nuit, possibilité de dépenser 1 Espoir pour réussite Magique.</Cultural_Blessing>
+    <Calling></Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path></Shadow_Path>
+    <Standard_of_Living></Standard_of_Living>
+    <Age>628</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Joviale</feature>
+      <feature>Impétueuse</feature>
+      <feature>Folklore</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>5</STRENGTH>
+    <TN-Strength>13</TN-Strength>
+    <Endurance>23</Endurance>
+    <HEART>3</HEART>
+    <TN-Heart>15</TN-Heart>
+    <Hope>11</Hope>
+    <WITS>6</WITS>
+    <TN-Wits>12</TN-Wits>
+    <Parry>20</Parry>
+    <SKILLS>
+      <Awe><Value>1</Value><Favored>0</Favored></Awe>
+      <Athletics><Value>2</Value><Favored>1</Favored></Athletics>
+      <Awareness><Value>3</Value><Favored>0</Favored></Awareness>
+      <Hunting><Value>2</Value><Favored>0</Favored></Hunting>
+      <Song><Value>2</Value><Favored>0</Favored></Song>
+      <Craft><Value>2</Value><Favored>0</Favored></Craft>
+      <Enhearten><Value>0</Value><Favored>0</Favored></Enhearten>
+      <Travel><Value>2</Value><Favored>1</Favored></Travel>
+      <Insight><Value>0</Value><Favored>0</Favored></Insight>
+      <Healing><Value>1</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>1</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>1</Value><Favored>0</Favored></Battle>
+      <Persuade><Value>3</Value><Favored>1</Favored></Persuade>
+      <Stealth><Value>0</Value><Favored>0</Favored></Stealth>
+      <Scan><Value>3</Value><Favored>0</Favored></Scan>
+      <Explore><Value>1</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>0</Value><Favored>0</Favored></Riddle>
+      <Lore><Value>2</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>0</Axes>
+      <Bows>3</Bows>
+      <Spears>1</Spears>
+      <Swords>2</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Long_Sword>
+        <Damage>5</Damage>
+        <Injury>16/18</Injury>
+        <Encumbrance>3</Encumbrance>
+        <Notes></Notes>
+      </Long_Sword>
+      <Bow>
+        <Damage>3</Damage>
+        <Injury>16*</Injury>
+        <Encumbrance>2</Encumbrance>
+        <Notes>Acérée : Coup perforant sur 9+*</Notes>
+      </Bow>
+    </WEAPONS>
+    <ARMOUR>
+      <Leather_Shirt>
+        <Protection>1D</Protection>
+        <Encumbrance>3</Encumbrance>
+        <Notes>Casque</Notes>
+      </Leather_Shirt>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Bottes de la forêt</Name><Bonus>+1D Athlétisme</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>2</VALOUR>
+    <WISDOM>2</WISDOM>
+    <REWARDS>
+      <reward>Arc Acéré : Coup perforant sur 9+, Féroce : +2 Valeur Blessure (comptés*)</reward>
+      <reward></reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Lumières elfiques : 1 Espoir allume une lumière magique qui attire des adversaires de Puissance 1 ou 2, surpris si attaqués.</virtue>
+      <virtue>Mortelle archerie : manoeuvre de mise en joue possible sur 2ème action de combat.</virtue>
+      <virtue></virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Anorel</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Morenond</Name>
+    <Heroic_Culture>Rôdeur du Nord (Capitaine)</Heroic_Culture>
+    <Cultural_Blessing></Cultural_Blessing>
+    <Calling></Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path></Shadow_Path>
+    <Standard_of_Living></Standard_of_Living>
+    <Age>38</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Sincère</feature>
+      <feature>Rapide</feature>
+      <feature>Commandement</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>6</STRENGTH>
+    <TN-Strength>11</TN-Strength>
+    <Endurance>26</Endurance>
+    <HEART>5</HEART>
+    <TN-Heart>13</TN-Heart>
+    <Hope>11</Hope>
+    <WITS>4</WITS>
+    <TN-Wits>14</TN-Wits>
+    <Parry>18</Parry>
+    <SKILLS>
+      <Awe><Value>1</Value><Favored>1</Favored></Awe>
+      <Athletics><Value>2</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>3</Value><Favored>0</Favored></Awareness>
+      <Hunting><Value>2</Value><Favored>0</Favored></Hunting>
+      <Song><Value>0</Value><Favored>0</Favored></Song>
+      <Craft><Value>0</Value><Favored>0</Favored></Craft>
+      <Enhearten><Value>2</Value><Favored>1</Favored></Enhearten>
+      <Travel><Value>2</Value><Favored>0</Favored></Travel>
+      <Insight><Value>0</Value><Favored>0</Favored></Insight>
+      <Healing><Value>2</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>1</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>2</Value><Favored>1</Favored></Battle>
+      <Persuade><Value>0</Value><Favored>0</Favored></Persuade>
+      <Stealth><Value>0</Value><Favored>0</Favored></Stealth>
+      <Scan><Value>2</Value><Favored>0</Favored></Scan>
+      <Explore><Value>2</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>0</Value><Favored>0</Favored></Riddle>
+      <Lore><Value>2</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>0</Axes>
+      <Bows>2</Bows>
+      <Spears>0</Spears>
+      <Swords>3</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Long_Sword>
+        <Damage>5</Damage>
+        <Injury>18/20**</Injury>
+        <Encumbrance>3</Encumbrance>
+        <Notes>Acérée : Coup perforant sur 9+*</Notes>
+      </Long_Sword>
+      <Bow>
+        <Damage>3</Damage>
+        <Injury>14</Injury>
+        <Encumbrance>2</Encumbrance>
+        <Notes></Notes>
+      </Bow>
+    </WEAPONS>
+    <ARMOUR>
+      <Leather_Corslet>
+        <Protection>2D</Protection>
+        <Encumbrance>6</Encumbrance>
+        <Notes>Casque inclus</Notes>
+      </Leather_Corslet>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Emblème des Dunedains</Name><Bonus>+1D Présence</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>2</VALOUR>
+    <WISDOM>2</WISDOM>
+    <REWARDS>
+      <reward>Épée acérée (Coup perforant sur 9+, compté**), féroce (+2 Blessure, compté**)</reward>
+      <reward></reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Emblème dévoilé (1x par combat en position Exposée, Rallier Camarades en action secondaire, et tous les membres sont Inspirés pour leur prochain jet)</virtue>
+      <virtue>Force de l'Esprit +1D aux tests contre la Terreur</virtue>
+      <virtue></virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Morenond</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Fastred Dignedor</Name>
+    <Heroic_Culture>Hobbit (Wanderer)</Heroic_Culture>
+    <!-- Cultural_Blessing not specified on the sheet -->
+    <Cultural_Blessing></Cultural_Blessing>
+    <!-- Calling not specified on the sheet -->
+    <Calling></Calling>
+    <!-- Lifepath_Event not specified on the sheet -->
+    <Lifepath_Event></Lifepath_Event>
+    <!-- Shadow_Path not specified on the sheet -->
+    <Shadow_Path></Shadow_Path>
+    <!-- Standard_of_Living not specified on the sheet -->
+    <Standard_of_Living></Standard_of_Living>
+    <Age>71</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Affable</feature>
+      <feature>Loyal</feature>
+      <feature>Storyteller</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>2</STRENGTH>
+    <TN-Strength>15</TN-Strength>
+    <Endurance>20</Endurance>
+    <HEART>7</HEART>
+    <TN-Heart>11</TN-Heart>
+    <Hope>19</Hope>
+    <WITS>5</WITS>
+    <TN-Wits>13</TN-Wits>
+    <Parry>17</Parry>
+    <SKILLS>
+      <Awe><Value>0</Value><Favored>0</Favored></Awe>
+      <Athletics><Value>0</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>3</Value><Favored>1</Favored></Awareness>
+      <Hunting><Value>2</Value><Favored>0</Favored></Hunting>
+      <Song><Value>2</Value><Favored>0</Favored></Song>
+      <Craft><Value>1</Value><Favored>0</Favored></Craft>
+      <Enhearten><Value>2</Value><Favored>0</Favored></Enhearten>
+      <Travel><Value>3</Value><Favored>1</Favored></Travel>
+      <Insight><Value>3</Value><Favored>0</Favored></Insight>
+      <Healing><Value>0</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>2</Value><Favored>1</Favored></Courtesy>
+      <Battle><Value>0</Value><Favored>0</Favored></Battle>
+      <Persuade><Value>2</Value><Favored>0</Favored></Persuade>
+      <Stealth><Value>3</Value><Favored>1</Favored></Stealth>
+      <Scan><Value>2</Value><Favored>0</Favored></Scan>
+      <Explore><Value>2</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>1</Value><Favored>1</Favored></Riddle>
+      <Lore><Value>1</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>0</Axes>
+      <Bows>2</Bows>
+      <Spears>0</Spears>
+      <Swords>2</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Kings_Blade>
+        <Value>3</Value>
+        <!-- Edge not specified on the sheet -->
+        <Injury>16</Injury>
+        <Encumbrance>1</Encumbrance>
+        <Notes>Adversary's Protection test disadvantaged</Notes>
+      </Kings_Blade>
+      <Shire_Bow>
+        <Value>3</Value>
+        <!-- Edge not specified on the sheet -->
+        <Injury>16</Injury> <!--Sheet shows 16*, likely includes +2 from Reward -->
+        <Encumbrance>2</Encumbrance>
+        <Notes>Favoured Attack</Notes>
+      </Shire_Bow>
+    </WEAPONS>
+    <ARMOUR>
+      <Feather_Armour>
+        <Value>2D</Value> <!-- Protection is 2D -->
+        <Bonus>0</Bonus> <!-- Bonus not specified, assuming 0 if not applicable -->
+        <Encumbrance>4</Encumbrance> <!-- Sheet shows 4**, likely before -2 from Reward -->
+        <Notes>Includes Casque. Encumbrance -2 from Reward</Notes>
+      </Feather_Armour>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Ornate Pipe</Name><Bonus>+1D Riddle</Bonus></Useful_Item>
+      <Useful_Item><Name>Letters of Recommendation</Name><Bonus>+1D Courtesy</Bonus></Useful_Item>
+      <Useful_Item><Name>Travel Journals</Name><Bonus>+1D Lore</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item> <!-- Empty as per template if no 4th item -->
+    </USEFUL_ITEMS>
+    <VALOUR>3</VALOUR>
+    <WISDOM>3</WISDOM>
+    <REWARDS>
+      <reward>King's Blade (Adversary's Protection test disadvantaged)</reward>
+      <reward>Shire Bow (Injury +2)</reward>
+      <reward>Feather Armour (Encumbrance -2)</reward>
+      <reward></reward> <!-- Empty as per template if no 4th reward -->
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Confident (+2 Hope)</virtue>
+      <virtue>Straight Shooter (Ranged attacks favoured)</virtue>
+      <virtue>Brave at Need (Inspired if Weary)</virtue>
+      <virtue></virtue> <!-- Empty as per template if no 4th virtue -->
+    </VIRTUES>
+    <token>Token-Fastred</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Berangar</Name>
+    <Heroic_Culture>Beornide (Erudit)</Heroic_Culture>
+    <Cultural_Blessing></Cultural_Blessing>
+    <Calling></Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path></Shadow_Path>
+    <Standard_of_Living></Standard_of_Living>
+    <Age>43</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Circonspect</feature>
+      <feature>Honorable</feature>
+      <feature>Rimes de Savoir</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>5</STRENGTH>
+    <TN-Strength>13</TN-Strength>
+    <Endurance>27</Endurance>
+    <HEART>5</HEART>
+    <TN-Heart>13</TN-Heart>
+    <Hope>13</Hope>
+    <WITS>4</WITS>
+    <TN-Wits>14</TN-Wits>
+    <Parry>16</Parry>
+    <SKILLS>
+      <Awe><Value>2</Value><Favored>1</Favored></Awe>
+      <Athletics><Value>1</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>3</Value><Favored>1</Favored></Awareness>
+      <Hunting><Value>2</Value><Favored>0</Favored></Hunting>
+      <Song><Value>1</Value><Favored>0</Favored></Song>
+      <Craft><Value>2</Value><Favored>1</Favored></Craft>
+      <Enhearten><Value>1</Value><Favored>0</Favored></Enhearten>
+      <Travel><Value>1</Value><Favored>0</Favored></Travel>
+      <Insight><Value>3</Value><Favored>0</Favored></Insight>
+      <Healing><Value>1</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>1</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>1</Value><Favored>0</Favored></Battle>
+      <Persuade><Value>2</Value><Favored>0</Favored></Persuade>
+      <Stealth><Value>1</Value><Favored>0</Favored></Stealth>
+      <Scan><Value>2</Value><Favored>0</Favored></Scan>
+      <Explore><Value>1</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>3</Value><Favored>1</Favored></Riddle>
+      <Lore><Value>2</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>0</Axes>
+      <Bows>2</Bows>
+      <Spears>3</Spears>
+      <Swords>0</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Great_Lance>
+        <Damage>5</Damage>
+        <Injury>18***</Injury>
+        <Encumbrance>4</Encumbrance>
+        <Notes>Forcené : Attaque Favorisée si Blessé</Notes>
+      </Great_Lance>
+      <Bow>
+        <Damage>3</Damage>
+        <Injury>14</Injury>
+        <Encumbrance>2</Encumbrance>
+        <Notes></Notes>
+      </Bow>
+    </WEAPONS>
+    <ARMOUR>
+      <Leather_Shirt>
+        <Protection>2D**</Protection>
+        <Encumbrance>3</Encumbrance>
+        <Notes>Casque</Notes>
+      </Leather_Shirt>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Pierre de clairvoyance</Name><Bonus>+1D Énigmes</Bonus></Useful_Item>
+      <Useful_Item><Name>Cape</Name><Bonus>+1D Discrétion</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>1</VALOUR>
+    <WISDOM>3</WISDOM>
+    <REWARDS>
+      <reward>Lance "féroce" +2 Blessure (compté***)</reward>
+      <reward></reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Enchantement de Beorn (Réussite magique avec 1 point d'Espoir sur compétences avec [Icone Patte d'Ours])</virtue>
+      <virtue>Assurance (Espoir +2, compté)</virtue>
+      <virtue>Peau Epaisse (+1D Protection, compté**)</virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Berangar</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Amalfrida</Name>
+    <Heroic_Culture>Beornide (Championne)</Heroic_Culture>
+    <Cultural_Blessing></Cultural_Blessing>
+    <Calling></Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path></Shadow_Path>
+    <Standard_of_Living></Standard_of_Living>
+    <Age>32</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Grande</feature>
+      <feature>Impétueuse</feature>
+      <feature>Connaissance Ennemis (Viglundides)</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>4</STRENGTH>
+    <TN-Strength>14</TN-Strength>
+    <Endurance>26</Endurance>
+    <HEART>7</HEART>
+    <TN-Heart>11</TN-Heart>
+    <Hope>13</Hope>
+    <WITS>3</WITS>
+    <TN-Wits>15</TN-Wits>
+    <Parry>15</Parry>
+    <SKILLS>
+      <Awe><Value>3</Value><Favored>1</Favored></Awe>
+      <Athletics><Value>3</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>2</Value><Favored>0</Favored></Awareness>
+      <Hunting><Value>2</Value><Favored>0</Favored></Hunting>
+      <Song><Value>1</Value><Favored>0</Favored></Song>
+      <Craft><Value>1</Value><Favored>0</Favored></Craft>
+      <Enhearten><Value>1</Value><Favored>1</Favored></Enhearten>
+      <Travel><Value>0</Value><Favored>0</Favored></Travel>
+      <Insight><Value>3</Value><Favored>0</Favored></Insight>
+      <Healing><Value>0</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>1</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>0</Value><Favored>0</Favored></Battle>
+      <Persuade><Value>1</Value><Favored>0</Favored></Persuade>
+      <Stealth><Value>0</Value><Favored>0</Favored></Stealth>
+      <Scan><Value>2</Value><Favored>0</Favored></Scan>
+      <Explore><Value>1</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>0</Value><Favored>0</Favored></Riddle>
+      <Lore><Value>0</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>3</Axes>
+      <Bows>0</Bows>
+      <Spears>2</Spears>
+      <Swords>0</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Great_Axe>
+        <Damage>8**</Damage>
+        <Injury>20</Injury>
+        <Encumbrance>4</Encumbrance>
+        <Notes>Forcené : Attaque Favorisée si Blessé Acérée : Coup perforant sur 9+*</Notes>
+      </Great_Axe>
+      <Javelins>
+        <Damage>4</Damage>
+        <Injury>14/16</Injury>
+        <Encumbrance>4</Encumbrance>
+        <Notes>x3</Notes>
+      </Javelins>
+    </WEAPONS>
+    <ARMOUR>
+      <Leather_Corslet>
+        <Protection>2D</Protection>
+        <Encumbrance>6</Encumbrance>
+        <Notes>Casque</Notes>
+      </Leather_Corslet>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Corne des Beornides</Name><Bonus>+1D Inspiration</Bonus></Useful_Item>
+      <Useful_Item><Name>Biscuits au miel</Name><Bonus>+1D Voyage</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>2</VALOUR>
+    <WISDOM>2</WISDOM>
+    <REWARDS>
+      <reward>Hache acérée (Coup perforant sur 9+, compté*), dévastatrice (+1 Dégâts, compté**)</reward>
+      <reward></reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Soeur des Ours (Communication avec Ours)</virtue>
+      <virtue>Coup Fracassant (Protection adversaire Défavorisée en combat rapproché)</virtue>
+      <virtue></virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Amalfrida</token>
+  </Player_Character>
+
+
+
+</Players>

@@ -1,0 +1,73 @@
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
+
+@media (max-width: 600px) {
+    .tabs-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .creature-selector {
+        width: auto;
+        margin-left: 0;
+        margin-top: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .creature-selector select {
+        width: auto;
+        min-width: 150px;
+        max-width: 200px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .right-buttons {
+        width: 100%;
+        justify-content: center;
+        padding-top: 0.5rem;
+        border-top: 1px solid #ddd;
+    }
+
+    .icon-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .creature-title {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .creature-title-left {
+        flex: 0 0 50%;
+        min-width: 0;
+    }
+    
+    .creature-name {
+        font-size: 1.2rem;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .creature-title-right {
+        flex: 1;
+        justify-content: flex-end;
+    }
+    
+    .player-select {
+        min-width: 100px;
+        max-width: 150px;
+    }
+}

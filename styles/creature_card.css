@@ -1,0 +1,113 @@
+.creature-card {
+    background: white;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.creature-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.creature-title-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 50%;
+}
+
+.creature-name {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+.creature-title-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.advantage-button {
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.advantage-button:hover {
+    background: #555;
+}
+
+.associated-creatures-area {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.creatures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.creature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #000;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.creature-item:hover {
+    background: #333;
+}
+
+.creature-number {
+    background: var(--title-color);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.creature-details {
+    flex-grow: 1;
+}
+
+.creature-details .creature-name {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.creature-details .creature-parade {
+    color: #aaa;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<personnages>
+
+  <personnage>
+
+    <nom>Jari le Vagabond</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation>Brigand, Complice de meurtres</occupation>
+
+    <particularites>Extravagant, Malin</particularites>
+
+    <description>Jari est un Nain rusé et manipulateur. Manquant de courage et de détermination, il se présente comme un aventurier enthousiaste pour mieux tromper ses victimes. Il utilise son charme et des histoires inventées pour attirer les gens dans des situations dangereuses afin de profiter de leurs malheurs. </description>
+    <image>Jari.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Diarmoc le Voyageur</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation>Complice malgré lui</occupation>
+
+    <particularites>Étranger, Secret</particularites>
+
+    <description>Diarmoc est un voyageur du Sud, contraint de collaborer avec Jari pour sauver sa famille. Il est déchiré entre sa loyauté envers ses proches et la culpabilité de tromper les autres. Il garde le secret de sa situation, espérant trouver une solution pour libérer sa famille des griffes des trolls.</description>
+
+    <image>Diarmoc.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Orothel</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut, Ne pas frapper sans nécessité</aventure>
+
+    <occupation>Rôdeuse</occupation>
+
+    <particularites>Pragmatique, Détermination sans faille</particularites>
+
+    <description>Orothel est une Rôdeuse pragmatique et déterminée. Elle est prête à utiliser tous les moyens nécessaires pour protéger le Nord de la menace de l'Ombre. Elle n'hésite pas à recruter des individus peu recommandables comme Jon-le-Cabri pour accomplir ses missions.</description>
+
+    <image>Orothel.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Osmer le « Magicien »</nom>
+
+    <aventure>Des rois de petits royaumes</aventure>
+
+    <occupation>Charlatan</occupation>
+
+    <particularites>Malin</particularites>
+
+    <description>Osmer est un charlatan manipulateur. Il se fait passer pour Gandalf pour exploiter la crédulité des gens. Il invente des histoires fantastiques et utilise des tours de passe-passe pour convaincre ses victimes de l'aider dans ses plans malhonnêtes.</description>
+
+    <image>Osmer.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Borlas</nom>
+
+    <aventure>Ne pas frapper sans nécessité</aventure>
+
+    <occupation>Cordonnier</occupation>
+
+    <particularites>Docile, Méticuleux</particularites>
+
+    <description>Borlas est un cordonnier sans histoire, victime des agissements de Gurnow, le Maître de Tharbad. Il est retenu prisonnier dans la forteresse de Garth Tauron, symbole de la corruption et de l'injustice qui règnent dans la ville. </description>
+
+    <image>Borlas.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Floki</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation>Messager</occupation>
+
+    <particularites>Fier, Passionné</particularites>
+
+    <description>Floki est un Nain fier et passionné. Il est profondément attaché à son frère Flonar et cherche à venger sa mort. Il est prêt à tout pour obtenir justice et n'hésite pas à demander l'aide des autres, même s'il s'agit d'étrangers.</description>
+
+    <image>Floki.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Egel</nom>
+
+    <aventure>La quête d'Amon Guruthos</aventure>
+
+    <occupation>Chef</occupation>
+
+    <particularites>Circonspect, Sévère</particularites>
+
+    <description>Egel est le chef d'une tribu de Lossoth, les Hommes des Neiges de Forochel. Il est prudent et méfiant envers les étrangers, mais il est aussi pragmatique. Il est conscient de la menace grandissante de l'Ombre et est prêt à aider ceux qui cherchent à la combattre.</description>
+
+    <image>Egel.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Aya</nom>
+
+    <aventure>La quête d'Amon Guruthos</aventure>
+
+    <occupation>Ermite</occupation>
+
+    <particularites>Circonspecte, Vue perçante</particularites>
+
+    <description>Aya est une Elfe solitaire et mystérieuse qui vit dans les ruines du château de Sennas Gaer. Elle provient d'une lignée d'Elfes qui ont refusé de suivre les Valar vers l'Ouest. Elle est méfiante envers les étrangers, mais elle peut se montrer bienveillante envers ceux qui gagnent sa confiance.</description>
+
+    <image>Aya.png</image>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Arna</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation>Marchand</occupation>
+
+    <particularites> </particularites>
+
+    <description>Un jeune marchand de la Ville du Lac, voyageant avec Harald et Leif vers l'ouest pour trouver de nouvelles opportunités commerciales. Ils transportent du vin du Dorwinion et des babioles de Dale, et cherchent à en apprendre davantage sur l'Eriador. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Harald</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation>Marchand</occupation>
+
+    <particularites> </particularites>
+
+    <description>Un jeune marchand de la Ville du Lac, voyageant avec Arna et Leif vers l'ouest pour trouver de nouvelles opportunités commerciales. Ils transportent du vin du Dorwinion et des babioles de Dale, et cherchent à en apprendre davantage sur l'Eriador. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Leif</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation>Marchand</occupation>
+
+    <particularites> </particularites>
+
+    <description>Un jeune marchand de la Ville du Lac, voyageant avec Arna et Harald vers l'ouest pour trouver de nouvelles opportunités commerciales. Ils transportent du vin du Dorwinion et des babioles de Dale, et cherchent à en apprendre davantage sur l'Eriador. </description>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Hornbori</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation> </occupation>
+
+    <particularites> </particularites>
+
+    <description>Un Nain ami de Floki, voyageant avec lui depuis les terres solitaires du nord. Il préfère garder le silence sur les raisons de son voyage, mais confie en secret avoir vu des choses étranges et senti des regards les surveiller la nuit.  </description>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Elda</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation> </occupation>
+
+    <particularites> </particularites>
+
+    <description>L'épouse de Diarmoc, capturée par les trolls avec ses enfants. Elle est retenue prisonnière dans le "garde-manger" des monstres, espérant que sa collaboration avec Jari permettra de sauver ses enfants. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Tecca</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation> </occupation>
+
+    <particularites> </particularites>
+
+    <description>Un des enfants de Diarmoc et Elda, capturé par les trolls et retenu prisonnier dans leur "garde-manger". Son destin dépend de la réussite du plan de Jari pour attirer de nouvelles victimes. </description>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Sulain</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation> </occupation>
+
+    <particularites> </particularites>
+
+    <description>Un des enfants de Diarmoc et Elda, capturé par les trolls et retenu prisonnier dans leur "garde-manger". Son destin dépend de la réussite du plan de Jari pour attirer de nouvelles victimes. </description>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Scylda Bruyère</nom>
+
+    <aventure>Un trou de trolls, si jamais il en fut</aventure>
+
+    <occupation> </occupation>
+
+    <particularites>Résiliente</particularites>
+
+    <description>Une jeune fille qui a survécu à l'attaque des trolls sur la ferme de Tolgarth Bruyère. Elle est dotée d'une résilience surprenante malgré les épreuves qu'elle a traversées. </description>
+
+  </personnage>
+
+  <personnage>
+
+    <nom>Farrell le Jeune</nom>
+
+    <aventure>Des rois de petits royaumes</aventure>
+
+    <occupation>Fils de fermier</occupation>
+
+    <particularites>Ambitieux, Impatient</particularites>
+
+    <description>Le fils aîné de Farrell l'Ancien, convaincu qu'il est temps pour lui de prendre la relève de son père à la tête de la ferme. Il est impatient de voir son père lui céder l'autorité et est prêt à tout pour prouver qu'il est digne de lui succéder.  </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Poppy</nom>
+
+    <aventure>Des rois de petits royaumes</aventure>
+
+    <occupation>Épouse de Farrell le Jeune</occupation>
+
+    <particularites> </particularites>
+
+    <description>L'épouse de Farrell le Jeune, qui partage l'opinion de son mari sur la nécessité pour Farrell l'Ancien de céder la ferme à son fils. Elle entretient une relation conflictuelle avec Ernalda, l'épouse de Farrell l'Ancien. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Farweld</nom>
+
+    <aventure>Des rois de petits royaumes</aventure>
+
+    <occupation>Fils de fermier</occupation>
+
+    <particularites>Rêveur</particularites>
+
+    <description>Le fils cadet de Farrell l'Ancien, plus intéressé par les histoires de monstres et de héros que par les tâches de la ferme. Il est inquiet pour la sécurité de la ferme face à la menace des bandits et des créatures maléfiques. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Glodi</nom>
+
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation> </occupation>
+
+    <particularites> </particularites>
+
+    <description>Un Nain du Val Doré, tué par les Orques lors du sac du village. Son corps est retrouvé par les héros, confirmant la piste des Orques. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Thror</nom>
+
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation> </occupation>
+
+    <particularites>Fier</particularites>
+
+    <description>Un Nain du Val Doré, cousin éloigné de Thorin Écu-de-Chêne. Il est fier de sa lignée royale et participe à la tentative de Flonar de pénétrer dans la Moria. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Ailin</nom>
+
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation> </occupation>
+
+    <particularites>Sage</particularites>
+
+    <description>Un vieux Nain du Val Doré, connu pour sa sagesse. Il est capturé par les Orques lors du sac du village et retenu prisonnier à Rath Sereg. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Bofin</nom>
+
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation> </occupation>
+
+    <particularites>Maladroit, Chanceux</particularites>
+
+    <description>Un Nain du Val Doré, connu pour sa maladresse, mais aussi pour sa chance. Il est capturé par les Orques lors du sac du village et retenu prisonnier à Rath Sereg. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Hilvi</nom>
+
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation>Armurier</occupation>
+
+    <particularites>Talentueux</particularites>
+
+    <description>Un Nain du Val Doré, talentueux armurier. Il est capturé par les Orques lors du sac du village et retenu prisonnier à Rath Sereg. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Glomar</nom>
+
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation>Chasseur</occupation>
+
+    <particularites>Secret, Taciturne</particularites>
+
+    <description>Un Nain du Val Doré, chasseur secret et taciturne. Il est capturé par les Orques lors du sac du village et retenu prisonnier à Rath Sereg. </description>
+
+  </personnage>
+
+   <personnage>
+
+    <nom>Dvari</nom>
+
+    <aventure>Merveille du monde septentrional</aventure>
+
+    <occupation>Guerrier</occupation>
+
+    <particularites> </particularites>
+
+    <description>Un Nain du Val Doré, toujours prêt à manier sa hache au combat. Il est capturé par les Orques lors du sac du village et retenu prisonnier à Rath Sereg. </description>
+
+  </personnage>
+
+
+
+</personnages>

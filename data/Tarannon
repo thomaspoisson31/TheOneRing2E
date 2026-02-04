@@ -1,0 +1,81 @@
+<PERSONNAGE>
+    <Nom>Tarannon</Nom>
+    <Culture>Rôdeur du Nord</Culture>
+    <Avantage_Culturel>Rois des Hommes</Avantage_Culturel>
+    <Vocation>Messager</Vocation>
+    <Chemin_Vie></Chemin_Vie>
+    <Voie_Ombre>Folie itinérante</Voie_Ombre>
+    <Niveau_de_Vie>Modeste</Niveau_de_Vie>
+    <Age>35</Age>
+    <Particularites>
+        <particularite>Honorable</particularite>
+        <particularite>Courageux</particularite>
+        <particularite>Folklore</particularite>
+    </Particularites>
+    <Points_Competences>
+        <Depense>10</Depense>
+        <Disponible>0</Disponible>
+        <Total>10</Total>
+    </Points_Competences>
+    <Points_Aventure>
+        <Depense>0</Depense>
+        <Disponible>0</Disponible>
+        <Total>0</Total>
+    </Points_Aventure>
+    <Tresor>0</Tresor>
+    <CORPS>5</CORPS>
+    <SR-FORCE>13</SR-FORCE>
+    <ENDURANCE>25</ENDURANCE>
+    <COEUR>6</COEUR>
+    <SR-COEUR>12</SR-COEUR>
+    <ESPOIR>12</ESPOIR>
+    <ESPRIT>4</ESPRIT>
+    <SR-ESPRIT>14</SR-ESPRIT>
+    <PARADE>18</PARADE>
+    <COMPETENCES>
+        <PRESENCE><Value>1</Value><Favorite>0</Favorite></PRESENCE>
+        <ATHLETISME><Value>2</Value><Favorite>0</Favorite></ATHLETISME>
+        <VIGILANCE><Value>2</Value><Favorite>0</Favorite></VIGILANCE>
+        <CHASSE><Value>2</Value><Favorite>1</Favorite></CHASSE>
+        <CHANT><Value>1</Value><Favorite>1</Favorite></CHANT>
+        <ARTISANAT><Value>0</Value><Favorite>0</Favorite></ARTISANAT>
+        <INSPIRATION><Value>0</Value><Favorite>0</Favorite></INSPIRATION>
+        <VOYAGE><Value>2</Value><Favorite>0</Favorite></VOYAGE>
+        <INTUITION><Value>0</Value><Favorite>0</Favorite></INTUITION>
+        <SOINS><Value>2</Value><Favorite>0</Favorite></SOINS>
+       <COURTOISIE><Value>2</Value><Favorite>1</Favorite></COURTOISIE>
+        <ART_GUERRE><Value>2</Value><Favorite>0</Favorite></ART_GUERRE>
+        <PERSUASION><Value>0</Value><Favorite>0</Favorite></PERSUASION>
+        <DISCRETION><Value>2</Value><Favorite>0</Favorite></DISCRETION>
+        <INSPECTION><Value>1</Value><Favorite>0</Favorite></INSPECTION>
+        <EXPLORATION><Value>2</Value><Favorite>0</Favorite></EXPLORATION>
+        <ENIGMES><Value>0</Value><Favorite>0</Favorite></ENIGMES>
+        <CONNAISSANCES><Value>2</Value><Favorite>0</Favorite></CONNAISSANCES>
+    </COMPETENCES>
+    <COMBAT>
+        <Haches></Haches>
+        <Arcs>1</Arcs>
+        <Lances></Lances>
+        <Epées>3</Epées>
+    </COMBAT>
+    <ARMES>
+    <item><Degats>4</Degats><Perforant>1</Perforant><Blessure>16</Blessure><Encombrement>2</Encombrement></item>
+    <item><Degats>3</Degats><Perforant>0</Perforant><Blessure>14</Blessure><Encombrement>2</Encombrement></item>
+     </ARMES>
+    <ARMURES>
+        <item><Valeur>2d</Valeur><Bonus>0</Bonus><Encombrement>6</Encombrement></item>
+      <item><Valeur>1</Valeur><Bonus>0</Bonus><Encombrement>2</Encombrement></item>
+
+    </ARMURES>
+    <OBJETS_UTILES>
+          <objet>Petit traité d'herboristerie</objet><competence>Soins</competence>
+    </OBJETS_UTILES>
+    <VAILLANCE>1</VAILLANCE>
+    <SAGESSE>1</SAGESSE>
+  <RECOMPENSES>
+    <recompense><nom>Acéré (Épée)</nom><description>Les jets d'attaque infligent un Coup perforant sur un 9 ou plus.</description></recompense>
+     </RECOMPENSES>
+    <VERTUS>
+        <vertu><nom>Main Sûre</nom><description>Quand vous infligez des dégâts spéciaux en combat, ajoutez +1 à votre valeur de CORPS pour un Coup puissant, et +1 au résultat du dé du Destin pour un Coup perforant.</description></vertu>
+    </VERTUS>
+</PERSONNAGE>

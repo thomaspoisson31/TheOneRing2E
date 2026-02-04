@@ -1,0 +1,434 @@
+<Players>
+
+  <Player_Character>
+    <Name>Elradan</Name>
+    <Heroic_Culture>Haut Elfe (Capitaine)</Heroic_Culture>
+    <Cultural_Blessing>Sagesse (1 point d'espoir = Réussite magique)</Cultural_Blessing>
+    <Calling>Capitaine</Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path></Shadow_Path>
+    <Standard_of_Living>Prospère</Standard_of_Living>
+    <Age>1200</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Commandement</feature>
+      <feature>Majestueux</feature>
+      <feature>Vue perçante</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>5</STRENGTH>
+    <TN-Strength>15</TN-Strength>
+    <Endurance>29</Endurance>
+    <HEART>4</HEART>
+    <TN-Heart>16</TN-Heart>
+    <Hope>12</Hope>
+    <WITS>6</WITS>
+    <TN-Wits>14</TN-Wits>
+    <Parry>18</Parry>
+    <SKILLS>
+      <Awe><Value>2</Value><Favored>1</Favored></Awe>
+      <Athletics><Value>2</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>2</Value><Favored>1</Favored></Awareness>
+      <Hunting><Value>0</Value><Favored>0</Favored></Hunting>
+      <Song><Value>2</Value><Favored>0</Favored></Song>
+      <Craft><Value>2</Value><Favored>0</Favored></Craft>
+      <Enhearten><Value>2</Value><Favored>1</Favored></Enhearten>
+      <Travel><Value>2</Value><Favored>0</Favored></Travel>
+      <Insight><Value>0</Value><Favored>0</Favored></Insight>
+      <Healing><Value>2</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>0</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>3</Value><Favored>1</Favored></Battle>
+      <Persuade><Value>0</Value><Favored>0</Favored></Persuade>
+      <Stealth><Value>0</Value><Favored>0</Favored></Stealth>
+      <Scan><Value>0</Value><Favored>0</Favored></Scan>
+      <Explore><Value>0</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>0</Value><Favored>0</Favored></Riddle>
+      <Lore><Value>2</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>0</Axes>
+      <Bows>0</Bows>
+      <Spears>0</Spears>
+      <Swords>0</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Sword>
+        <Damage>5</Damage>
+        <Injury>16</Injury>
+        <Encumbrance>3</Encumbrance>
+        <Notes>Acéré (Perforant 9, compté)</Notes>
+      </Sword>
+    </WEAPONS>
+    <ARMOUR>
+      <Shield>
+        <Protection>+1</Protection>
+        <Encumbrance>2</Encumbrance>
+        <Notes>Renforcé (+1 Parade, compté)</Notes>
+      </Shield>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Collier ouvragé</Name><Bonus>+1D Inspiration</Bonus></Useful_Item>
+      <Useful_Item><Name>Cape bleutée</Name><Bonus>+1D Présence</Bonus></Useful_Item>
+      <Useful_Item><Name>Botte de velours</Name><Bonus>+1D Discrétion</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>2</VALOUR>
+    <WISDOM>2</WISDOM>
+    <REWARDS>
+      <reward>Acéré (Perforant 9, compté)</reward>
+      <reward>Renforcé (+1 parade Bouclier, compté)</reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Forgeron d'Eregion</virtue>
+      <virtue>Vivacité (+1 Parade, compté)</virtue>
+      <virtue></virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Elradan</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Damrod</Name>
+    <Heroic_Culture>Rôdeur du Nord (Protecteur)</Heroic_Culture>
+    <Cultural_Blessing>Roi des Hommes</Cultural_Blessing>
+    <Calling>Protecteur</Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path>Voie du Désespoir</Shadow_Path>
+    <Standard_of_Living>Modeste</Standard_of_Living>
+    <Age>50</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Honorable</feature>
+      <feature>Rapide</feature>
+      <feature>Conscience de l'Ombre</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>6</STRENGTH>
+    <TN-Strength>14</TN-Strength>
+    <Endurance>26</Endurance>
+    <HEART>5</HEART>
+    <TN-Heart>15</TN-Heart>
+    <Hope>11</Hope>
+    <WITS>4</WITS>
+    <TN-Wits>15</TN-Wits>
+    <Parry>18</Parry>
+    <SKILLS>
+      <Awe><Value>1</Value><Favored>0</Favored></Awe>
+      <Athletics><Value>1</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>2</Value><Favored>0</Favored></Awareness>
+      <Hunting><Value>2</Value><Favored>0</Favored></Hunting>
+      <Song><Value>1</Value><Favored>0</Favored></Song>
+      <Craft><Value>0</Value><Favored>0</Favored></Craft>
+      <Enhearten><Value>1</Value><Favored>0</Favored></Enhearten>
+      <Travel><Value>2</Value><Favored>0</Favored></Travel>
+      <Insight><Value>1</Value><Favored>0</Favored></Insight>
+      <Healing><Value>1</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>0</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>2</Value><Favored>0</Favored></Battle>
+      <Persuade><Value>3</Value><Favored>1</Favored></Persuade>
+      <Stealth><Value>2</Value><Favored>0</Favored></Stealth>
+      <Scan><Value>1</Value><Favored>0</Favored></Scan>
+      <Explore><Value>2</Value><Favored>0</Favored></Explore>
+      <Riddle><Value>0</Value><Favored>0</Favored></Riddle>
+      <Lore><Value>2</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>0</Axes>
+      <Bows>2</Bows>
+      <Spears>0</Spears>
+      <Swords>3</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Great_Bow>
+        <Damage>5</Damage>
+        <Injury>16</Injury>
+        <Encumbrance>4</Encumbrance>
+        <Notes>Dévastateur (+1 Dégâts), Perforant (9+)</Notes>
+      </Great_Bow>
+      <Sword>
+        <Damage>4</Damage>
+        <Injury>16</Injury>
+        <Encumbrance>3</Encumbrance>
+        <Notes></Notes>
+      </Sword>
+      <Dagger>
+        <Damage>2</Damage>
+        <Injury>12</Injury>
+        <Encumbrance>0</Encumbrance>
+        <Notes></Notes>
+      </Dagger>
+    </WEAPONS>
+    <ARMOUR>
+      <Leather_Corslet>
+        <Protection>2D</Protection>
+        <Encumbrance>6</Encumbrance>
+        <Notes>Casque</Notes>
+      </Leather_Corslet>
+      <Shield>
+        <Protection>+1</Protection>
+        <Encumbrance>2</Encumbrance>
+        <Notes>Rondache</Notes>
+      </Shield>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Flûte</Name><Bonus>+1D Chant</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>2</VALOUR>
+    <WISDOM>2</WISDOM>
+    <REWARDS>
+      <reward>Arc Dévastateur (+1 Dégâts, compté)</reward>
+      <reward>Arc Acéré (Coup perforant sur 9+, compté)</reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Habileté : SR réduit de 1 en Esprit (compté)</virtue>
+      <virtue>Endurance des Rôdeurs : Pas de fatigue de voyage si armure légère et pas de bouclier</virtue>
+      <virtue></virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Damrod</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Zarakhîn Sigin-Zahar</Name>
+    <Heroic_Culture>Nains du peuple de Durin (Érudit)</Heroic_Culture>
+    <Cultural_Blessing>Infatigable</Cultural_Blessing>
+    <Calling>Érudit</Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path>Attrait des secrets</Shadow_Path>
+    <Standard_of_Living>Prospère</Standard_of_Living>
+    <Age>144</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Circonspect</feature>
+      <feature>Sévère</feature>
+      <feature>Rimes de savoir</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>5</STRENGTH>
+    <TN-Strength>15</TN-Strength>
+    <Endurance>27</Endurance>
+    <HEART>4</HEART>
+    <TN-Heart>16</TN-Heart>
+    <Hope>12</Hope>
+    <WITS>5</WITS>
+    <TN-Wits>15</TN-Wits>
+    <Parry>15</Parry>
+    <SKILLS>
+      <Awe><Value>2</Value><Favored>0</Favored></Awe>
+      <Athletics><Value>1</Value><Favored>1</Favored></Athletics>
+      <Awareness><Value>0</Value><Favored>0</Favored></Awareness>
+      <Hunting><Value>0</Value><Favored>0</Favored></Hunting>
+      <Song><Value>3</Value><Favored>1</Favored></Song>
+      <Craft><Value>3</Value><Favored>1</Favored></Craft>
+      <Enhearten><Value>0</Value><Favored>0</Favored></Enhearten>
+      <Travel><Value>3</Value><Favored>1</Favored></Travel>
+      <Insight><Value>2</Value><Favored>0</Favored></Insight>
+      <Healing><Value>0</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>3</Value><Favored>1</Favored></Courtesy>
+      <Battle><Value>0</Value><Favored>1</Favored></Battle>
+      <Persuade><Value>0</Value><Favored>0</Favored></Persuade>
+      <Stealth><Value>2</Value><Favored>1</Favored></Stealth>
+      <Scan><Value>3</Value><Favored>1</Favored></Scan>
+      <Explore><Value>2</Value><Favored>1</Favored></Explore>
+      <Riddle><Value>2</Value><Favored>1</Favored></Riddle>
+      <Lore><Value>3</Value><Favored>1</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>2</Axes>
+      <Bows>0</Bows>
+      <Spears>1</Spears>
+      <Swords>0</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Mattock>
+        <Damage>7</Damage>
+        <Injury>18</Injury>
+        <Encumbrance>3</Encumbrance>
+        <Notes>Bigot</Notes>
+      </Mattock>
+      <Short_Spear>
+        <Damage>3</Damage>
+        <Injury>14</Injury>
+        <Encumbrance>3</Encumbrance>
+        <Notes>Lance courte</Notes>
+      </Short_Spear>
+    </WEAPONS>
+    <ARMOUR>
+      <Mail_Armour>
+        <Protection>4D</Protection>
+        <Encumbrance>4</Encumbrance>
+        <Notes>Cotte de Mailles (Astucieux)</Notes>
+      </Mail_Armour>
+      <Helm>
+        <Protection>+1D</Protection>
+        <Encumbrance>0</Encumbrance>
+        <Notes>Casque Heaume (Astucieux)</Notes>
+      </Helm>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Carnet de voyage des Us et Coutumes</Name><Bonus>+1D Courtoisie</Bonus></Useful_Item>
+      <Useful_Item><Name>Une pipe de conteur</Name><Bonus>+1D Chant</Bonus></Useful_Item>
+      <Useful_Item><Name>Bottes souples</Name><Bonus>+1D Discrétion</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>2</VALOUR>
+    <WISDOM>2</WISDOM>
+    <REWARDS>
+      <reward>Astucieux (Casque : Charge 0)</reward>
+      <reward>Astucieux (Armure : Charge -2)</reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Maîtrise (Chant + Courtoisie)</virtue>
+      <virtue>Sorts brisés (Athlétisme, Art de la guerre, Discrétion)</virtue>
+      <virtue></virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Zarakhin</token>
+  </Player_Character>
+
+  <Player_Character>
+    <Name>Targûn Main d'or</Name>
+    <Heroic_Culture>Nain de la lignée de Durin (Chasseur de Trésors)</Heroic_Culture>
+    <Cultural_Blessing>Infatigable</Cultural_Blessing>
+    <Calling>Chasseur de Trésors</Calling>
+    <Lifepath_Event></Lifepath_Event>
+    <Shadow_Path>Mal du Dragon</Shadow_Path>
+    <Standard_of_Living>Prospère</Standard_of_Living>
+    <Age>100</Age>
+    <DISTINCTIVE_FEATURES>
+      <feature>Monte en l'air</feature>
+      <feature>Entêté</feature>
+      <feature>Malin</feature>
+    </DISTINCTIVE_FEATURES>
+    <SKILL_POINTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </SKILL_POINTS>
+    <ADVENTURE_PTS>
+      <Spent>0</Spent>
+      <Available>0</Available>
+      <Total>0</Total>
+    </ADVENTURE_PTS>
+    <TREASURE>0</TREASURE>
+    <STRENGTH>6</STRENGTH>
+    <TN-Strength>14</TN-Strength>
+    <Endurance>28</Endurance>
+    <HEART>3</HEART>
+    <TN-Heart>17</TN-Heart>
+    <Hope>11</Hope>
+    <WITS>5</WITS>
+    <TN-Wits>14</TN-Wits>
+    <Parry>17</Parry>
+    <SKILLS>
+      <Awe><Value>0</Value><Favored>0</Favored></Awe>
+      <Athletics><Value>1</Value><Favored>0</Favored></Athletics>
+      <Awareness><Value>0</Value><Favored>0</Favored></Awareness>
+      <Hunting><Value>0</Value><Favored>0</Favored></Hunting>
+      <Song><Value>0</Value><Favored>0</Favored></Song>
+      <Craft><Value>3</Value><Favored>1</Favored></Craft>
+      <Enhearten><Value>0</Value><Favored>0</Favored></Enhearten>
+      <Travel><Value>2</Value><Favored>0</Favored></Travel>
+      <Insight><Value>0</Value><Favored>0</Favored></Insight>
+      <Healing><Value>0</Value><Favored>0</Favored></Healing>
+      <Courtesy><Value>0</Value><Favored>0</Favored></Courtesy>
+      <Battle><Value>0</Value><Favored>0</Favored></Battle>
+      <Persuade><Value>0</Value><Favored>0</Favored></Persuade>
+      <Stealth><Value>2</Value><Favored>1</Favored></Stealth>
+      <Scan><Value>1</Value><Favored>0</Favored></Scan>
+      <Explore><Value>2</Value><Favored>1</Favored></Explore>
+      <Riddle><Value>0</Value><Favored>0</Favored></Riddle>
+      <Lore><Value>0</Value><Favored>0</Favored></Lore>
+    </SKILLS>
+    <COMBAT_PROFICIENCIES>
+      <Axes>3</Axes>
+      <Bows>0</Bows>
+      <Spears>0</Spears>
+      <Swords>1</Swords>
+    </COMBAT_PROFICIENCIES>
+    <WEAPONS>
+      <Long_Hafted_Axe>
+        <Damage>7</Damage>
+        <Injury>18/20</Injury>
+        <Encumbrance>3</Encumbrance>
+        <Notes>Dévastatrice (+1 Dégâts), Acérée (Coup perforant sur 9+)</Notes>
+      </Long_Hafted_Axe>
+      <Dagger>
+        <Damage>2</Damage>
+        <Injury>14</Injury>
+        <Encumbrance>0</Encumbrance>
+        <Notes></Notes>
+      </Dagger>
+    </WEAPONS>
+    <ARMOUR>
+      <Mail_Armour>
+        <Protection>4D</Protection>
+        <Encumbrance>6</Encumbrance>
+        <Notes>Cotte de Mailles, Casque</Notes>
+      </Mail_Armour>
+      <Shield>
+        <Protection>+2</Protection>
+        <Encumbrance>0</Encumbrance>
+        <Notes>Bouclier</Notes>
+      </Shield>
+    </ARMOUR>
+    <USEFUL_ITEMS>
+      <Useful_Item><Name>Vêtements cossus</Name><Bonus>+1D Persuasion</Bonus></Useful_Item>
+      <Useful_Item><Name>Gants de force</Name><Bonus>+1D Athlétisme</Bonus></Useful_Item>
+      <Useful_Item><Name>Boussole</Name><Bonus>+1D Voyage</Bonus></Useful_Item>
+      <Useful_Item><Name></Name><Bonus></Bonus></Useful_Item>
+    </USEFUL_ITEMS>
+    <VALOUR>2</VALOUR>
+    <WISDOM>2</WISDOM>
+    <REWARDS>
+      <reward>Hache Acérée : Coup perforant sur 9+ (compté)</reward>
+      <reward>Hache Dévastatrice : +1 Dégât (compté)</reward>
+      <reward></reward>
+      <reward></reward>
+    </REWARDS>
+    <VIRTUES>
+      <virtue>Baruk Khazad (1x par combat : avantage d12+intimider en action secondaire)</virtue>
+      <virtue>Habileté : SR réduit de 1 en Esprit (compté)</virtue>
+      <virtue></virtue>
+      <virtue></virtue>
+    </VIRTUES>
+    <token>Token-Targun</token>
+  </Player_Character>
+
+</Players>

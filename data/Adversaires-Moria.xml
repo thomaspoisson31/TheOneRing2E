@@ -1,0 +1,204 @@
+<adversaires_moria>
+    <!-- ORQUES D'UDÛN -->
+    <adversaire>
+        <nom>Orque d'Udûn Fanatique</nom>
+        <stats>
+            <niveau_attribut>4</niveau_attribut>
+            <endurance>16</endurance>
+            <puissance>1</puissance>
+            <haine>4</haine>
+            <parade>-</parade>
+            <armure>3</armure>
+        </stats>
+        <competences_combat>
+            <competence>Bâton enflammé 3 (Dégâts 4 / Perçage 14 / Coup ardent*)</competence>
+            <note>*L’attaque brûle la cible et lui inflige une perte d’Endurance sévère due au feu.</note>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Habitant des ténèbres">Toutes les attaques effectuées dans l’obscurité sont favorisées.</capacite>
+            <capacite nom="Impassible">N’est pas affecté par la manœuvre Intimider l’adversaire, sauf Réussite magique.</capacite>
+        </capacites_redoutables>
+        <source>Page 145-146 [1]</source>
+    </adversaire>
+
+    <adversaire>
+        <nom>Orque d'Udûn Béni de la Flamme</nom>
+        <stats>
+            <niveau_attribut>6</niveau_attribut>
+            <endurance>24</endurance>
+            <puissance>2</puissance>
+            <haine>6</haine>
+            <parade>-</parade>
+            <armure>3</armure>
+        </stats>
+        <competences_combat>
+            <competence>Bâton enflammé 3 (Dégâts 4 / Perçage 14 / Coup ardent)</competence>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Habitant des ténèbres">Favorisé dans l'obscurité.</capacite>
+            <capacite nom="Impassible">Immunisé à l'intimidation standard.</capacite>
+            <capacite nom="Résistance abominable">Si Endurance tombe à 0, subit un Coup perforant à la place. Si survit, Endurance restaurée au max.</capacite>
+        </capacites_redoutables>
+        <source>Page 147-148 [1]</source>
+    </adversaire>
+
+    <!-- ORQUES DU MORDOR -->
+    <adversaire>
+        <nom>Capitaine Uruk</nom>
+        <stats>
+            <niveau_attribut>6</niveau_attribut>
+            <endurance>24</endurance>
+            <puissance>1</puissance>
+            <haine>6</haine>
+            <parade>+3</parade>
+            <armure>4</armure>
+        </stats>
+        <competences_combat>
+            <competence>Épée large 3 (4/16, Perforation)</competence>
+            <competence>Arc de corne 3 (3/14, Perforation)</competence>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Cri de triomphe">Dépense 1 Haine pour restaurer 1 Haine à tous les alliés.</capacite>
+            <capacite nom="Force effroyable">Si coup perforant, dépense 1 Haine pour rendre le jet de Protection de la cible défavorisé.</capacite>
+        </capacites_redoutables>
+        <source>Page 150-151 [1]</source>
+    </adversaire>
+
+    <adversaire>
+        <nom>Uruk</nom>
+        <stats>
+            <niveau_attribut>5</niveau_attribut>
+            <endurance>20</endurance>
+            <puissance>1</puissance>
+            <haine>5</haine>
+            <parade>+2</parade>
+            <armure>3</armure>
+        </stats>
+        <competences_combat>
+            <competence>Épée large 3 (4/16, Perforation)</competence>
+            <competence>Arc de corne 3 (3/14, Perforation)</competence>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Armure épaisse">Dépense 1 Haine pour gagner (2d) en Protection.</capacite>
+            <capacite nom="Force effroyable">Dépense 1 Haine pour rendre la Protection adverse défavorable sur coup perforant.</capacite>
+        </capacites_redoutables>
+        <source>Page 152-153 [1]</source>
+    </adversaire>
+
+    <!-- CHEFS NOMMÉS -->
+    <adversaire>
+        <nom>Malech le Borgne (Chef des Orques de la Moria)</nom>
+        <stats>
+            <niveau_attribut>7</niveau_attribut>
+            <endurance>40</endurance>
+            <puissance>2</puissance>
+            <haine>7</haine>
+            <parade>+4</parade>
+            <armure>4</armure>
+        </stats>
+        <competences_combat>
+            <competence>Lance à pointe large 3 (5/16, Perforation)</competence>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Cri de triomphe">Restaure la Haine des alliés.</capacite>
+            <capacite nom="Habitant des ténèbres">Favorisé dans l'obscurité.</capacite>
+            <capacite nom="Lâcheté">Perd 1 Haine si intimidé.</capacite>
+            <capacite nom="Résistance abominable">Restaure Endurance à moitié si réduit à 0.</capacite>
+            <capacite nom="Vitesse du serpent">Dépense 1 Haine pour rendre une attaque adverse défavorisée.</capacite>
+        </capacites_redoutables>
+        <source>Page 236-237 [1]</source>
+    </adversaire>
+
+    <adversaire>
+        <nom>Yagul l'Esclavagiste</nom>
+        <stats>
+            <niveau_attribut>6</niveau_attribut>
+            <endurance>30</endurance>
+            <puissance>2</puissance>
+            <haine>6</haine>
+            <parade>+3</parade>
+            <armure>3</armure>
+        </stats>
+        <competences_combat>
+            <competence>Lance à pointe large 3 (5/16, Perforation)</competence>
+            <competence>Cimeterre 3 (3/16)</competence>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Cri de triomphe">Restaure la Haine des alliés.</capacite>
+            <capacite nom="Grand bond">Peut attaquer n'importe quelle position (y compris arrière).</capacite>
+            <capacite nom="Habitant des ténèbres">Favorisé dans le noir.</capacite>
+            <capacite nom="Vitesse du serpent">Rend une attaque adverse défavorisée.</capacite>
+        </capacites_redoutables>
+        <source>Page 227-228 [1]</source>
+    </adversaire>
+
+    <!-- CRÉATURES TERRIBLES -->
+    <adversaire>
+        <nom>Le Fléau de Durin (Balrog)</nom>
+        <stats>
+            <niveau_attribut>12</niveau_attribut>
+            <endurance>150</endurance>
+            <puissance>3</puissance>
+            <haine>12</haine>
+            <parade>-</parade>
+            <armure>5</armure>
+        </stats>
+        <competences_combat>
+            <competence>Épée ardente 4 (8/24, Coup ardent*)</competence>
+            <competence>Fouet à multiples lanières 4 (6/18, Étreinte)</competence>
+            <competence>Écrasement 3 (6/12, Brise bouclier)</competence>
+            <note>*Inflige une perte d'Endurance fatale due au feu.</note>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Abomination">Au 1er round, gain de 3 Ombre (Terreur). Jet de Vaillance défavorisé.</capacite>
+            <capacite nom="Blessure mortelle">Dé du Destin défavorisé pour la gravité des blessures infligées.</capacite>
+            <capacite nom="Épouvantables sortilèges">Dépense 1 Haine pour infliger 3 Ombre (Sorcellerie) si un héros utilise de l'Espoir.</capacite>
+            <capacite nom="Flamme d’Udûn">Contre-attaque de feu sur touche au corps à corps.</capacite>
+            <capacite nom="Grand Démon">Immunisé aux armes non magiques. Dégâts à 0 remplacés par coup perforant (restaure 50% Endurance).</capacite>
+        </capacites_redoutables>
+        <source>Page 158-162 [1]</source>
+    </adversaire>
+
+    <adversaire>
+        <nom>Le Guetteur de l’Eau</nom>
+        <stats>
+            <niveau_attribut>10</niveau_attribut>
+            <endurance>100</endurance>
+            <puissance>3</puissance>
+            <haine>10</haine>
+            <parade>-</parade>
+            <armure>4</armure>
+        </stats>
+        <competences_combat>
+            <competence>Tentacule 3 (8/16, Étreinte)</competence>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Aversion pour le soleil">Perd 1 Haine par round au soleil.</capacite>
+            <capacite nom="Membres multiples">Effectue une attaque supplémentaire par round (réduit par les blessures).</capacite>
+            <capacite nom="Puanteur fétide">Dépense 1 Haine : ennemis perdent (1d) aux attaques ce round.</capacite>
+            <capacite nom="Tentacule">Peut attaquer en position arrière.</capacite>
+        </capacites_redoutables>
+        <source>Page 313-315 [1]</source>
+    </adversaire>
+
+    <adversaire>
+        <nom>Spectre de Cendres</nom>
+        <stats>
+            <niveau_attribut>4</niveau_attribut>
+            <endurance>16</endurance>
+            <puissance>1</puissance>
+            <haine>4</haine>
+            <parade>+1</parade>
+            <armure>1</armure>
+        </stats>
+        <competences_combat>
+            <competence>Toucher ardent 3 (4/14, Coup ardent)</competence>
+        </competences_combat>
+        <capacites_redoutables>
+            <capacite nom="Flamme d’Udûn">Chaleur inflige perte endurance légère sur touche au corps à corps.</capacite>
+            <capacite nom="Impassible">Immunisé à l'intimidation.</capacite>
+            <capacite nom="Vitesse du serpent">Rend une attaque adverse défavorisée.</capacite>
+        </capacites_redoutables>
+        <source>Page 167-168 [1]</source>
+    </adversaire>
+</adversaires_moria>

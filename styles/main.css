@@ -1,0 +1,131 @@
+/* Import des fichiers CSS */
+@import 'global.css';
+@import 'navigation.css';
+@import 'creature_card.css';
+@import 'creature_details.css';
+@import 'advantages.css';
+@import 'windows.css';
+@import 'responsive.css';
+@import 'imageaudio.css';
+
+
+/* --- NOUVEAUX STYLES POUR L'INTERFACE DE COMBAT --- */
+
+/* Conteneur principal des PJs */
+.player-columns-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 10px;
+    align-items: flex-start;
+    min-height: 150px;
+}
+
+/* Colonne individuelle pour un PJ */
+.player-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+}
+
+/* Portrait du PJ (remplace l'ancien style d'onglet si nécessaire) */
+.player-portrait {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    border: 3px solid #ccc; /* Gris par défaut */
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #ddd;
+    margin-bottom: 5px;
+}
+
+.player-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* État sélectionné */
+.player-portrait.selected {
+    border-color: #8b0000; /* Rouge Tolkien */
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+.player-name {
+    font-size: 11px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Pile verticale des adversaires */
+.adversary-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Jeton d'adversaire (Carré rouge) */
+.adversary-token {
+    width: 40px;
+    height: 40px;
+    background-color: #8b0000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.1s;
+}
+
+.adversary-token:hover {
+    transform: scale(1.1);
+    background-color: #a50000;
+}
+
+/* Bouton de suppression (petit x) */
+.token-delete-btn {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: white;
+    color: #8b0000;
+    border: 1px solid #8b0000;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+    display: none; /* Visible au survol */
+}
+
+.adversary-token:hover .token-delete-btn {
+    display: block;
+}
+
+/* Gestion de la visibilité du sélecteur d'adversaire */
+.creature-selector {
+    visibility: hidden; /* Caché par défaut */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.creature-selector.visible {
+    visibility: visible;
+    opacity: 1;
+}

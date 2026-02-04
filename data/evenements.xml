@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cartesCombat>
+    <categorie nom="Avantages">
+
+        <carte nom="Opportunité de diversion">
+            <description>A la suite d'une attaque réussie, vous pouvez faire un test de Discrétion. Une réussite vous permet de quitter le combat sans être attaqué. Cette carte peut être jouée à n'importe quel moment.</description>
+        </carte>
+        
+        <carte nom="Opportunité d'enchainement">
+            <description>Vous pouvez réaliser une seconde attaque si votre première attaque réussit. Cette carte peut être jouée à n'importe quel moment.</description>
+            <conditions>
+                <condition>L'annonce doit être faite avant le jet de la première attaque</condition>
+                <condition>La seconde attaque doit être réalisée avec une arme secondaire facilement accessible, ou l'arme principale avec 1D de moins</condition>
+            </conditions>
+        </carte>
+
+        <carte nom="Il y a peut être une faille">
+            <description>Vous pouvez effectuer un test d'Inspection gratuitement. Une réussite donne un Désavantage au test de Protection d'un Adversaire. Cette carte peut être jouée à n'importe quel moment.</description>
+        </carte>
+
+        <carte nom="Situation impressionnante">
+            <description>Vous pouvez tenter gratuitement une manœuvre Impressionner l'adversaire quelle que soit votre position, en plus d'une attaque.</description>
+        </carte>
+
+        <carte nom="Le bataille vous inspire">
+            <description>Vous pouvez tenter gratuitement une manœuvre Rallier ses Compagnons quelle que soit votre position, en plus d'une attaque.</description>
+        </carte>
+
+        <carte nom="Opportunité de protection">
+            <description>Vous pouvez tenter gratuitement une manœuvre Protéger un camarade quelle que soit votre position, en plus d'une attaque.</description>
+        </carte>
+
+        <carte nom="Opportunité teactique">
+            <description>Vous pouvez effectuer un jet d'Art de la Guerre gratuitement, pour bénéficier d'Avantages de Combat.</description>
+        </carte>
+
+    </categorie>
+
+    <categorie nom="Désavantages">
+
+        <carte nom="Risque de trébucher">
+            <test>
+                <competence>Vigilance</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>Vous perdez 1D6 points d'endurance ET lâchez votre arme principale</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>Votre feinte vous permet de frapper votre adversaire et de lui infliger 1D6 points de dégâts</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Arme immobilisée">
+            <description>Votre arme se coince dans un obstacle</description>
+            <test>
+                <competence>Athlétisme</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>Vous devez passer un tour sans attaquer, dans la même position</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>Vous utilisez l'obstacle à votre avantage. Vous avez un bonus de Parade +4 tant que vous utilisez une autre arme</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Un instant d'inattention">
+            <test>
+                <competence>Vigilance ou Art de la Guerre</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>La prochaine attaque de l'adversaire sera favorisée</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>Votre comportement imprévisible perturbe votre adversaire, vous gagnez un dé d'avantage de combat</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Manque de sang froid">
+            <description>L'intensité du combat vous fait perdre votre sang froid</description>
+            <test>
+                <competence>Vaillance</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>Vous ne faites plus attention à vos camarades et infligez 1D6 points d'endurance</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>Vous canalisez votre agressivité : votre prochaine attaque est un Coup Précis automatique</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Dos au mur">
+            <test>
+                <competence>Art de la Guerre</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>Sacrifier un dé d'avantage de combat, ou obligation de tenir une position Avancée jusqu'à un succès d'attaque supérieur</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>C'est une feinte ! Vous gagnez un dé d'avantage de combat</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Pris au piège">
+            <description>L'adversaire (ou quelqu'un d'autre) a tendu un piège</description>
+            <test>
+                <competence>Chasse (extérieurs) ou Vigilance (intérieur)</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>Le piège se déclenche : faire un jet de Protection ou être Blessé légèrement</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>Votre adversaire est pris au piège : jet d'armure de Protection</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Point de côté">
+            <test>
+                <competence>Athlétisme</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>Vous êtes considéré Epuisé au combat jusqu'à ce que vous réussissiez avec un succès supérieur</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>La douleur décuple vos forces, vous gagnez un dé d'avantage de combat</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Fureur du combat">
+            <test>
+                <competence>Sagesse</competence>
+            </test>
+            <resultats>
+                <echec>
+                    <effet>Vous n'avez de cesse que de le tuer, quel qu'en soit le prix. Vous devez rester en position Avancée</effet>
+                </echec>
+                <reussiteSuperieure>
+                    <effet>Votre fureur impressionnante vous permet de tenter d'« Intimider l'adversaire », en plus de votre prochaine attaque</effet>
+                </reussiteSuperieure>
+            </resultats>
+        </carte>
+
+        <carte nom="Equipement usé">
+            <description>Jeter 1D12</description>
+            <resultats>
+                <resultat valeur="1-3">
+                    <effet>La poignée de votre bouclier est usée et le rend inutilisable. Si vous n'avez pas de bouclier en main, cela s'applique à votre casque</effet>
+                </resultat>
+                <resultat valeur="6-7">
+                    <effet>La poignée / hampe de votre arme principale est endommagée. Si elle n'est pas réparée, au prochain Œil, l'arme se brisera</effet>
+                </resultat>
+                <resultat valeur="8-10">
+                    <effet>Votre armure manque d'entretien et menace de se déchirer par endroits. Si elle n'est pas réparée, au prochain Œil, elle craquera et perdra 1D</effet>
+                </resultat>
+                <resultat valeur="12">
+                    <effet>Votre armure craque et perd 1D en défense</effet>
+                </resultat>
+            </resultats>
+        </carte>
+
+        <carte nom="Disparitions">
+            <description>Jeter 1D12</description>
+            <resultats>
+                <resultat valeur="1-3">
+                    <effet>Un animal ou une personne accompagnante s'enfuit</effet>
+                </resultat>
+                <resultat valeur="4-6">
+                    <effet>Provisions gâchées (valeur du dé en jours)</effet>
+                </resultat>
+                <resultat valeur="7-8">
+                    <effet>Objets utiles (corde, torches, etc.)</effet>
+                </resultat>
+                <resultat valeur="9-10">
+                    <effet>Objets de valeur (arme, 2 points de Trésor)</effet>
+                </resultat>
+            </resultats>
+            <special>
+                <oeil>Jeter deux fois le dé et cumuler</oeil>
+                <recuperation>
+                    <test>
+                        <competence>Inspection</competence>
+                    </test>
+                    <description>Pour retrouver la trace de ce qui a été perdu.</description>
+                </recuperation>
+            </special>
+        </carte>
+    </categorie>
+</cartesCombat>

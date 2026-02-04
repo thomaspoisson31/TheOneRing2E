@@ -1,0 +1,74 @@
+
+/* ==============================================
+   ÉLÉMENTS AUDIO ET IMAGES
+   ============================================== */
+
+
+.sound-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    vertical-align: middle;
+}
+
+.sound-icon:hover {
+    opacity: 0.8;
+}
+
+/* Supprimer l'icône de son de la barre de sélection */
+.selector .sound-icon {
+    display: none !important;
+}
+
+.sound-message {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.sound-files {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.sound-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.sound-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+
+.full-screen-image {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.full-screen-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+

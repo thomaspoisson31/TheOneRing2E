@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adversaires>
+
+    <famille nom="Orques">
+
+        <son1>Orques.mp3</son1>
+        <son2>Orques2.mp3</son2>
+        <son3>Orques3.mp3</son3>
+        <son4>Orques4.mp3</son4>
+
+        <capacites_famille>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>Chaque round qu’elle passe exposée à la lumière directe du soleil, la créature perd 1 point de Haine.</Detail_Capacite>
+                </capacite>
+        </capacites_famille>
+
+        <creature>
+            <nom>Saviga</nom>
+            <attributs>
+                <niveau>2</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>-</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularités>Malin, Vue perçante</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Arc de corne</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Couteau à dents</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Lâcheté</Titre_Capacite>
+                    <Detail_Capacite>Si elle est affectée par la manœuvre de combat Intimider l'adversaire, la créature perd également 1 point de Haine</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Poison orque</Titre_Capacite>
+                    <Detail_Capacite>Si une attaque provoque une Blessure, la cible est également empoisonnée</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Saviga.png</url_image>
+            <url_token>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Saviga.png</url_token>
+        </creature>
+    </famille>
+
+    <famille nom="Morts Vivants">
+        <son1>MortsVivants.mp3</son1>
+        <son2>MortsVivants2.mp3</son2>
+        <son3>MortsVivants3.mp3</son3>
+
+        <capacites_famille>
+                <capacite>
+                    <Titre_Capacite>Abomination</Titre_Capacite>
+                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue gagnent 3 points d’Ombre (Terreur). Ceux qui ratent leur test d’Ombre sont découragés et ne peuvent pas dépenser d’Espoir pour tout le reste du combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Immortel</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour éliminer une Blessure. Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, dépensez 1 point de Haine pour restaurer ses points d’Endurance au maximum. Cette capacité est inefficace contre un Héros maniant une arme magique ayant pour Cible les Morts-Vivants.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>La créature n’est pas affectée par la manœuvre de combat Intimider l’adversaire, sauf en cas d’une Réussite magique.</Detail_Capacite>
+                </capacite>
+        </capacites_famille>
+
+        <creature>
+            <nom>Fantôme de la Forêt</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>1</puissance>
+                <haine>6</haine>
+                <parade>-</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Malin, Vengeur</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Épée antique</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Toucher glacial</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>6/12</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>La créature perd 1 point de Haine au début de chaque round où elle pense exposée à la lumière directe du soleil</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Épouvantable sortilège</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour infliger 3 points d’Ombre (Sorcellerie) à un Héros. Une cible Mélancolique ou qui rate son test d’Ombre tombe inconsciente et ne peut être réveillée que grâce à un test de CHANT réussi ; sinon elle se
+réveille au bout d’une heure.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Habitants des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Esprit%20des%20Galgals%20(1).png</url_image>
+        </creature>
+    </famille>
+
+    <famille nom="Loups">
+
+        <son1>Loups.mp3</son1>
+        <son2>Loups2.mp3</son2>
+        <son3>Loups3.mp3</son3>
+
+        <capacites_famille>
+                <capacite>
+                    <Titre_Capacite>Grand Bond</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour attaquer un Héros quelle que soit sa position de combat, y compris en position arrière.
+                    </Detail_Capacite>
+                </capacite>
+        </capacites_famille>
+
+        <creature>
+            <nom>Molosse de Sauron</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>2</puissance>
+                <haine>5</haine>
+                <parade>-</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Impétueux, Malin</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Griffes</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/14</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Abomination</Titre_Capacite>
+                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue gagnent un nombre de points d’Ombre (Terreur) égal à la Puissance de la créature. Ceux qui ratent leur test d’Ombre sont découragés et ne peuvent pas dépenser d’Espoir pour tout le reste du combat.
+                    </Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Blessure mortelle</Titre_Capacite>
+                    <Detail_Capacite>Les cibles Blessées lancent un dé du Destin défavorisé quand elles doivent déterminer la Gravité de leur Blessure.
+                    </Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Résistance abominable</Titre_Capacite>
+                    <Detail_Capacite>Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, elle subit un Coup perforant à la place. Si elle est toujours en vie, ses points d’Endurance sont restaurés à la moitié du maximum.
+                    </Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Loup Sauvage</nom>
+            <attributs>
+                <niveau>3</niveau>
+                <endurance>12</endurance>
+                <puissance>1</puissance>
+                <haine>3</haine>
+                <parade>-</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularités>Sinistre, Vue perçante</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Peur du feu</Titre_Capacite>
+                    <Detail_Capacite>Au début de chaque round où la créature est engagée en combat rapproché contre un adversaire portant une torche ou tout autre objet enflammé, elle perd 1 point de Haine</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Vitesse du serpent</Titre_Capacite>
+                    <Detail_Capacite>Quand la créature est ciblée par une attaque, dépenser 1 point de Haine pour rendre cette attaque défavorisée</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Warg.png</url_image>
+        </creature>
+    </famille>
+
+    <famille nom="Humains">
+
+        <creature>
+            <nom>Guerrier Viglundide</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>1</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Endurci, Rusé</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Hache</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/18</degats_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Lance courte</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Peuple farouche</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Détermination pour gagner [16] et effectuer un jet d'attaque favorisé</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Viglar</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Endurci, Rusé</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Lance</nom_arme>
+                    <valeur_arme>4</valeur_arme>
+                    <degats_arme>5/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Hache à long manche</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/18</degats_arme>
+                    <special_arme>Brise bouclier</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Peuple farouche</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Détermination pour gagner [16] et effectuer un jet d'attaque favorisé</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Viglar.png</url_image>
+            <url_token>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Token-Viglar.png</url_token>            
+        </creature>
+    </famille>
+
+    <famille nom="Choses Sans Nom">
+
+        <creature>
+            <nom>Féroce Ailé</nom>
+            <attributs>
+                <niveau>7</niveau>
+                <endurance>60</endurance>
+                <puissance>3</puissance>
+                <haine>8</haine>
+                <parade>0</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Vicieux</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Griffes</nom_arme>
+                    <valeur_arme>4</valeur_arme>
+                    <degats_arme>5/14</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>7/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Grand bond</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour attaquer un Héros quelle que soit sa position de combat, y compris en position arrière.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Puanteur fétide</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour que tous les combattants engagés en combat perdent 1d à tous leurs jets durant le round</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Effroi</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour infliger 3 points d’Ombre (Terreur) à tous les Héros à portée de vue. Ceux qui ratent leur test d’Ombre sont découragés et ne peuvent pas dépenser d’Espoir pour tout le reste du combat (sauf suite à l'action Rallier)</Detail_Capacite>
+                </capacite>
+
+            </capacites>
+
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Fell-Beast.png</url_image>
+            <url_token>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Fell-Beast.png</url_token>
+        </creature>
+
+
+</adversaires>

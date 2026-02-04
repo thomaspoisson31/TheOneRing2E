@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOR2E - Visualiseur d'adversaires</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- J'ajoute un lien vers un CSS spécifique pour ces nouvelles fonctionnalités si besoin, 
+         mais ici je vais tout mettre dans main.css pour faire simple -->
+</head>
+<body>
+    <header></header>
+
+    <div class="tabs-container">
+        <!-- Conteneur qui affichera les PJs en colonnes -->
+        <div id="creatureTabs" class="creature-tabs player-columns-container"></div>
+        
+        <!-- Le sélecteur est maintenant caché par défaut via CSS -->
+        <div class="creature-selector" id="creatureSelectorContainer">
+            <select id="creatureSelect">
+                <option value="">Choix Adversaire</option>
+            </select>
+            <button id="addCreature" class="add-button">+</button>
+        </div>
+    </div>
+
+    <div id="creatureCard" class="creature-card"></div>
+
+    <div id="fullScreenImage" class="full-screen-image">
+        <img id="creatureImage" src="" alt="Image de la créature">
+    </div>
+
+    <div class="action-buttons">
+        <div class="left-buttons">
+            <button class="icon-button" id="eyeButton">
+                <img src="images/Eye.png" alt="Eye">
+            </button>
+            <button class="icon-button" id="runeButton">
+                <img src="images/Rune.png" alt="Rune">
+            </button>
+        </div>
+    </div>
+
+    <!-- Fenêtre modale pour les cartes -->
+    <div id="cardModal" class="modal">
+        <div class="modal-content card-modal">
+            <button class="close-button" onclick="closeCardModal()">×</button>
+            <div id="cardContent"></div>
+        </div>
+    </div>
+
+    <!-- Fenêtre modale pour le changement de fichier -->
+    <div id="fileModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeFileModal()">×</button>
+            <h3>Choisir une liste</h3>
+            <ul id="fileList" class="file-list">
+                <li data-file="Adversaires2.xml">Livre de base</li>
+                <li data-file="Adversaires3.xml">Récits des Terres Solitaires</li>
+                <li data-file="Adversaires4.xml">Aventure Fastred</li>
+                <li data-file="Adversaires-Moria.xml">Adversaires Moria</li>
+            </ul>
+            <button onclick="loadSelectedFile()" class="load-button">Charger</button>
+        </div>
+    </div>
+
+    <!-- Ordre des scripts conservé -->
+    <script src="js/utils.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/domElements.js"></script>
+    <script src="js/soundManager.js"></script>
+    <script src="js/listManagement.js"></script>
+    <script src="js/creatureDisplay.js"></script>
+    <script src="js/playerDisplay.js"></script>
+    <script src="js/fileLoader.js"></script>
+    <script src="js/eventHandlers.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

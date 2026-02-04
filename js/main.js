@@ -117,17 +117,19 @@ function createPlayerTabs(pjDoc) {
                 e.preventDefault();
                 e.stopPropagation(); // Ne pas propager au playerTabsContainer
 
-                // Logique d'insertion visuelle (reordering ou ajout)
+                // Logique d'insertion visuelle du placeholder
                 const siblings = [...opponentsContainer.querySelectorAll('.creature-tab:not(.dragging-creature)')];
                 const nextSibling = siblings.find(sibling => {
                     const box = sibling.getBoundingClientRect();
                     return e.clientY <= box.top + box.height / 2;
                 });
 
-                if (nextSibling) {
-                    opponentsContainer.insertBefore(draggingCreature, nextSibling);
-                } else {
-                    opponentsContainer.appendChild(draggingCreature);
+                if (window.dragPlaceholder) {
+                    if (nextSibling) {
+                        opponentsContainer.insertBefore(window.dragPlaceholder, nextSibling);
+                    } else {
+                        opponentsContainer.appendChild(window.dragPlaceholder);
+                    }
                 }
             });
 
@@ -137,6 +139,14 @@ function createPlayerTabs(pjDoc) {
 
                 e.preventDefault();
                 e.stopPropagation();
+
+                // Remplacer le placeholder par l'élément déplacé
+                if (window.dragPlaceholder && window.dragPlaceholder.parentNode === opponentsContainer) {
+                    opponentsContainer.insertBefore(draggingCreature, window.dragPlaceholder);
+                    window.dragPlaceholder.remove();
+                } else {
+                    opponentsContainer.appendChild(draggingCreature);
+                }
 
                 // Mise à jour des associations
                 const instanceId = parseInt(draggingCreature.dataset.instanceId);

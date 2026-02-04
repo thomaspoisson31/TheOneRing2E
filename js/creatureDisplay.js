@@ -1,6 +1,8 @@
 let creatureCounter = 0;
 let creatureInstances = new Map(); // Stockage des instances d'adversaires
-let creaturePlayerAssociations = new Map(); // Stockage des associations adversaire-PJ
+let creaturePlayerAssociations = new Map(); // Stockage des associations adversaire-PJ (Set)
+window.dragPlaceholder = document.createElement('div');
+window.dragPlaceholder.className = 'drop-placeholder';
 
 function displayCreature(creature, familyName, resetSelect = true) {
     creatureCounter++;
@@ -19,15 +21,39 @@ function displayCreature(creature, familyName, resetSelect = true) {
 
     tabElement.addEventListener('dragstart', (e) => {
         tabElement.classList.add('dragging-creature');
-        e.stopPropagation(); // Empêcher le déclenchement du drag du parent (player-wrapper)
-        // Stocker l'ID de l'instance pour la récupération
+        e.stopPropagation(); 
         e.dataTransfer.setData('text/plain', instanceId);
         e.dataTransfer.effectAllowed = 'move';
     });
 
     tabElement.addEventListener('dragend', (e) => {
         tabElement.classList.remove('dragging-creature');
+        if (window.dragPlaceholder && window.dragPlaceholder.parentNode) {
+            window.dragPlaceholder.parentNode.removeChild(window.dragPlaceholder);
+        }
         e.stopPropagation();
+    });
+
+    // Support du drop de PJs sur la créature pour association
+    tabElement.addEventListener('dragover', (e) => {
+        const draggingPlayer = document.querySelector('.player-wrapper.dragging');
+        if (draggingPlayer) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.dataTransfer.dropEffect = 'copy'; // Indique une association
+        }
+    });
+
+    tabElement.addEventListener('drop', (e) => {
+        const draggingPlayer = document.querySelector('.player-wrapper.dragging');
+        if (draggingPlayer) {
+            e.preventDefault();
+            e.stopPropagation();
+            const playerName = draggingPlayer.dataset.playerName;
+            if (playerName) {
+                associatePlayer(instanceId, playerName);
+            }
+        }
     });
     // ----------------------------------------------------
 
@@ -51,9 +77,12 @@ function displayCreature(creature, familyName, resetSelect = true) {
     tabElement.appendChild(tabContent);
     
     tabElement.addEventListener('click', function() {
-        creatureSelect.value = '';
+        // creatureSelect est global (id="creatureSelect" dans HTML) mais ici on parle peut-être du dropdown header
+        // qui est maintenant supprimé de displayCreatureDetails, mais l'élément global existe.
+        const globalSelect = document.getElementById('creatureSelect');
+        if (globalSelect) globalSelect.value = '';
         
-        // Désélectionner tous les onglets (créatures ET personnages)
+        // Désélectionner tous les onglets
         document.querySelectorAll('.player-tab, .creature-tab').forEach(tab => 
             tab.classList.remove('active')
         );
@@ -85,7 +114,10 @@ function displayCreature(creature, familyName, resetSelect = true) {
             // Associer la créature au PJ actif
             const playerName = wrapper.dataset.playerName;
             if (playerName) {
-                creaturePlayerAssociations.set(instanceId, playerName);
+                if (!creaturePlayerAssociations.has(instanceId)) {
+                    creaturePlayerAssociations.set(instanceId, new Set());
+                }
+                creaturePlayerAssociations.get(instanceId).add(playerName);
             }
         }
     }
@@ -100,7 +132,6 @@ function loadPlayerCharacters() {
         .then(str => {
             const parser = new DOMParser();
             const pjDoc = parser.parseFromString(str, "text/xml");
-            // Récupérer tous les personnages avec leur nom et leur parade
             window.playerCharacters = Array.from(pjDoc.getElementsByTagName('Player_Character'))
                 .map(pc => {
                     const nameElement = pc.getElementsByTagName('Name')[0];
@@ -118,25 +149,48 @@ function loadPlayerCharacters() {
         .catch(error => console.error('Erreur lors du chargement des PJ:', error));
 }
 
-function updatePlayerSelect(instanceId) {
-    const playerSelect = document.getElementById('playerSelect');
-    if (playerSelect) {
-        const savedPlayer = creaturePlayerAssociations.get(instanceId);
-        playerSelect.value = savedPlayer || '';
-        
-        // Mettre à jour les options avec les valeurs d'avantage
-        Array.from(playerSelect.options).forEach(option => {
-            if (option.value) {
-                const playerName = option.value;
-                const playerIndex = Array.from(playerInstances.entries())
-                    .find(([_, p]) => p.getElementsByTagName('Name')[0].textContent === playerName)?.[0];
-                const advantage = playerAdvantages.get(playerIndex);
-                const advantageText = advantage !== 0 ? `, ${getAdvantageText(advantage)}` : '';
-                const parry = window.playerCharacters.find(pc => pc.name === playerName)?.parry || '';
-                option.textContent = `${playerName} (${parry}${advantageText})`;
-            }
-        });
+function updateAssociatedPlayersList(instanceId) {
+    const listContainer = document.getElementById('associated-players-list');
+    // Si la carte de cette créature n'est pas affichée, on ne fait rien
+    const activeTab = document.querySelector('.creature-tab.active');
+    if (!listContainer || !activeTab || parseInt(activeTab.dataset.instanceId) !== instanceId) return;
+
+    const playersSet = creaturePlayerAssociations.get(instanceId);
+    
+    if (!playersSet || playersSet.size === 0) {
+        listContainer.innerHTML = '<p class="no-association">Aucun PJ associé</p>';
+        return;
     }
+
+    let html = '';
+    playersSet.forEach(playerName => {
+        // Récupérer l'index du joueur pour l'avantage
+        const playerIndex = Array.from(playerInstances.entries())
+            .find(([_, p]) => p.getElementsByTagName('Name')[0].textContent === playerName)?.[0];
+            
+        let advantageText = '0';
+        if (playerIndex !== undefined && playerAdvantages) {
+            const advantage = playerAdvantages.get(playerIndex);
+            // Utilise la fonction globale définie dans utils.js
+            if (typeof getAdvantageText === 'function') {
+                advantageText = getAdvantageText(advantage);
+            }
+        }
+        
+        const staticPC = window.playerCharacters ? window.playerCharacters.find(pc => pc.name === playerName) : null;
+        const parry = staticPC ? staticPC.parry : '?';
+
+        html += `
+            <div class="associated-player-item">
+                <div class="player-info">
+                    <span class="player-name">${playerName}</span>
+                    <span class="player-stats">Parade: ${parry} | ${advantageText}</span>
+                </div>
+                <button class="icon-button delete-icon-small" onclick="dissociatePlayer(${instanceId}, '${playerName.replace(/'/g, "\\'")}')" title="Dissocier">×</button>
+            </div>
+        `;
+    });
+    listContainer.innerHTML = html;
 }
 
 function updateInstanceValue(instanceId, field, value) {
@@ -188,14 +242,6 @@ function displayCreatureDetails(creature, familyName) {
                     <img src="images/sound-icon.png" alt="Son" class="sound-icon" id="soundIcon">
                     <button class="icon-button delete-icon" onclick="deleteCreature(${instanceId})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
                 </div>
-                <div class="creature-title-right">
-                    <select id="playerSelect" class="player-select" onchange="associatePlayer(${instanceId}, this.value)">
-                        <option value="" disabled selected>Choix PJ</option>
-                        ${window.playerCharacters ? window.playerCharacters.map(pc => 
-                            `<option value="${pc.name}" ${creaturePlayerAssociations.get(instanceId) === pc.name ? 'selected' : ''}>${pc.name} (${pc.parry})</option>`
-                        ).join('') : ''}
-                    </select>
-                </div>
             </div>
         </div>`;
 
@@ -204,7 +250,7 @@ function displayCreatureDetails(creature, familyName) {
     const endurance = attributs.getElementsByTagName('endurance')[0].textContent;
     const haine = attributs.getElementsByTagName('haine')[0].textContent;
 
-    // Nouvelle structure pour les statistiques
+    // Stats
     html += '<div class="stats-grid">';
     
     // Niveau
@@ -265,7 +311,15 @@ function displayCreatureDetails(creature, familyName) {
     
     html += '</div>';
 
-    // Compétences et capacités côte à côte
+    // Section PJ Associés
+    html += `
+        <div class="associated-section">
+            <h3>PJ Associé</h3>
+            <div id="associated-players-list" class="associated-list"></div>
+        </div>
+    `;
+
+    // Compétences et capacités
     html += '<div class="details-grid">';
 
     // Compétences de combat
@@ -287,7 +341,6 @@ function displayCreatureDetails(creature, familyName) {
             const degatsArme = arme.getElementsByTagName('degats_arme')[0]?.textContent || '';
             const specialArme = arme.getElementsByTagName('special_arme')[0]?.textContent || '';
 
-            // Création des symboles losange
             const diamonds = '&#9830;'.repeat(valeurArme);
 
             html += `<li>
@@ -301,14 +354,13 @@ function displayCreatureDetails(creature, familyName) {
         html += '</ul></div>';
     }
 
-    // Capacités (spécifiques à la créature et de la famille)
+    // Capacités
     const creatureCapacites = creature.getElementsByTagName('capacites')[0];
     const familyCapacites = getFamilyCapacities(familyName);
     
     if ((creatureCapacites?.getElementsByTagName('capacite').length > 0) || familyCapacites.length > 0) {
         html += '<div class="capacites"><h3>Capacités</h3>';
         
-        // Capacités spécifiques à la créature
         if (creatureCapacites) {
             for (let capacite of creatureCapacites.getElementsByTagName('capacite')) {
                 const titre = capacite.getElementsByTagName('Titre_Capacite')[0].textContent;
@@ -321,7 +373,6 @@ function displayCreatureDetails(creature, familyName) {
             }
         }
         
-        // Capacités de la famille
         for (let capacite of familyCapacites) {
             const titre = capacite.getElementsByTagName('Titre_Capacite')[0].textContent;
             const details = capacite.getElementsByTagName('Detail_Capacite')[0].textContent;
@@ -339,13 +390,23 @@ function displayCreatureDetails(creature, familyName) {
     creatureCard.style.display = 'block';
     creatureCard.dataset.instanceId = instanceId;
     
-    // Mettre à jour la sélection du PJ avec les avantages
-    updatePlayerSelect(instanceId);
+    // Mettre à jour la liste des joueurs associés
+    updateAssociatedPlayersList(instanceId);
 }
 
 function associatePlayer(instanceId, playerName) {
-    creaturePlayerAssociations.set(instanceId, playerName);
-    updatePlayerSelect(instanceId);
+    if (!creaturePlayerAssociations.has(instanceId)) {
+        creaturePlayerAssociations.set(instanceId, new Set());
+    }
+    creaturePlayerAssociations.get(instanceId).add(playerName);
+    updateAssociatedPlayersList(instanceId);
+}
+
+function dissociatePlayer(instanceId, playerName) {
+    if (creaturePlayerAssociations.has(instanceId)) {
+        creaturePlayerAssociations.get(instanceId).delete(playerName);
+        updateAssociatedPlayersList(instanceId);
+    }
 }
 
 function deleteCreature(instanceId) {

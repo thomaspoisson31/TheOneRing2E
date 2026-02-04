@@ -129,10 +129,11 @@ function displayPlayerProfile(player) {
     creatureCard.innerHTML = html;
     creatureCard.style.display = 'block';
 
-    // Mettre à jour tous les sélecteurs de PJ pour refléter le changement
-    document.querySelectorAll('.player-select').forEach(select => {
-        updatePlayerSelect(parseInt(select.closest('.creature-card').dataset.instanceId));
-    });
+    // Mettre à jour la carte créature ouverte si nécessaire
+    const activeTab = document.querySelector('.creature-tab.active');
+    if (activeTab && typeof updateAssociatedPlayersList === 'function') {
+        updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
+    }
 }
 
 function cycleAdvantage(playerIndex) {
@@ -146,17 +147,10 @@ function cycleAdvantage(playerIndex) {
         button.textContent = getAdvantageText(newValue);
     }
 
-    // Mettre à jour tous les sélecteurs de PJ
-    document.querySelectorAll('.player-select').forEach(select => {
-        updatePlayerSelect(parseInt(select.closest('.creature-card').dataset.instanceId));
-    });
-}
-
-function getAdvantageText(value) {
-    switch (value) {
-        case -1: return '-1D';
-        case 1: return '+1D';
-        default: return '0';
+    // Mettre à jour la carte créature ouverte si nécessaire
+    const activeTab = document.querySelector('.creature-tab.active');
+    if (activeTab && typeof updateAssociatedPlayersList === 'function') {
+        updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
     }
 }
 
@@ -169,8 +163,8 @@ function displayCreatureFromId(instanceId) {
 
 function getAssociatedCreatures(playerName) {
     const associatedCreatures = [];
-    creaturePlayerAssociations.forEach((associatedPlayer, instanceId) => {
-        if (associatedPlayer === playerName) {
+    creaturePlayerAssociations.forEach((playerSet, instanceId) => {
+        if (playerSet && playerSet.has(playerName)) {
             const tab = document.querySelector(`.creature-tab[data-instance-id="${instanceId}"]`);
             const instance = creatureInstances.get(instanceId);
             if (tab && instance) {

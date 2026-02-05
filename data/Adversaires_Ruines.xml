@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adversaires>
+
+    <!-- FAMILLE : NUMENOREENS NOIRS -->
+    <famille nom="Númenóréens Noirs">
+        <son1>hommes_marche.mp3</son1>
+        <son2>epee_metal.mp3</son2>
+        
+        <capacites_famille>
+            <capacite>
+                <Titre_Capacite>Haine des Rôdeurs</Titre_Capacite>
+                <Detail_Capacite>La créature gagne 1 point de Haine supplémentaire au début d'un combat impliquant des Rôdeurs du Nord.</Detail_Capacite>
+            </capacite>
+        </capacites_famille>
+
+        <creature>
+            <nom>Zoril (Cheffe de guerre)</nom>
+            <attributs>
+                <niveau>7</niveau>
+                <endurance>28</endurance>
+                <puissance>2</puissance>
+                <haine>7</haine>
+                <parade>+3</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Commandement, Terrifiant</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Épée longue</nom_arme>
+                    <valeur_arme>4</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Ordre de tuer</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour qu'un allié à portée de voix effectue immédiatement une attaque gratuite.</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/zoril.png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Usapthon (Sorcière)</nom>
+            <attributs>
+                <niveau>7</niveau>
+                <endurance>28</endurance>
+                <puissance>2</puissance>
+                <haine>7</haine>
+                <parade>+2</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Ruse, Savoir interdit</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Dague empoisonnée</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/12</degats_arme>
+                    <special_arme>Poison</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Regard d'effroi</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine. La cible doit réussir un jet de Conseil (Vigueur) ou être paralysée de peur pour 1 round.</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/usapthon.png</url_image>
+        </creature>
+    </famille>
+
+    <!-- FAMILLE : SPECTRES ET MORTS-VIVANTS -->
+    <famille nom="Spectres">
+        <son1>vent_glacial.mp3</son1>
+        <son2>cri_spectre.mp3</son2>
+
+        <capacites_famille>
+            <capacite>
+                <Titre_Capacite>Immatériel</Titre_Capacite>
+                <Detail_Capacite>La créature ne subit que la moitié des dégâts des armes non magiques.</Detail_Capacite>
+            </capacite>
+        </capacites_famille>
+
+        <creature>
+            <nom>Drameth l’Égarée</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>+2</parade>
+                <armure>0</armure>
+            </attributs>
+            <Particularités>Mélancolie, Regard glacé</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Toucher glacial</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Cœur glacé</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Chant de désespoir</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine. Tous les Héros entendant le chant perdent 2 points d'Espoir (jet de Vigueur pour réduire de moitié).</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/drameth.png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Gnarsh (Spectre d'Orque)</nom>
+            <attributs>
+                <niveau>7</niveau>
+                <endurance>28</endurance>
+                <puissance>2</puissance>
+                <haine>7</haine>
+                <parade>+1</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Haine viscérale</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Lame spectrale</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Peur</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Frappe sauvage</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour ajouter votre attribut de base aux dégâts d'une attaque réussie.</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/gnarsh.png</url_image>
+        </creature>
+    </famille>
+
+    <!-- FAMILLE : CREATURES MONSTRUEUSES -->
+    <famille nom="Abominations">
+        <son1>monstre_rugissement.mp3</son1>
+
+        <creature>
+            <nom>La Bête d’Angmar</nom>
+            <attributs>
+                <niveau>9</niveau>
+                <endurance>70</endurance>
+                <puissance>3</puissance>
+                <haine>9</haine>
+                <parade>+2</parade>
+                <armure>4</armure>
+            </attributs>
+            <Particularités>Énorme, Peau épaisse</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Griffes et crocs</nom_arme>
+                    <valeur_arme>4</valeur_arme>
+                    <degats_arme>7/18</degats_arme>
+                    <special_arme>Saisie</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Écrasement</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>10/20</degats_arme>
+                    <special_arme>Assommage</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Piétinement</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 2 points de Haine. La créature attaque deux cibles différentes en un seul round.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Hurlement de terreur</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour forcer tous les Héros à effectuer un test d'Ombre (Terreur 4).</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/bete_angmar.png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Dolomède (Grande araignée)</nom>
+            <attributs>
+                <niveau>9</niveau>
+                <endurance>70</endurance>
+                <puissance>3</puissance>
+                <haine>9</haine>
+                <parade>+4</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Grimpeur, Mortellement venimeux</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>4</valeur_arme>
+                    <degats_arme>6/16</degats_arme>
+                    <special_arme>Poison foudroyant</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Jet de toile</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine. Une cible est entravée et ne peut plus changer de position de combat.</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/dolomede.png</url_image>
+        </creature>
+    </famille>
+
+</adversaires>

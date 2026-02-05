@@ -18,7 +18,6 @@ creatureSelect.addEventListener('change', function() {
     }
 
     if (this.value) {
-        addButton.disabled = false;
         try {
             const selectedValue = JSON.parse(this.value);
             const famille = Array.from(xmlDoc.getElementsByTagName('famille'))
@@ -29,26 +28,18 @@ creatureSelect.addEventListener('change', function() {
                     .find(c => c.getElementsByTagName('nom')[0].textContent === selectedValue.creature);
 
                 if (creature) {
-                    selectedCreature = creature;
-                    selectedFamily = selectedValue.family;
+                    displayCreature(creature, selectedValue.family);
+                    // Réinitialiser la sélection pour permettre d'ajouter la même créature plusieurs fois
+                    this.value = "";
                 }
             }
         } catch (error) {
             console.error('Erreur lors de la sélection de la créature:', error);
         }
-    } else {
-        addButton.disabled = true;
-        selectedCreature = null;
-        selectedFamily = null;
     }
 });
 
-// Gestionnaire pour l'ajout de créatures
-addButton.addEventListener('click', function() {
-    if (selectedCreature && selectedFamily) {
-        displayCreature(selectedCreature, selectedFamily);
-    }
-});
+// Le gestionnaire pour addButton est supprimé car le bouton est caché
 
 // Fonction pour fermer la fenêtre modale des cartes
 function closeCardModal() {

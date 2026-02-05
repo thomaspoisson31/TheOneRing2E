@@ -311,14 +311,6 @@ function displayCreatureDetails(creature, familyName) {
     
     html += '</div>';
 
-    // Section PJ Associés
-    html += `
-        <div class="associated-section">
-            <h3>PJ Associé</h3>
-            <div id="associated-players-list" class="associated-list"></div>
-        </div>
-    `;
-
     // Compétences et capacités
     html += '<div class="details-grid">';
 
@@ -386,6 +378,14 @@ function displayCreatureDetails(creature, familyName) {
         html += '</div>';
     }
         
+    // Section PJ Associés déplacée APRÈS les compétences/capacités
+    html += `
+        <div class="associated-section">
+            <h3>PJ Associé</h3>
+            <div id="associated-players-list" class="associated-list"></div>
+        </div>
+    `;
+
     creatureCard.innerHTML = html;
     creatureCard.style.display = 'block';
     creatureCard.dataset.instanceId = instanceId;

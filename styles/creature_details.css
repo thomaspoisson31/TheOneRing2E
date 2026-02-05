@@ -245,18 +245,18 @@
    SECTION PJ ASSOCIÉS
    ============================================== */
 .associated-section {
-    background: #f8f9fa;
+    background: #000; /* Fond noir demandé */
     border-radius: 4px;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
 }
 
 .associated-section h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    color: var(--title-color);
+    color: #fff; /* Titre en blanc */
 }
 
 .associated-list {
@@ -269,10 +269,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: #222; /* Fond légèrement plus clair pour les items */
     padding: 0.5rem;
     border-radius: 4px;
-    border: 1px solid #eee;
+    border: 1px solid #444;
 }
 
 .player-info {
@@ -282,30 +282,30 @@
 
 .player-name {
     font-weight: bold;
-    color: var(--primary-color);
+    color: #fff; /* Nom en blanc */
 }
 
 .player-stats {
     font-size: 0.8rem;
-    color: var(--secondary-color);
+    color: #aaa; /* Stats en gris clair */
 }
 
 .delete-icon-small {
     width: 20px;
     height: 20px;
     font-size: 14px;
-    background: #ffebee;
-    color: #c62828;
-    border: 1px solid #ffcdd2;
+    background: #333; /* Fond sombre pour le bouton */
+    color: #ff5252; /* Croix rouge clair */
+    border: 1px solid #555;
 }
 
 .delete-icon-small:hover {
-    background: #ffcdd2;
+    background: #444;
 }
 
 .no-association {
     font-style: italic;
-    color: #666;
+    color: #888; /* Texte "aucun" en gris */
     font-size: 0.9rem;
     margin: 0;
 }

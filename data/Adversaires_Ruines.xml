@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <adversaires>
 
-    <!-- FAMILLE : NUMENOREENS NOIRS -->
+    <!-- FAMILLE : NUMENOREENS NOIRS (GALLION DES CORSAIRES) -->
     <famille nom="Numenoreens Noirs">
         <son1>hommes_marche.mp3</son1>
         <son2>epee_metal.mp3</son2>
@@ -14,7 +14,7 @@
         </capacites_famille>
 
         <creature>
-            <nom>Zoril</nom>
+            <nom>Zoril (Cheffe de guerre)</nom>
             <attributs>
                 <niveau>7</niveau>
                 <endurance>28</endurance>
@@ -38,11 +38,10 @@
                     <Detail_Capacite>Depensez 1 point de Haine pour qu'un allie a portee de voix effectue immediatement une attaque gratuite.</Detail_Capacite>
                 </capacite>
             </capacites>
-            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/zoril.png</url_image>
         </creature>
 
         <creature>
-            <nom>Usapthon</nom>
+            <nom>Usapthon (Sorciere)</nom>
             <attributs>
                 <niveau>7</niveau>
                 <endurance>28</endurance>
@@ -67,19 +66,299 @@
                 </capacite>
             </capacites>
         </creature>
+
+        <creature>
+            <nom>Le Capitaine Nerek</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>2</puissance>
+                <haine>5</haine>
+                <parade>+2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularites>Commandement</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Chef de meute</Titre_Capacite>
+                    <Detail_Capacite>Tant que Nerek est en vie, ses subordonnes gagnent +1 a leurs jets d'attaque.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Soldat Numenoreen Noir</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>+2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularites>Fervent</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Epee longue et bouclier</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Marin Numenoreen Noir</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+1</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularites>Marin agile</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Saisie</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Espion Numenoreen Noir</nom>
+            <attributs>
+                <niveau>3</niveau>
+                <endurance>12</endurance>
+                <puissance>1</puissance>
+                <haine>3</haine>
+                <parade>+1</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularites>Furtif</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Arc</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Dague</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>2/12</degats_arme>
+                    <special_arme>-</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Lug, le Seigneur du Fouet (Uruk)</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>+1</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularites>Cruel</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Fouet de cuir</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/12</degats_arme>
+                    <special_arme>Saisie</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Claquement de fouet</Titre_Capacite>
+                    <Detail_Capacite>Depensez 1 point de Haine. La cible est desorientee et perd sa prochaine action de mouvement.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
     </famille>
 
-    <!-- FAMILLE : SPECTRES ET MORTS-VIVANTS -->
-    <famille nom="Spectres">
-        <son1>vent_glacial.mp3</son1>
-        <son2>cri_spectre.mp3</son2>
-
+    <!-- FAMILLE : ORQUES DU MONT GRAM -->
+    <famille nom="Orques du Mont Gram">
+        <son1>orques_cris.mp3</son1>
+        
         <capacites_famille>
             <capacite>
-                <Titre_Capacite>Immateriel</Titre_Capacite>
-                <Detail_Capacite>La creature ne subit que la moitie des degats des armes non magiques.</Detail_Capacite>
+                <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                <Detail_Capacite>Perd 1 point de Haine par round a la lumiere directe du soleil.</Detail_Capacite>
             </capacite>
         </capacites_famille>
+
+        <creature>
+            <nom>Radgul (Chef Orque)</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>+2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularites>Haine des Hobbits</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Hache de guerre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>6/14</degats_arme>
+                    <special_arme>Brise-bouclier</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Fureur Orque</Titre_Capacite>
+                    <Detail_Capacite>Depensez 1 point de Haine pour relancer un jet d'attaque rate.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Chef de guerre Orque</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>+2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularites>Commandement</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Grand Cimeterre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Garde du corps Orque</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+1</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularites>Devoue</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Lance et bouclier</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Soldat Orque</nom>
+            <attributs>
+                <niveau>3</niveau>
+                <endurance>12</endurance>
+                <puissance>1</puissance>
+                <haine>3</haine>
+                <parade>+0</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularites>-</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>-</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Archer Orque</nom>
+            <attributs>
+                <niveau>2</niveau>
+                <endurance>8</endurance>
+                <puissance>1</puissance>
+                <haine>2</haine>
+                <parade>+0</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularites>Vue percante</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Arc de corne</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Snaga (Esclave)</nom>
+            <attributs>
+                <niveau>1</niveau>
+                <endurance>6</endurance>
+                <puissance>0</puissance>
+                <haine>1</haine>
+                <parade>+0</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularites>Peureux</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Dague rouillee</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>2/12</degats_arme>
+                    <special_arme>-</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Le Demon entre les Ombres</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>+3</parade>
+                <armure>0</armure>
+            </attributs>
+            <Particularites>Invisible, Deconcertant</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Griffes d'ombre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/16</degats_arme>
+                    <special_arme>Peur</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+    </famille>
+
+    <!-- FAMILLE : SPECTRES ET ESPRITS -->
+    <famille nom="Spectres et Esprits">
+        <son1>vent_glacial.mp3</son1>
 
         <creature>
             <nom>Drameth l'Egaree</nom>
@@ -97,15 +376,36 @@
                     <nom_arme>Toucher glacial</nom_arme>
                     <valeur_arme>3</valeur_arme>
                     <degats_arme>4/14</degats_arme>
-                    <special_arme>Cœur glace</special_arme>
+                    <special_arme>Coeur glace</special_arme>
                 </arme>
             </competences_combat>
             <capacites>
                 <capacite>
-                    <Titre_Capacite>Chant de desespoir</Titre_Capacite>
-                    <Detail_Capacite>Depensez 1 point de Haine. Tous les Heros entendant le chant perdent 2 points d'Espoir (jet de Vigueur pour reduire de moitie).</Detail_Capacite>
+                    <Titre_Capacite>Immateriel</Titre_Capacite>
+                    <Detail_Capacite>Subit moitie des degats des armes non magiques.</Detail_Capacite>
                 </capacite>
             </capacites>
+        </creature>
+
+        <creature>
+            <nom>Spectre de Fornost</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>+1</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularites>Regard de mort</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Lame spectrale</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Peur</special_arme>
+                </arme>
+            </competences_combat>
         </creature>
 
         <creature>
@@ -127,17 +427,32 @@
                     <special_arme>Peur</special_arme>
                 </arme>
             </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Frappe sauvage</Titre_Capacite>
-                    <Detail_Capacite>Depensez 1 point de Haine pour ajouter votre attribut de base aux degats d'une attaque reussie.</Detail_Capacite>
-                </capacite>
-            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Esprit des neiges</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+1</parade>
+                <armure>0</armure>
+            </attributs>
+            <Particularites>Froid intense</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Eclat de glace</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>3/12</degats_arme>
+                    <special_arme>Engourdissement</special_arme>
+                </arme>
+            </competences_combat>
         </creature>
     </famille>
 
-    <!-- FAMILLE : CREATURES MONSTRUEUSES -->
-    <famille nom="Abominations">
+    <!-- FAMILLE : ABOMINATIONS ET MONSTRES -->
+    <famille nom="Abominations et Monstres">
         <son1>monstre_rugissement.mp3</son1>
 
         <creature>
@@ -158,23 +473,7 @@
                     <degats_arme>7/18</degats_arme>
                     <special_arme>Saisie</special_arme>
                 </arme>
-                <arme>
-                    <nom_arme>Ecrasement</nom_arme>
-                    <valeur_arme>3</valeur_arme>
-                    <degats_arme>10/20</degats_arme>
-                    <special_arme>Assommage</special_arme>
-                </arme>
             </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Pietinement</Titre_Capacite>
-                    <Detail_Capacite>Depensez 2 points de Haine. La creature attaque deux cibles differentes en un seul round.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Hurlement de terreur</Titre_Capacite>
-                    <Detail_Capacite>Depensez 1 point de Haine pour forcer tous les Heros a effectuer un test d'Ombre (Terreur 4).</Detail_Capacite>
-                </capacite>
-            </capacites>
         </creature>
 
         <creature>
@@ -196,12 +495,69 @@
                     <special_arme>Poison foudroyant</special_arme>
                 </arme>
             </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Jet de toile</Titre_Capacite>
-                    <Detail_Capacite>Depensez 1 point de Haine. Une cible est entravee et ne peut plus changer de position de combat.</Detail_Capacite>
-                </capacite>
-            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Grande Araignee</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>12</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+2</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularites>Grimpeur</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Poison</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Chasseur de sang (Champion)</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>50</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>+2</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularites>Endurance hors norme</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Hache de bucheron</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>7/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+        </creature>
+
+        <creature>
+            <nom>Guerrier Homme Arbre</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+0</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularites>Lent, Peau d'ecorce</Particularites>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Ecrasement</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>6/14</degats_arme>
+                    <special_arme>Assommage</special_arme>
+                </arme>
+            </competences_combat>
         </creature>
     </famille>
 

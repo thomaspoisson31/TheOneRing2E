@@ -14,7 +14,7 @@
         </capacites_famille>
 
         <creature>
-            <nom>Zoril (Cheffe de guerre)</nom>
+            <nom>Zoril</nom>
             <attributs>
                 <niveau>7</niveau>
                 <endurance>28</endurance>
@@ -42,7 +42,7 @@
         </creature>
 
         <creature>
-            <nom>Usapthon (Sorciere)</nom>
+            <nom>Usapthon</nom>
             <attributs>
                 <niveau>7</niveau>
                 <endurance>28</endurance>
@@ -66,7 +66,6 @@
                     <Detail_Capacite>Depensez 1 point de Haine. La cible doit reussir un jet de Conseil (Vigueur) ou etre paralyse de peur pour 1 round.</Detail_Capacite>
                 </capacite>
             </capacites>
-            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/usapthon.png</url_image>
         </creature>
     </famille>
 
@@ -107,7 +106,6 @@
                     <Detail_Capacite>Depensez 1 point de Haine. Tous les Heros entendant le chant perdent 2 points d'Espoir (jet de Vigueur pour reduire de moitie).</Detail_Capacite>
                 </capacite>
             </capacites>
-            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/drameth.png</url_image>
         </creature>
 
         <creature>
@@ -135,7 +133,6 @@
                     <Detail_Capacite>Depensez 1 point de Haine pour ajouter votre attribut de base aux degats d'une attaque reussie.</Detail_Capacite>
                 </capacite>
             </capacites>
-            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/gnarsh.png</url_image>
         </creature>
     </famille>
 
@@ -178,11 +175,10 @@
                     <Detail_Capacite>Depensez 1 point de Haine pour forcer tous les Heros a effectuer un test d'Ombre (Terreur 4).</Detail_Capacite>
                 </capacite>
             </capacites>
-            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/bete_angmar.png</url_image>
         </creature>
 
         <creature>
-            <nom>Dolomede (Grande araignee)</nom>
+            <nom>Dolomede</nom>
             <attributs>
                 <niveau>9</niveau>
                 <endurance>70</endurance>
@@ -206,7 +202,6 @@
                     <Detail_Capacite>Depensez 1 point de Haine. Une cible est entravee et ne peut plus changer de position de combat.</Detail_Capacite>
                 </capacite>
             </capacites>
-            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/main/images/dolomede.png</url_image>
         </creature>
     </famille>
 

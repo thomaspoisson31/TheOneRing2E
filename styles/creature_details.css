@@ -278,6 +278,7 @@
 .player-info {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .player-name {
@@ -297,6 +298,7 @@
     background: #333; /* Fond sombre pour le bouton */
     color: #ff5252; /* Croix rouge clair */
     border: 1px solid #555;
+    flex-shrink: 0;
 }
 
 .delete-icon-small:hover {
@@ -308,4 +310,31 @@
     color: #888; /* Texte "aucun" en gris */
     font-size: 0.9rem;
     margin: 0;
+}
+
+/* Zone d'avantage interactive */
+.advantage-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #444;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin: 0 10px;
+    cursor: pointer;
+    min-width: 40px;
+    text-align: center;
+    border: 1px solid #666;
+    transition: background-color 0.2s;
+}
+
+.advantage-section:hover {
+    background: #555;
+    border-color: #888;
+}
+
+.advantage-value {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
 }

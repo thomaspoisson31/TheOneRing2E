@@ -29,6 +29,12 @@ function displayPlayerProfile(player) {
         tab.classList.remove('active')
     );
 
+    // Feature b & c: Update icons visibility for PJ (Show Eye, Hide Rune)
+    const eyeButton = document.getElementById('eyeButton');
+    const runeButton = document.getElementById('runeButton');
+    if (eyeButton) eyeButton.style.display = 'flex'; // or 'block'
+    if (runeButton) runeButton.style.display = 'none';
+
     // Récupérer les créatures associées
     const associatedCreatures = getAssociatedCreatures(name);
 
@@ -37,9 +43,6 @@ function displayPlayerProfile(player) {
             <div class="creature-title">
                 <div class="creature-title-left">
                     <span class="creature-name">${name}</span>
-                    <button class="advantage-button" onclick="cycleAdvantage(${playerIndex})">
-                        ${getAdvantageText(playerAdvantages.get(playerIndex))}
-                    </button>
                     <button class="icon-button delete-icon" onclick="deletePlayer(${playerIndex})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
                 </div>
             </div>
@@ -210,6 +213,4 @@ function deletePlayer(playerIndex) {
     playerInstances.delete(playerIndex);
     // Masquer la carte si nécessaire
     creatureCard.style.display = 'none';
-    const selector = document.querySelector('.creature-selector');
-    if (selector) selector.classList.remove('visible');
 }

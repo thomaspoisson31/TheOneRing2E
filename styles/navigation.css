@@ -4,27 +4,26 @@
 
 .tabs-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Alignement en haut pour gérer les colonnes */
     gap: 1rem;
     margin-bottom: 1rem;
+    min-height: 100px;
 }
 
 .creature-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    align-items: center;
+    align-items: flex-start;
+    flex-grow: 1; /* Occuper l'espace restant */
 }
 
 .creature-selector {
-    display: none;
+    display: flex;
     gap: 0.5rem;
     align-items: center;
     margin-left: auto;
-}
-
-.creature-selector.visible {
-    display: flex;
+    align-self: flex-start; /* Rester en haut même si la liste grandit */
 }
 
 .action-buttons {
@@ -116,6 +115,7 @@
     text-align: center;
     padding: 0;
     position: relative;
+    flex-shrink: 0; /* Empêcher le rétrécissement */
 }
 
 /* Style du bouton de suppression */
@@ -161,6 +161,18 @@
     background: var(--title-color);
     color: white;
     border-color: var(--title-color);
+}
+
+/* Nom de la créature dans l'onglet si pas d'image */
+.creature-tab-name {
+    font-size: 0.65rem; /* Petits caractères */
+    line-height: 1.1;
+    word-break: break-word;
+    padding: 2px;
+    color: inherit;
+    display: block;
+    max-height: 100%;
+    overflow: hidden;
 }
 
 /* Style spécifique pour les onglets de joueurs */

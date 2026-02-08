@@ -71,7 +71,9 @@ function displayCreature(creature, familyName, resetSelect = true) {
         imageElement.className = 'creature-token';
         tabContent.appendChild(imageElement);
     } else {
-        tabContent.innerHTML = `<span class="creature-tab-name">${instanceId}</span>`;
+        // Afficher le nom en petits caractères si pas d'image
+        const name = creature.getElementsByTagName('nom')[0]?.textContent || `${instanceId}`;
+        tabContent.innerHTML = `<span class="creature-tab-name">${name}</span>`;
     }
 
     tabElement.appendChild(tabContent);
@@ -87,10 +89,6 @@ function displayCreature(creature, familyName, resetSelect = true) {
             tab.classList.remove('active')
         );
         
-        // Cacher le sélecteur car on n'est plus sur un PJ
-        const selector = document.querySelector('.creature-selector');
-        if (selector) selector.classList.remove('visible');
-
         this.classList.add('active');
         
         const instance = creatureInstances.get(parseInt(this.dataset.instanceId));
@@ -98,10 +96,16 @@ function displayCreature(creature, familyName, resetSelect = true) {
             displayCreatureDetails(instance, this.dataset.familyName);
             updateSoundIconVisibility(this.dataset.familyName);
         }
+
+        // Feature b & c: Update icons visibility for Adversaire (Show Rune, Hide Eye)
+        const eyeButton = document.getElementById('eyeButton');
+        const runeButton = document.getElementById('runeButton');
+        if (eyeButton) eyeButton.style.display = 'none';
+        if (runeButton) runeButton.style.display = 'flex'; // or 'block' depending on CSS, flex is safer for centering
     });
     
     // Déterminer où ajouter l'onglet de la créature
-    let targetContainer = creatureTabs;
+    let targetContainer = document.getElementById('creatureTabs'); // Par défaut dans le conteneur principal (à droite)
     const activePlayerTab = document.querySelector('.player-tab.active');
     
     if (activePlayerTab) {
@@ -184,7 +188,10 @@ function updateAssociatedPlayersList(instanceId) {
             <div class="associated-player-item">
                 <div class="player-info">
                     <span class="player-name">${playerName}</span>
-                    <span class="player-stats">Parade: ${parry} | ${advantageText}</span>
+                    <span class="player-stats">Parade: ${parry}</span>
+                </div>
+                <div class="advantage-section" onclick="cycleAdvantageForPlayer('${playerName.replace(/'/g, "\\'")}', ${instanceId})">
+                    <span class="advantage-value">${advantageText}</span>
                 </div>
                 <button class="icon-button delete-icon-small" onclick="dissociatePlayer(${instanceId}, '${playerName.replace(/'/g, "\\'")}')" title="Dissocier">×</button>
             </div>
@@ -417,6 +424,22 @@ function deleteCreature(instanceId) {
     creatureInstances.delete(instanceId);
     creaturePlayerAssociations.delete(instanceId);
     creatureCard.style.display = 'none';
+}
+
+function cycleAdvantageForPlayer(playerName, instanceId) {
+    // Récupérer l'index du joueur
+    const playerIndex = Array.from(playerInstances.entries())
+            .find(([_, p]) => p.getElementsByTagName('Name')[0].textContent === playerName)?.[0];
+            
+    if (playerIndex !== undefined) {
+        // Appeler la fonction originale de cycle (qui mettra à jour playerAdvantages)
+        const currentValue = playerAdvantages.get(playerIndex) || 0;
+        const newValue = currentValue === 1 ? -1 : currentValue + 1;
+        playerAdvantages.set(playerIndex, newValue);
+        
+        // Mettre à jour l'affichage dans la liste des créatures associées (celle-ci est affichée)
+        updateAssociatedPlayersList(instanceId);
+    }
 }
 
 // Charger les PJ au démarrage

@@ -173,9 +173,6 @@ function createPlayerTabs(pjDoc) {
                 // Ajouter la classe active à l'onglet cliqué
                 this.classList.add('active');
 
-                // Afficher le sélecteur de créature
-                document.querySelector('.creature-selector').classList.add('visible');
-                
                 // Cloner et stocker l'instance du joueur
                 const playerInstance = player.cloneNode(true);
                 playerInstances.set(playerInstances.size, playerInstance);
@@ -197,4 +194,34 @@ function createPlayerTabs(pjDoc) {
     } else {
         tabsContainer.appendChild(playerTabsContainer);
     }
+    
+    // Configurer le drag & drop pour le conteneur principal des créatures (zone "non associés")
+    tabsContainer.addEventListener('dragover', (e) => {
+        const draggingCreature = document.querySelector('.dragging-creature');
+        if (!draggingCreature) return;
+
+        e.preventDefault();
+        // On autorise le drop ici (retour vers la zone non associée)
+    });
+
+    tabsContainer.addEventListener('drop', (e) => {
+        const draggingCreature = document.querySelector('.dragging-creature');
+        if (!draggingCreature) return;
+
+        e.preventDefault();
+        
+        // Retirer le placeholder s'il existe
+        if (window.dragPlaceholder && window.dragPlaceholder.parentNode) {
+            window.dragPlaceholder.remove();
+        }
+
+        // Ajouter la créature au conteneur principal
+        tabsContainer.appendChild(draggingCreature);
+        
+        // Dissocier du joueur précédent si nécessaire
+        const instanceId = parseInt(draggingCreature.dataset.instanceId);
+        // Note: La logique de dissociation complète pourrait nécessiter de parcourir creaturePlayerAssociations
+        // Mais comme creaturePlayerAssociations est Map<ID, Set<Name>>, on ne sait pas quel joueur on quitte juste avec le drop ici.
+        // Pour l'instant, le drop déplace visuellement. La dissociation explicite se fait via le bouton "x" dans la liste des associés.
+    });
 }

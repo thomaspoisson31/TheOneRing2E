@@ -1,8 +1,32 @@
 let creatureCounter = 0;
 let creatureInstances = new Map(); // Stockage des instances d'adversaires
 let creaturePlayerAssociations = new Map(); // Stockage des associations adversaire-PJ (Set)
+let creatureInstanceAdvantages = new Map(); // Stockage des avantages par instance (+1D, 0, -1D)
 window.dragPlaceholder = document.createElement('div');
 window.dragPlaceholder.className = 'drop-placeholder';
+
+function cycleInstanceAdvantage(instanceId) {
+    const currentValue = creatureInstanceAdvantages.get(instanceId) || 0;
+    // Cycle: 0 -> 1 -> -1 -> 0
+    let newValue;
+    if (currentValue === 0) newValue = 1;
+    else if (currentValue === 1) newValue = -1;
+    else newValue = 0;
+
+    creatureInstanceAdvantages.set(instanceId, newValue);
+
+    const tabElement = document.querySelector(`.creature-tab[data-instance-id="${instanceId}"]`);
+    if (tabElement) {
+        const indicator = tabElement.querySelector('.advantage-indicator');
+        if (indicator && typeof getAdvantageText === 'function') {
+            indicator.textContent = getAdvantageText(newValue);
+            // Classes pour le style
+            indicator.className = 'advantage-indicator';
+            if (newValue === 1) indicator.classList.add('positive');
+            if (newValue === -1) indicator.classList.add('negative');
+        }
+    }
+}
 
 function displayCreature(creature, familyName, resetSelect = true) {
     creatureCounter++;
@@ -10,11 +34,22 @@ function displayCreature(creature, familyName, resetSelect = true) {
     
     const creatureInstance = creature.cloneNode(true);
     creatureInstances.set(instanceId, creatureInstance);
+    creatureInstanceAdvantages.set(instanceId, 0); // Initialiser à 0
 
     const tabElement = document.createElement('div');
     tabElement.className = 'creature-tab';
     tabElement.dataset.instanceId = instanceId;
     tabElement.dataset.familyName = familyName;
+
+    // Ajout de l'indicateur d'avantage
+    const advantageIndicator = document.createElement('div');
+    advantageIndicator.className = 'advantage-indicator';
+    advantageIndicator.textContent = '0';
+    advantageIndicator.addEventListener('click', (e) => {
+        e.stopPropagation();
+        cycleInstanceAdvantage(instanceId);
+    });
+    tabElement.appendChild(advantageIndicator);
 
     // --- ACTIVATION DRAG & DROP SUR L'ONGLET CRÉATURE ---
     tabElement.setAttribute('draggable', true);
@@ -168,19 +203,6 @@ function updateAssociatedPlayersList(instanceId) {
 
     let html = '';
     playersSet.forEach(playerName => {
-        // Récupérer l'index du joueur pour l'avantage
-        const playerIndex = Array.from(playerInstances.entries())
-            .find(([_, p]) => p.getElementsByTagName('Name')[0].textContent === playerName)?.[0];
-            
-        let advantageText = '0';
-        if (playerIndex !== undefined && playerAdvantages) {
-            const advantage = playerAdvantages.get(playerIndex);
-            // Utilise la fonction globale définie dans utils.js
-            if (typeof getAdvantageText === 'function') {
-                advantageText = getAdvantageText(advantage);
-            }
-        }
-        
         const staticPC = window.playerCharacters ? window.playerCharacters.find(pc => pc.name === playerName) : null;
         const parry = staticPC ? staticPC.parry : '?';
 
@@ -189,9 +211,6 @@ function updateAssociatedPlayersList(instanceId) {
                 <div class="player-info">
                     <span class="player-name">${playerName}</span>
                     <span class="player-stats">Parade: ${parry}</span>
-                </div>
-                <div class="advantage-section" onclick="cycleAdvantageForPlayer('${playerName.replace(/'/g, "\\'")}', ${instanceId})">
-                    <span class="advantage-value">${advantageText}</span>
                 </div>
                 <button class="icon-button delete-icon-small" onclick="dissociatePlayer(${instanceId}, '${playerName.replace(/'/g, "\\'")}')" title="Dissocier">×</button>
             </div>
@@ -423,23 +442,8 @@ function deleteCreature(instanceId) {
     }
     creatureInstances.delete(instanceId);
     creaturePlayerAssociations.delete(instanceId);
+    creatureInstanceAdvantages.delete(instanceId);
     creatureCard.style.display = 'none';
-}
-
-function cycleAdvantageForPlayer(playerName, instanceId) {
-    // Récupérer l'index du joueur
-    const playerIndex = Array.from(playerInstances.entries())
-            .find(([_, p]) => p.getElementsByTagName('Name')[0].textContent === playerName)?.[0];
-            
-    if (playerIndex !== undefined) {
-        // Appeler la fonction originale de cycle (qui mettra à jour playerAdvantages)
-        const currentValue = playerAdvantages.get(playerIndex) || 0;
-        const newValue = currentValue === 1 ? -1 : currentValue + 1;
-        playerAdvantages.set(playerIndex, newValue);
-        
-        // Mettre à jour l'affichage dans la liste des créatures associées (celle-ci est affichée)
-        updateAssociatedPlayersList(instanceId);
-    }
 }
 
 // Charger les PJ au démarrage

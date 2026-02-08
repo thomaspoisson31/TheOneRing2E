@@ -266,3 +266,41 @@
     box-sizing: border-box;
     margin-bottom: 0.5rem;
 }
+
+/* --- Styles pour l'indicateur d'avantage --- */
+.advantage-indicator {
+    display: none;
+    width: 100%;
+    text-align: center;
+    background: #eee;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 2px 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.advantage-indicator.positive {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.advantage-indicator.negative {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Quand la créature est associée à un PJ */
+.pj-opponents .creature-tab {
+    height: auto; /* Permettre l'agrandissement pour l'indicateur */
+    flex-direction: column;
+}
+
+.pj-opponents .creature-tab .advantage-indicator {
+    display: block;
+}
+
+.pj-opponents .creature-tab .tab-content {
+    height: 50px; /* Fixer la hauteur de la partie token */
+    width: 100%;
+}

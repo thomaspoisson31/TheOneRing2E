@@ -120,12 +120,7 @@
 
 /* Gestion de la visibilité du sélecteur d'adversaire */
 .creature-selector {
-    visibility: hidden; /* Caché par défaut */
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.creature-selector.visible {
     visibility: visible;
     opacity: 1;
+    transition: opacity 0.3s;
 }

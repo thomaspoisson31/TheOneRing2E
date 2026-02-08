@@ -24,6 +24,8 @@
     align-items: center;
     margin-left: auto;
     align-self: flex-start; /* Rester en haut même si la liste grandit */
+    flex-shrink: 0; /* Empêcher le rétrécissement */
+    z-index: 100; /* Assurer qu'il est au-dessus */
 }
 
 .action-buttons {

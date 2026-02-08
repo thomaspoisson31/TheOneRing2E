@@ -273,7 +273,11 @@
     width: 100%;
     text-align: center;
     background: #eee;
+<<<<<<< Updated upstream
     font-size: 10px;
+=======
+    font-size: 14px;
+>>>>>>> Stashed changes
     cursor: pointer;
     padding: 2px 0;
     border-bottom: 1px solid #ddd;

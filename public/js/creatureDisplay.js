@@ -96,20 +96,9 @@ function displayCreature(creature, familyName, resetSelect = true) {
     const tabContent = document.createElement('div');
     tabContent.className = 'tab-content';
     
-    // Essayer de récupérer l'image
-    const imageUrl = creature.getElementsByTagName('url_image')[0]?.textContent;
-    
-    if (imageUrl) {
-        const imageElement = document.createElement('img');
-        imageElement.src = imageUrl;
-        imageElement.alt = creature.getElementsByTagName('nom')[0]?.textContent || `Creature ${instanceId}`;
-        imageElement.className = 'creature-token';
-        tabContent.appendChild(imageElement);
-    } else {
-        // Afficher le nom en petits caractères si pas d'image
-        const name = creature.getElementsByTagName('nom')[0]?.textContent || `${instanceId}`;
-        tabContent.innerHTML = `<span class="creature-tab-name">${name}</span>`;
-    }
+    // Afficher le nom en petits caractères
+    const name = creature.getElementsByTagName('nom')[0]?.textContent || `${instanceId}`;
+    tabContent.innerHTML = `<span class="creature-tab-name">${name}</span>`;
 
     tabElement.appendChild(tabContent);
     

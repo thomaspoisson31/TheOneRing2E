@@ -309,3 +309,25 @@
     height: 50px; /* Fixer la hauteur de la partie token */
     width: 100%;
 }
+
+/* Bouton Repoussé */
+.repousse-btn {
+    width: 100%;
+    background-color: #e0e0e0;
+    color: #4a4a4a;
+    border: none;
+    border-radius: 4px;
+    font-size: 8px; /* Small font to fit */
+    padding: 2px 0;
+    margin-bottom: 2px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.2;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: bold;
+}
+
+.repousse-btn.active {
+    background-color: #000000;
+    color: #ffffff;
+}

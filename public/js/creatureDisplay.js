@@ -2,6 +2,9 @@ let creatureCounter = 0;
 let creatureInstances = new Map(); // Stockage des instances d'adversaires
 let creaturePlayerAssociations = new Map(); // Stockage des associations adversaire-PJ (Set)
 let creatureInstanceAdvantages = new Map(); // Stockage des avantages par instance (+1D, 0, -1D)
+// Expose for external access
+window.creatureInstanceAdvantages = creatureInstanceAdvantages;
+
 window.dragPlaceholder = document.createElement('div');
 window.dragPlaceholder.className = 'drop-placeholder';
 

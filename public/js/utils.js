@@ -10,7 +10,7 @@ function getAdvantageText(value) {
     switch (value) {
         case -1: return '-1D';
         case 1: return '+1D';
-        case 2: return 'Distance';
+        case 2: return 'Dist.';
         default: return '0';
     }
 }

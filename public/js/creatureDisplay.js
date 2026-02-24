@@ -7,11 +7,12 @@ window.dragPlaceholder.className = 'drop-placeholder';
 
 function cycleInstanceAdvantage(instanceId) {
     const currentValue = creatureInstanceAdvantages.get(instanceId) || 0;
-    // Cycle: 0 -> 1 -> -1 -> 0
+    // Cycle: 1 -> 0 -> -1 -> 2 -> 1 (+1D -> 0 -> -1D -> Distance -> +1D)
     let newValue;
-    if (currentValue === 0) newValue = 1;
-    else if (currentValue === 1) newValue = -1;
-    else newValue = 0;
+    if (currentValue === 1) newValue = 0;
+    else if (currentValue === 0) newValue = -1;
+    else if (currentValue === -1) newValue = 2;
+    else newValue = 1;
 
     creatureInstanceAdvantages.set(instanceId, newValue);
 
@@ -24,6 +25,7 @@ function cycleInstanceAdvantage(instanceId) {
             indicator.className = 'advantage-indicator';
             if (newValue === 1) indicator.classList.add('positive');
             if (newValue === -1) indicator.classList.add('negative');
+            if (newValue === 2) indicator.classList.add('distance');
         }
     }
 }

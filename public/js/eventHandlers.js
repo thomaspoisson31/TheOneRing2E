@@ -9,14 +9,18 @@ const addButton = document.getElementById('addCreature');
 let selectedCreature = null;
 let selectedFamily = null;
 
-// Gestionnaire pour la sélection des créatures
-creatureSelect.addEventListener('change', function() {
+// Gestionnaire pour la sélection de la famille
+familySelect.addEventListener('change', function() {
     if (this.value === "change_list") {
         openFileModal();
         this.value = "";
         return;
     }
+    updateCreatureList(this.value);
+});
 
+// Gestionnaire pour la sélection des créatures
+creatureSelect.addEventListener('change', function() {
     if (this.value) {
         try {
             const selectedValue = JSON.parse(this.value);

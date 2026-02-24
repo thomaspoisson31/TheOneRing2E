@@ -1,6 +1,7 @@
 /**
  * Gestionnaire de Drag & Drop tactile pour mobile
  * Simule les événements HTML5 Drag & Drop à partir des événements Touch
+ * Implémente aussi le mode "Déplacement" pour les créatures (Appui long -> Sélection -> Tap sur PJ)
  */
 
 class TouchDragManager {
@@ -8,6 +9,11 @@ class TouchDragManager {
         this.dragSource = null;
         this.dragGhost = null;
         this.isDragging = false;
+
+        // État pour le mode "Déplacement" (Créatures)
+        this.isMoveMode = false;
+        this.moveModeSource = null;
+
         this.longPressTimer = null;
         this.touchStartX = 0;
         this.touchStartY = 0;
@@ -18,7 +24,7 @@ class TouchDragManager {
         this.dataTransferStore = {};
 
         // Configuration
-        this.longPressDuration = 300; // ms avant de déclencher le drag
+        this.longPressDuration = 500; // ms avant de déclencher le drag ou le mode déplacement
         this.moveThreshold = 10; // pixels de mouvement tolérés avant d'annuler le long press
 
         this.init();
@@ -28,9 +34,16 @@ class TouchDragManager {
         // Écouteurs globaux pour intercepter les interactions sur les éléments draggable
         document.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: false });
         document.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
-        document.addEventListener('touchend', this.handleTouchEnd.bind(this));
+        document.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
         document.addEventListener('touchcancel', this.handleTouchEnd.bind(this));
         document.addEventListener('contextmenu', this.handleContextMenu.bind(this));
+
+        // Écouteur global pour annuler le mode déplacement si on clique ailleurs (pour les interactions non-tactiles ou hybrides)
+        document.addEventListener('click', (e) => {
+            if (this.isMoveMode && !this.getPlayerWrapper(e.target) && e.target !== this.moveModeSource) {
+                // On laisse gérer handleTouchStart pour le tactile, ceci est un fallback
+            }
+        });
     }
 
     // Trouve l'élément draggable parent le plus proche
@@ -45,12 +58,47 @@ class TouchDragManager {
         return null;
     }
 
+    // Trouve le wrapper du joueur parent le plus proche
+    getPlayerWrapper(element) {
+        let current = element;
+        while (current && current !== document.body) {
+            if (current.classList && current.classList.contains('player-wrapper')) {
+                return current;
+            }
+            current = current.parentElement;
+        }
+        return null;
+    }
+
     handleTouchStart(e) {
+        const touch = e.touches[0];
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+        // --- GESTION DU MODE DÉPLACEMENT (CRÉATURES) ---
+        if (this.isMoveMode) {
+            // Si on est en mode déplacement, on cherche si on a touché un PJ
+            const playerWrapper = this.getPlayerWrapper(target);
+
+            if (playerWrapper) {
+                // On a touché un PJ, on exécute le déplacement
+                e.preventDefault(); // Empêcher le clic/focus standard
+                e.stopPropagation();
+                this.executeMove(playerWrapper);
+            } else {
+                // On a touché ailleurs
+                // Si on touche la créature elle-même, on ne fait rien (ou on annule ?)
+                // Si on touche autre chose, on annule le mode
+                if (target !== this.moveModeSource && !this.moveModeSource.contains(target)) {
+                     this.exitMoveMode();
+                }
+            }
+            return;
+        }
+        // -----------------------------------------------
+
         // Si déjà en train de drag, on ignore (multi-touch)
         if (this.isDragging) return;
 
-        const touch = e.touches[0];
-        const target = document.elementFromPoint(touch.clientX, touch.clientY);
         const draggable = this.getDraggableParent(target);
 
         if (!draggable) return;
@@ -68,11 +116,20 @@ class TouchDragManager {
 
         // Démarrer le timer pour détecter l'appui long
         this.longPressTimer = setTimeout(() => {
-            this.startDrag(touch);
+            if (this.dragSource.classList.contains('creature-tab')) {
+                // Pour les créatures : Mode Déplacement
+                this.enterMoveMode(this.dragSource);
+            } else if (this.dragSource.classList.contains('player-wrapper')) {
+                // Pour les joueurs : Drag & Drop classique
+                this.startDrag(touch);
+            }
         }, this.longPressDuration);
     }
 
     handleTouchMove(e) {
+        // En mode déplacement, on autorise le scroll et on ignore le reste
+        if (this.isMoveMode) return;
+
         const touch = e.touches[0];
         this.lastTouchX = touch.clientX;
         this.lastTouchY = touch.clientY;
@@ -90,14 +147,19 @@ class TouchDragManager {
                 this.fireSyntheticEvent('dragover', target, touch.clientX, touch.clientY);
             }
         } else if (this.longPressTimer) {
-            // Si on bouge pendant l'attente du long press, on déclenche le drag immédiatement (simple glisser)
+            // Si on bouge pendant l'attente du long press
             const dx = Math.abs(touch.clientX - this.touchStartX);
             const dy = Math.abs(touch.clientY - this.touchStartY);
 
             if (dx > this.moveThreshold || dy > this.moveThreshold) {
                 clearTimeout(this.longPressTimer);
                 this.longPressTimer = null;
-                this.startDrag(touch);
+
+                // Pour les joueurs, le mouvement déclenche le drag immédiatement (comportement existant)
+                if (this.dragSource && this.dragSource.classList.contains('player-wrapper')) {
+                    this.startDrag(touch);
+                }
+                // Pour les créatures, le mouvement annule l'appui long (pas de drag)
             }
         }
     }
@@ -114,20 +176,78 @@ class TouchDragManager {
             this.endDrag(e);
         }
 
-        // Réinitialisation partielle (dragSource est nullifié dans endDrag ou ici si pas de drag)
-        if (!this.isDragging) {
+        // Si on est en mode déplacement et qu'on vient de relâcher le doigt sur la créature source
+        // On empêche le clic qui suivrait (pour éviter d'ouvrir la fiche détail juste après l'activation)
+        if (this.isMoveMode && this.dragSource === this.moveModeSource) {
+            if (e.cancelable) e.preventDefault();
+        }
+
+        // Réinitialisation partielle
+        if (!this.isDragging && !this.isMoveMode) {
             this.dragSource = null;
         }
     }
 
     handleContextMenu(e) {
-        // Si on est en train de drag ou qu'on vient de déclencher le drag, on empêche le menu contextuel
+        // Si on est en train de drag ou qu'on vient de déclencher le drag ou le mode move, on empêche le menu contextuel
         if (this.isDragging || (this.dragSource && !this.longPressTimer)) {
             e.preventDefault();
             e.stopPropagation();
             return false;
         }
     }
+
+    // --- MODE DÉPLACEMENT (NOUVEAU) ---
+    enterMoveMode(element) {
+        this.isMoveMode = true;
+        this.moveModeSource = element;
+
+        // Ajouter la classe d'animation
+        element.classList.add('move-mode-active');
+
+        // Feedback tactile
+        if (navigator.vibrate) {
+            navigator.vibrate(50);
+        }
+    }
+
+    exitMoveMode() {
+        if (this.moveModeSource) {
+            this.moveModeSource.classList.remove('move-mode-active');
+        }
+        this.isMoveMode = false;
+        this.moveModeSource = null;
+        this.dragSource = null;
+    }
+
+    executeMove(playerWrapper) {
+        if (!this.moveModeSource) return;
+
+        const instanceId = parseInt(this.moveModeSource.dataset.instanceId);
+        const playerName = playerWrapper.dataset.playerName;
+
+        if (instanceId && playerName) {
+            // 1. Déplacer l'élément DOM dans la colonne du joueur
+            const opponentsContainer = playerWrapper.querySelector('.pj-opponents');
+            if (opponentsContainer) {
+                // On l'ajoute à la fin par défaut
+                opponentsContainer.appendChild(this.moveModeSource);
+            }
+
+            // 2. Mettre à jour l'association logique
+            if (typeof associatePlayer === 'function') {
+                associatePlayer(instanceId, playerName);
+            }
+
+            // Feedback de succès
+            if (navigator.vibrate) {
+                navigator.vibrate([50, 50, 50]);
+            }
+        }
+
+        this.exitMoveMode();
+    }
+    // ----------------------------------
 
     startDrag(touch) {
         this.isDragging = true;
@@ -139,12 +259,8 @@ class TouchDragManager {
         this.updateGhostPosition(touch.clientX, touch.clientY);
 
         // Ajouter la classe de dragging à la source
-        // Note: Les scripts existants utilisent 'dragging-creature' pour les créatures et 'dragging' pour les joueurs
         if (this.dragSource.classList.contains('creature-tab')) {
             this.dragSource.classList.add('dragging-creature');
-
-            // Simuler dragstart
-            // Les données définies par le gestionnaire (setData) seront stockées dans this.dataTransferStore
             this.fireSyntheticEvent('dragstart', this.dragSource, touch.clientX, touch.clientY);
 
         } else if (this.dragSource.classList.contains('player-wrapper')) {
@@ -152,7 +268,6 @@ class TouchDragManager {
             this.fireSyntheticEvent('dragstart', this.dragSource, touch.clientX, touch.clientY);
         }
 
-        // Vibreur pour feedback tactile (si supporté)
         if (navigator.vibrate) {
             navigator.vibrate(50);
         }
@@ -162,7 +277,6 @@ class TouchDragManager {
         this.isDragging = false;
 
         // Trouver la cible finale
-        // Note: touchchend n'a pas de touches, on utilise lastTouchX/Y ou changedTouches
         let clientX = this.lastTouchX;
         let clientY = this.lastTouchY;
 
@@ -207,9 +321,6 @@ class TouchDragManager {
         this.dragGhost.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
         this.dragGhost.style.width = this.dragSource.offsetWidth + 'px';
         this.dragGhost.style.height = this.dragSource.offsetHeight + 'px';
-
-        // On retire les classes qui pourraient interférer avec l'affichage absolute
-        // this.dragGhost.classList.remove('dragging-creature', 'dragging');
 
         document.body.appendChild(this.dragGhost);
     }

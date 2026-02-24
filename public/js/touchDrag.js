@@ -90,14 +90,14 @@ class TouchDragManager {
                 this.fireSyntheticEvent('dragover', target, touch.clientX, touch.clientY);
             }
         } else if (this.longPressTimer) {
-            // Si on bouge trop pendant l'attente du long press, on annule (c'est un scroll)
+            // Si on bouge pendant l'attente du long press, on déclenche le drag immédiatement (simple glisser)
             const dx = Math.abs(touch.clientX - this.touchStartX);
             const dy = Math.abs(touch.clientY - this.touchStartY);
 
             if (dx > this.moveThreshold || dy > this.moveThreshold) {
                 clearTimeout(this.longPressTimer);
                 this.longPressTimer = null;
-                this.dragSource = null;
+                this.startDrag(touch);
             }
         }
     }

@@ -198,6 +198,49 @@ function createPlayerTabs(pjDoc) {
         }
     });
     
+    // Créer le bouton "Ordonner"
+    const sortButtonContainer = document.createElement('div');
+    sortButtonContainer.className = 'sort-button-container';
+
+    const sortButton = document.createElement('button');
+    sortButton.className = 'sort-button';
+    sortButton.innerHTML = '&#x1F504;'; // 🔄
+    sortButton.title = 'Ordonner';
+
+    sortButton.addEventListener('click', () => {
+        const wrappers = Array.from(playerTabsContainer.querySelectorAll('.player-wrapper'));
+
+        wrappers.sort((a, b) => {
+            const getSortValue = (wrapper) => {
+                const firstCreature = wrapper.querySelector('.pj-opponents .creature-tab');
+                if (!firstCreature) return 4; // Pas d'adversaire -> fin
+
+                const instanceId = parseInt(firstCreature.dataset.instanceId);
+                const advantage = window.creatureInstanceAdvantages ? window.creatureInstanceAdvantages.get(instanceId) : 0;
+
+                // Ordre: +1D (1) -> 0, 0 (0) -> 1, -1D (-1) -> 2, Dist (2) -> 3
+                switch(advantage) {
+                    case 1: return 0;
+                    case 0: return 1;
+                    case -1: return 2;
+                    case 2: return 3;
+                    default: return 4;
+                }
+            };
+
+            return getSortValue(a) - getSortValue(b);
+        });
+
+        // Réinsérer les wrappers triés
+        wrappers.forEach(wrapper => playerTabsContainer.appendChild(wrapper));
+
+        // S'assurer que le bouton reste à la fin
+        playerTabsContainer.appendChild(sortButtonContainer);
+    });
+
+    sortButtonContainer.appendChild(sortButton);
+    playerTabsContainer.appendChild(sortButtonContainer);
+
     // Insérer les onglets PJ avant les onglets des créatures
     if (tabsContainer.firstChild) {
         tabsContainer.insertBefore(playerTabsContainer, tabsContainer.firstChild);

@@ -124,3 +124,33 @@
     opacity: 1;
     transition: opacity 0.3s;
 }
+/* --- Bouton Ordonner --- */
+.sort-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-end; /* Alignement en bas du conteneur parent */
+    margin-left: 10px;
+    padding-bottom: 2px; /* Ajustement fin */
+}
+
+.sort-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.sort-button:hover {
+    transform: scale(1.1);
+    background-color: #333;
+}

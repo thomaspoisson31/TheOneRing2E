@@ -104,6 +104,16 @@ function createPlayerTabs(pjDoc) {
 
             tabElement.appendChild(tabContent);
             
+            // Créer le bouton "Repoussé"
+            const repousseBtn = document.createElement('button');
+            repousseBtn.className = 'repousse-btn';
+            repousseBtn.textContent = 'Repoussé';
+            repousseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.target.classList.toggle('active');
+            });
+            wrapper.appendChild(repousseBtn);
+
             // Créer le conteneur des adversaires associés
             const opponentsContainer = document.createElement('div');
             opponentsContainer.className = 'pj-opponents';

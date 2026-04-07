@@ -842,217 +842,8 @@
                 </capacite>
             </capacites>
         </creature>
-    </famille>    <famille nom="Numenoreens Noirs">
-        <son1>hommes_marche.mp3</son1>
-        <son2>epee_metal.mp3</son2>
-        <capacites_famille>
-            <capacite>
-                <Titre_Capacite>Haine des Rodeurs</Titre_Capacite>
-                <Detail_Capacite>La creature gagne 1 point de Haine supplementaire au debut d'un combat impliquant des Rodeurs du Nord.</Detail_Capacite>
-            </capacite>
-        </capacites_famille>
-
-        <creature>
-            <nom>Zoril (Cheffe de guerre)</nom>
-            <attributs>
-                <niveau>7</niveau>
-                <endurance>28</endurance>
-                <puissance>2</puissance>
-                <haine>7</haine>
-                <parade>+3</parade>
-                <armure>3</armure>
-            </attributs>
-            <Particularités>Commandement, Terrifiant</Particularités>
-            <competences_combat>
-                <arme>
-                    <nom_arme>Epee longue</nom_arme>
-                    <valeur_arme>4</valeur_arme>
-                    <degats_arme>5/16</degats_arme>
-                    <special_arme>Perforation</special_arme>
-                </arme>
-            </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Ordre de tuer</Titre_Capacite>
-                    <Detail_Capacite>Depensez 1 point de Haine pour qu'un allie a portee de voix effectue immediatement une attaque gratuite.</Detail_Capacite>
-                </capacite>
-            </capacites>
-        </creature>
-
-        <creature>
-            <nom>Lug, le Seigneur du Fouet (Uruk)</nom>
-            <attributs>
-                <niveau>6</niveau>
-                <endurance>24</endurance>
-                <puissance>2</puissance>
-                <haine>6</haine>
-                <parade>+1</parade>
-                <armure>3</armure>
-            </attributs>
-            <Particularités>Cruel</Particularités>
-            <competences_combat>
-                <arme>
-                    <nom_arme>Fouet de cuir</nom_arme>
-                    <valeur_arme>3</valeur_arme>
-                    <degats_arme>3/12</degats_arme>
-                    <special_arme>Saisie</special_arme>
-                </arme>
-            </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Claquement de fouet</Titre_Capacite>
-                    <Detail_Capacite>Depensez 1 point de Haine. La cible est desorientee et perd sa prochaine action de mouvement.</Detail_Capacite>
-                </capacite>
-            </capacites>
-        </creature>
-    </famille>
-
-    <famille nom="Adversaires de la Moria">
-        <creature>
-            <nom>Orque d'Udûn Fanatique</nom>
-            <attributs>
-                <niveau>4</niveau>
-                <endurance>16</endurance>
-                <puissance>1</puissance>
-                <haine>4</haine>
-                <parade>-</parade>
-                <armure>3</armure>
-            </attributs>
-            <Particularités>Fanatique, Habitant des ténèbres</Particularités>
-            <competences_combat>
-                <arme>
-                    <nom_arme>Bâton enflammé</nom_arme>
-                    <valeur_arme>3</valeur_arme>
-                    <degats_arme>4/14</degats_arme>
-                    <special_arme>Coup ardent</special_arme>
-                </arme>
-            </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Habitant des ténèbres</Titre_Capacite>
-                    <Detail_Capacite>Toutes les attaques effectuées dans l’obscurité sont favorisées.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Impassible</Titre_Capacite>
-                    <Detail_Capacite>N’est pas affecté par la manœuvre Intimider l’adversaire, sauf Réussite magique.</Detail_Capacite>
-                </capacite>
-            </capacites>
-        </creature>
-
-        <creature>
-            <nom>Malech le Borgne (Chef des Orques de la Moria)</nom>
-            <attributs>
-                <niveau>7</niveau>
-                <endurance>40</endurance>
-                <puissance>2</puissance>
-                <haine>7</haine>
-                <parade>+4</parade>
-                <armure>4</armure>
-            </attributs>
-            <Particularités>Lâcheté, Habitant des ténèbres</Particularités>
-            <competences_combat>
-                <arme>
-                    <nom_arme>Lance à pointe large</nom_arme>
-                    <valeur_arme>3</valeur_arme>
-                    <degats_arme>5/16</degats_arme>
-                    <special_arme>Perforation</special_arme>
-                </arme>
-            </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Cri de triomphe</Titre_Capacite>
-                    <Detail_Capacite>Restaure la Haine des alliés.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Vitesse du serpent</Titre_Capacite>
-                    <Detail_Capacite>Dépense 1 Haine pour rendre une attaque adverse défavorisée.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Résistance abominable</Titre_Capacite>
-                    <Detail_Capacite>Restaure Endurance à moitié si réduit à 0.</Detail_Capacite>
-                </capacite>
-            </capacites>
-        </creature>
-
-        <creature>
-            <nom>Le Fléau de Durin (Balrog)</nom>
-            <attributs>
-                <niveau>12</niveau>
-                <endurance>150</endurance>
-                <puissance>3</puissance>
-                <haine>12</haine>
-                <parade>-</parade>
-                <armure>5</armure>
-            </attributs>
-            <Particularités>Terrifiant, Ancien</Particularités>
-            <competences_combat>
-                <arme>
-                    <nom_arme>Épée ardente</nom_arme>
-                    <valeur_arme>4</valeur_arme>
-                    <degats_arme>8/24</degats_arme>
-                    <special_arme>Coup ardent</special_arme>
-                </arme>
-                <arme>
-                    <nom_arme>Fouet à multiples lanières</nom_arme>
-                    <valeur_arme>4</valeur_arme>
-                    <degats_arme>6/18</degats_arme>
-                    <special_arme>Étreinte</special_arme>
-                </arme>
-                <arme>
-                    <nom_arme>Écrasement</nom_arme>
-                    <valeur_arme>3</valeur_arme>
-                    <degats_arme>6/12</degats_arme>
-                    <special_arme>Brise bouclier</special_arme>
-                </arme>
-            </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Abomination</Titre_Capacite>
-                    <Detail_Capacite>Au 1er round, gain de 3 Ombre (Terreur). Jet de Vaillance défavorisé.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Flamme d’Udûn</Titre_Capacite>
-                    <Detail_Capacite>Contre-attaque de feu automatique sur toute touche réussie au corps à corps.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Grand Démon</Titre_Capacite>
-                    <Detail_Capacite>Immunisé aux armes non magiques. Si Endurance tombe à 0, subit un Coup perforant à la place et restaure 50% de son endurance.</Detail_Capacite>
-                </capacite>
-            </capacites>
-        </creature>
-
-        <creature>
-            <nom>Le Guetteur de l’Eau</nom>
-            <attributs>
-                <niveau>10</niveau>
-                <endurance>100</endurance>
-                <puissance>3</puissance>
-                <haine>10</haine>
-                <parade>-</parade>
-                <armure>4</armure>
-            </attributs>
-            <Particularités>Monstrueux, Aquatique</Particularités>
-            <competences_combat>
-                <arme>
-                    <nom_arme>Tentacule</nom_arme>
-                    <valeur_arme>3</valeur_arme>
-                    <degats_arme>8/16</degats_arme>
-                    <special_arme>Étreinte</special_arme>
-                </arme>
-            </competences_combat>
-            <capacites>
-                <capacite>
-                    <Titre_Capacite>Membres multiples</Titre_Capacite>
-                    <Detail_Capacite>Effectue une attaque supplémentaire par round (réduit par les blessures).</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Puanteur fétide</Titre_Capacite>
-                    <Detail_Capacite>Dépensez 1 point de Haine : les ennemis perdent (1d) à leurs attaques ce round.</Detail_Capacite>
-                </capacite>
-            </capacites>
-        </creature>
-    </famille>
-
+    </famille>    
+    
 <famille nom="Adversaires Récits Terres Solitaires">
         <son1>MortsVivants.mp3</son1>
         <son2>MortsVivants2.mp3</son2>
@@ -1377,6 +1168,461 @@
                 <capacite>
                     <Titre_Capacite>Vitesse du serpent</Titre_Capacite>
                     <Detail_Capacite>Quand Hultmar est ciblé par une attaque, dépensez 1 point de Haine pour rendre cette attaque défavorisée.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+    </famille>
+
+
+    
+ <famille nom="Moria - Orques d'Udûn">
+        <capacites_famille>
+            <capacite>
+                <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                <Detail_Capacite>Chaque round qu’elle passe exposée à la lumière directe du soleil, la créature perd 1 point de Haine.</Detail_Capacite>
+            </capacite>
+        </capacites_famille>
+
+        <creature>
+            <nom>Orque d'Udûn Fanatique</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>-</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Coriace, Dément</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Bâton enflammé</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Coup ardent</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Habitant des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>La créature n'est pas affectée par la manœuvre de combat Intimider l'adversaire, sauf en cas d'une Réussite magique.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Orque d'Udûn Béni de la Flamme</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>-</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Fanatique, Redoutable</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Bâton enflammé</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Coup ardent</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Habitant des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>La créature n'est pas affectée par la manœuvre de combat Intimider l'adversaire, sauf en cas d'une Réussite magique.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Résistance abominable</Titre_Capacite>
+                    <Detail_Capacite>Quand une attaque inflige des dégâts censés faire tomber son Endurance à zéro, il subit un Coup perforant à la place. S'il est toujours en vie, ses points d'Endurance sont restaurés au maximum.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+    </famille>
+
+    <famille nom="Moria - Orques du Mordor">
+        <creature>
+            <nom>Messager de Lugbúrz</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+1</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Cruel, Malin</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/16</degats_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Couteau à dents</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>2/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Cri de triomphe</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour restaurer 1 point de Haine à tous les autres alliés participant au combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Vitesse du serpent</Titre_Capacite>
+                    <Detail_Capacite>Quand la créature est ciblée par une attaque, dépensez 1 point de Haine pour rendre cette attaque défavorisée.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Capitaine Uruk</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>1</puissance>
+                <haine>6</haine>
+                <parade>+3</parade>
+                <armure>4</armure>
+            </attributs>
+            <Particularités>Cruel, Endurci</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Épée large</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Arc de corne</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Cri de triomphe</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour restaurer 1 point de Haine à tous les autres alliés participant au combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Force effroyable</Titre_Capacite>
+                    <Detail_Capacite>En combat rapproché, si une attaque inflige un Coup perforant, dépensez 1 point de Haine pour rendre le jet de Protection de la cible défavorisé.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Uruk</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>+2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Fort, Impétueux</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Épée large</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Arc de corne</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Armure épaisse</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour gagner (2d) à un jet de Protection.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Force effroyable</Titre_Capacite>
+                    <Detail_Capacite>En combat rapproché, si une attaque inflige un Coup perforant, dépensez 1 point de Haine pour rendre le jet de Protection de la cible défavorisé.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+    </famille>
+
+    <famille nom="Moria - Nains de la Moria">
+        <creature>
+            <nom>Esclave Nain Halluciné</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <determination>5</determination>
+                <parade>-</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Caractériel, Sinistre</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Couteau à dents</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>2/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Impétuosité</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Détermination pour gagner (1d) et effectuer un jet d'attaque favorisé.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+    </famille>
+
+    <famille nom="Moria - Le Balrog">
+        <creature>
+            <nom>Fléau de Durin</nom>
+            <attributs>
+                <niveau>12</niveau>
+                <endurance>150</endurance>
+                <puissance>3</puissance>
+                <haine>12</haine>
+                <parade>-</parade>
+                <armure>5</armure>
+            </attributs>
+            <Particularités>Puissant, Terrifiant</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Épée ardente</nom_arme>
+                    <valeur_arme>4</valeur_arme>
+                    <degats_arme>8/24</degats_arme>
+                    <special_arme>Coup ardent (Fatale)</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Fouet à multiples lanières</nom_arme>
+                    <valeur_arme>4</valeur_arme>
+                    <degats_arme>6/18</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Écrasement</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>6/12</degats_arme>
+                    <special_arme>Brise bouclier</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Abomination</Titre_Capacite>
+                    <Detail_Capacite>Au 1er round, tous les Héros gagnent 3 points d'Ombre (Terreur). Test de Vaillance défavorisé ; ceux qui ratent sont découragés.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Blessure mortelle</Titre_Capacite>
+                    <Detail_Capacite>Les cibles Blessées lancent un dé du Destin défavorisé pour la Gravité de leur Blessure.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Épouvantables sortilèges</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine quand un Héros utilise de l'Espoir : inflige 3 points d'Ombre (Sorcellerie), test de Sagesse défavorisé. En cas d'échec, l'Espoir est annulé.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Flamme d'Udûn</Titre_Capacite>
+                    <Detail_Capacite>Quand une attaque au corps à corps touche le Balrog, l'attaquant subit une perte d'Endurance sévère due au feu.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Force effroyable</Titre_Capacite>
+                    <Detail_Capacite>Sur un Coup perforant, dépensez 1 point de Haine pour rendre le jet de Protection de la cible défavorisé.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Grand bond</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour attaquer un Héros quelle que soit sa position de combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Grand Démon</Titre_Capacite>
+                    <Detail_Capacite>Immunisé aux dégâts non magiques. Dépensez 1 point de Haine pour éliminer une Blessure magique. Si Endurance tombe à 0, subit un Coup perforant et restaure 50% de son maximum.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Habitant des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>Immunisé à l'intimidation normale.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+    </famille>
+
+    <famille name="Moria - Autres choses terribles">
+        <creature>
+            <nom>Spectre de Cendres</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+1</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularités>Impétueux, Rapide</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Toucher ardent</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>4/14</degats_arme>
+                    <special_arme>Coup ardent</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Flamme d'Udûn</Titre_Capacite>
+                    <Detail_Capacite>Sur touche au corps à corps, l'attaquant subit une perte d'Endurance légère due au feu.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Impassible</Titre_Capacite>
+                    <Detail_Capacite>Immunisé à l'intimidation normale.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Vitesse du serpent</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour rendre une attaque adverse défavorisée.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Grande Chauve-souris</nom>
+            <attributs>
+                <niveau>3</niveau>
+                <endurance>24</endurance>
+                <puissance>2</puissance>
+                <haine>3</haine>
+                <parade>-</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularités>Affamée, Rapide</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Griffes</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>Perd 1 point de Haine au début de chaque round au soleil.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Lâcheté</Titre_Capacite>
+                    <Detail_Capacite>Si intimidée, perd 1 point de Haine.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Vitesse du vent</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques ciblant la créature sont défavorisées.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Vol fulgurant</Titre_Capacite>
+                    <Detail_Capacite>Peut attaquer un Héros quelle que soit sa position de combat.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Suce-moelle</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>30</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>+1</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularités>Agile, Furtif</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Couteau d'obsidienne</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Doigts poisseux</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>1/10</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>Perd 1 point de Haine par round au soleil.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Habitant des ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l'obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+            </capacites>
+        </creature>
+
+        <creature>
+            <nom>Crapaud de Pierre</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>40</endurance>
+                <puissance>2</puissance>
+                <determination>5</determination>
+                <parade>-</parade>
+                <armure>4</armure>
+            </attributs>
+            <Particularités>Furtif, Lent</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Morsure</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Écrasement</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/12</degats_arme>
+                    <special_arme>Étreinte</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Cuir robuste</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Détermination pour gagner (2d) à un jet de Protection.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Grand bond</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Détermination pour attaquer un Héros quelle que soit sa position de combat.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Poison</Titre_Capacite>
+                    <Detail_Capacite>Si l'attaque blesse, la cible est également empoisonnée.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Résistance abominable</Titre_Capacite>
+                    <Detail_Capacite>Si Endurance tombe à 0, subit un Coup perforant et restaure 50% de son maximum.</Detail_Capacite>
                 </capacite>
             </capacites>
         </creature>

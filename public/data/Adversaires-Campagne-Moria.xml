@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <adversaires>
-    <famille nom="Trolls - Livre de base">
+    <famille nom="Livre de base - Trolls">
         <son1>Trolls.mp3</son1>
         <son2>Trolls2.mp3</son2>
         <son3>Trolls3.mp3</son3>
@@ -177,7 +177,7 @@
         </creature>
     </famille>
 
-    <famille nom="Orques - Livre de base">
+    <famille nom="Livre de base - Orques">
         <son1>Orques.mp3</son1>
         <son2>Orques2.mp3</son2>
         <son3>Orques3.mp3</son3>
@@ -405,7 +405,7 @@
         </creature>
     </famille>
 
-    <famille nom="Morts Vivants - Livre de base">
+    <famille nom="Livre de base - Morts Vivants">
         <son1>MortsVivants.mp3</son1>
         <son2>MortsVivants2.mp3</son2>
         <son3>MortsVivants3.mp3</son3>
@@ -542,7 +542,7 @@
         </creature>
     </famille>
 
-    <famille nom="Loups - Livre de base">
+    <famille nom="Livre de base - Loups">
         <son1>Loups.mp3</son1>
         <son2>Loups2.mp3</son2>
         <son3>Loups3.mp3</son3>
@@ -670,7 +670,7 @@
         </creature>
     </famille>
 
-    <famille nom="Humains - Livre de base">
+    <famille nom="Livre de base - Humains">
         <creature>
             <nom>Chef des Bandits</nom>
             <attributs>
@@ -837,7 +837,7 @@
         </creature>
     </famille>
 
-    <famille nom="Adversaires Récits Terres Solitaires">
+    <famille nom="Récits Terres Solitaires">
         <son1>MortsVivants.mp3</son1>
         <son2>MortsVivants2.mp3</son2>
         <son3>MortsVivants3.mp3</son3>
@@ -986,7 +986,7 @@
         </creature>
 
         <creature>
-            <nom>L'Orque Snava</nom>
+            <nom>Snava</nom>
             <attributs>
                 <niveau>6</niveau>
                 <endurance>48</endurance>

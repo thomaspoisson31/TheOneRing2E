@@ -5,16 +5,16 @@
         <son2>Trolls2.mp3</son2>
         <son3>Trolls3.mp3</son3>
             
-            <capacites_famille>
-                <capacite>
-                    <Titre_Capacite>Résistance Abominable</Titre_Capacite>
-                    <Detail_Capacite>Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, elle subit un Coup perforant à la place. Si elle est toujours en vie, ses points d'Endurance sont restaurés au maximum</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Lent d'Esprit</Titre_Capacite>
-                    <Detail_Capacite>Un Héros en position de combat avancée peut tenter une manœuvre de combat spéciale contre la créature : le joueur effectue un test d'ÉNIGMES en tant qu'action principale du round. En cas de réussite, le Troll perd 1 point de Haine, plus 1 point pour chaque symbole de Réussite obtenu</Detail_Capacite>
-                </capacite>
-            </capacites_famille>
+        <capacites_famille>
+            <capacite>
+                <Titre_Capacite>Résistance Abominable</Titre_Capacite>
+                <Detail_Capacite>Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, elle subit un Coup perforant à la place. Si elle est toujours en vie, ses points d'Endurance sont restaurés au maximum</Detail_Capacite>
+            </capacite>
+            <capacite>
+                <Titre_Capacite>Lent d'Esprit</Titre_Capacite>
+                <Detail_Capacite>Un Héros en position de combat avancée peut tenter une manœuvre de combat spéciale contre la créature : le joueur effectue un test d'ÉNIGMES en tant qu'action principale du round. En cas de réussite, le Troll perd 1 point de Haine, plus 1 point pour chaque symbole de Réussite obtenu</Detail_Capacite>
+            </capacite>
+        </capacites_famille>
 
         <creature>
             <nom>Grand Troll des Cavernes</nom>
@@ -50,7 +50,6 @@
                     <Titre_Capacite>Ombre (Terreur)</Titre_Capacite>
                     <Detail_Capacite>Dépensez 1 point de Haine pour infliger 2 points d'Ombre (Terreur) à tous les Héros à portée de vue. Ceux qui ratent leur test d'Ombre ne peuvent pas dépenser d'Espoir pour tout le reste du combat</Detail_Capacite>
                 </capacite>
-
             </capacites>
             <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Grand%20Troll.png</url_image>
         </creature>
@@ -179,17 +178,16 @@
     </famille>
 
     <famille nom="Orques - Livre de base">
-
         <son1>Orques.mp3</son1>
         <son2>Orques2.mp3</son2>
         <son3>Orques3.mp3</son3>
         <son4>Orques4.mp3</son4>
 
         <capacites_famille>
-                <capacite>
-                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
-                    <Detail_Capacite>Chaque round qu’elle passe exposée à la lumière directe du soleil, la créature perd 1 point de Haine.</Detail_Capacite>
-                </capacite>
+            <capacite>
+                <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                <Detail_Capacite>Chaque round qu’elle passe exposée à la lumière directe du soleil, la créature perd 1 point de Haine.</Detail_Capacite>
+            </capacite>
         </capacites_famille>
 
         <creature>
@@ -375,6 +373,7 @@
                 <parade>3</parade>
                 <armure>3</armure>
             </attributs>
+            <Particularités>-</Particularités>
             <competences_combat>
                 <arme>
                     <nom_arme>Cimeterre</nom_arme>
@@ -407,24 +406,23 @@
     </famille>
 
     <famille nom="Morts Vivants - Livre de base">
-
         <son1>MortsVivants.mp3</son1>
         <son2>MortsVivants2.mp3</son2>
         <son3>MortsVivants3.mp3</son3>
 
         <capacites_famille>
-                <capacite>
-                    <Titre_Capacite>Abomination</Titre_Capacite>
-                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue gagnent 3 points d’Ombre (Terreur). Ceux qui ratent leur test d’Ombre sont découragés et ne peuvent pas dépenser d’Espoir pour tout le reste du combat.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Immortel</Titre_Capacite>
-                    <Detail_Capacite>Dépensez 1 point de Haine pour éliminer une Blessure. Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, dépensez 1 point de Haine pour restaurer ses points d’Endurance au maximum. Cette capacité est inefficace contre un Héros maniant une arme magique ayant pour Cible les Morts-Vivants.</Detail_Capacite>
-                </capacite>
-                <capacite>
-                    <Titre_Capacite>Impassible</Titre_Capacite>
-                    <Detail_Capacite>La créature n’est pas affectée par la manœuvre de combat Intimider l’adversaire, sauf en cas d’une Réussite magique.</Detail_Capacite>
-                </capacite>
+            <capacite>
+                <Titre_Capacite>Abomination</Titre_Capacite>
+                <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue gagnent 3 points d’Ombre (Terreur). Ceux qui ratent leur test d’Ombre sont découragés et ne peuvent pas dépenser d’Espoir pour tout le reste du combat.</Detail_Capacite>
+            </capacite>
+            <capacite>
+                <Titre_Capacite>Immortel</Titre_Capacite>
+                <Detail_Capacite>Dépensez 1 point de Haine pour éliminer une Blessure. Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, dépensez 1 point de Haine pour restaurer ses points d’Endurance au maximum. Cette capacité est inefficace contre un Héros maniant une arme magique ayant pour Cible les Morts-Vivants.</Detail_Capacite>
+            </capacite>
+            <capacite>
+                <Titre_Capacite>Impassible</Titre_Capacite>
+                <Detail_Capacite>La créature n’est pas affectée par la manœuvre de combat Intimider l’adversaire, sauf en cas d’une Réussite magique.</Detail_Capacite>
+            </capacite>
         </capacites_famille>
 
         <creature>
@@ -448,7 +446,7 @@
                 <arme>
                     <nom_arme>Toucher glacial</nom_arme>
                     <valeur_arme>2</valeur_arme>
-                    <degats_arme>6,12</degats_arme>
+                    <degats_arme>6/12</degats_arme>
                     <special_arme>Étreinte</special_arme>
                 </arme>
             </competences_combat>
@@ -545,17 +543,15 @@
     </famille>
 
     <famille nom="Loups - Livre de base">
-
         <son1>Loups.mp3</son1>
         <son2>Loups2.mp3</son2>
         <son3>Loups3.mp3</son3>
 
         <capacites_famille>
-                <capacite>
-                    <Titre_Capacite>Grand Bond</Titre_Capacite>
-                    <Detail_Capacite>Dépensez 1 point de Haine pour attaquer un Héros quelle que soit sa position de combat, y compris en position arrière.
-                    </Detail_Capacite>
-                </capacite>
+            <capacite>
+                <Titre_Capacite>Grand Bond</Titre_Capacite>
+                <Detail_Capacite>Dépensez 1 point de Haine pour attaquer un Héros quelle que soit sa position de combat, y compris en position arrière.</Detail_Capacite>
+            </capacite>
         </capacites_famille>
 
         <creature>
@@ -586,18 +582,15 @@
             <capacites>
                 <capacite>
                     <Titre_Capacite>Abomination</Titre_Capacite>
-                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue gagnent un nombre de points d’Ombre (Terreur) égal à la Puissance de la créature. Ceux qui ratent leur test d’Ombre sont découragés et ne peuvent pas dépenser d’Espoir pour tout le reste du combat.
-                    </Detail_Capacite>
+                    <Detail_Capacite>Au début du premier round de combat, tous les Héros à portée de vue gagnent un nombre de points d’Ombre (Terreur) égal à la Puissance de la créature. Ceux qui ratent leur test d’Ombre sont découragés et ne peuvent pas dépenser d’Espoir pour tout le reste du combat.</Detail_Capacite>
                 </capacite>
                 <capacite>
                     <Titre_Capacite>Blessure mortelle</Titre_Capacite>
-                    <Detail_Capacite>Les cibles Blessées lancent un dé du Destin défavorisé quand elles doivent déterminer la Gravité de leur Blessure.
-                    </Detail_Capacite>
+                    <Detail_Capacite>Les cibles Blessées lancent un dé du Destin défavorisé quand elles doivent déterminer la Gravité de leur Blessure.</Detail_Capacite>
                 </capacite>
                 <capacite>
                     <Titre_Capacite>Résistance abominable</Titre_Capacite>
-                    <Detail_Capacite>Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, elle subit un Coup perforant à la place. Si elle est toujours en vie, ses points d’Endurance sont restaurés à la moitié du maximum.
-                    </Detail_Capacite>
+                    <Detail_Capacite>Quand une attaque inflige à la créature des dégâts censés faire tomber son Endurance à zéro, elle subit un Coup perforant à la place. Si elle est toujours en vie, ses points d’Endurance sont restaurés à la moitié du maximum.</Detail_Capacite>
                 </capacite>
             </capacites>
         </creature>
@@ -842,9 +835,9 @@
                 </capacite>
             </capacites>
         </creature>
-    </famille>    
-    
-<famille nom="Adversaires Récits Terres Solitaires">
+    </famille>
+
+    <famille nom="Adversaires Récits Terres Solitaires">
         <son1>MortsVivants.mp3</son1>
         <son2>MortsVivants2.mp3</son2>
         <son3>MortsVivants3.mp3</son3>
@@ -1173,9 +1166,7 @@
         </creature>
     </famille>
 
-
-    
- <famille nom="Moria - Orques d'Udûn">
+    <famille nom="Moria - Orques d'Udûn">
         <capacites_famille>
             <capacite>
                 <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
@@ -1464,7 +1455,7 @@
         </creature>
     </famille>
 
-    <famille name="Moria - Autres choses terribles">
+    <famille nom="Moria - Autres choses terribles">
         <creature>
             <nom>Spectre de Cendres</nom>
             <attributs>
@@ -1610,11 +1601,11 @@
             <capacites>
                 <capacite>
                     <Titre_Capacite>Cuir robuste</Titre_Capacite>
-                    <Detail_Capacite>Dépensez 1 point de Détermination pour gagner (2d) à un jet de Protection.</Detail_Capacite>
+                    <Detail_Capacite>Dépense 1 point de Détermination pour gagner (2d) à un jet de Protection.</Detail_Capacite>
                 </capacite>
                 <capacite>
                     <Titre_Capacite>Grand bond</Titre_Capacite>
-                    <Detail_Capacite>Dépensez 1 point de Détermination pour attaquer un Héros quelle que soit sa position de combat.</Detail_Capacite>
+                    <Detail_Capacite>Dépense 1 point de Détermination pour attaquer un Héros quelle que soit sa position de combat.</Detail_Capacite>
                 </capacite>
                 <capacite>
                     <Titre_Capacite>Poison</Titre_Capacite>
@@ -1627,5 +1618,4 @@
             </capacites>
         </creature>
     </famille>
-
 </adversaires>

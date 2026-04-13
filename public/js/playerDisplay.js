@@ -1,6 +1,8 @@
 // Stockage des instances de personnages
-let playerInstances = new Map();
-let playerAdvantages = new Map(); // Pour stocker l'état des avantages
+let playerInstances = window.playerInstances || new Map();
+window.playerInstances = playerInstances;
+let playerAdvantages = new Map(); // Pour stocker l\'état des avantages
+window.playerAdvantages = playerAdvantages;
 
 function displayPlayerProfile(player) {
     const name = player.getElementsByTagName('Name')[0].textContent;
@@ -214,3 +216,25 @@ function deletePlayer(playerIndex) {
     // Masquer la carte si nécessaire
     creatureCard.style.display = 'none';
 }
+
+function cyclePlayerAdvantage(playerIndex, indicatorElement) {
+    const currentValue = playerAdvantages.get(playerIndex) || 0;
+    // Cycle: 1 -> 0 -> -1 -> 2 -> 1 (+1D -> 0 -> -1D -> Distance -> +1D)
+    let newValue;
+    if (currentValue === 1) newValue = 0;
+    else if (currentValue === 0) newValue = -1;
+    else if (currentValue === -1) newValue = 2;
+    else newValue = 1;
+
+    playerAdvantages.set(playerIndex, newValue);
+
+    if (indicatorElement && typeof getAdvantageText === 'function') {
+        indicatorElement.textContent = getAdvantageText(newValue);
+        indicatorElement.className = 'advantage-indicator'; // reset
+        if (newValue === 1) indicatorElement.classList.add('positive');
+        if (newValue === -1) indicatorElement.classList.add('negative');
+        if (newValue === 2) indicatorElement.classList.add('distance');
+    }
+}
+
+window.cyclePlayerAdvantage = cyclePlayerAdvantage;

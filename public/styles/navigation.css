@@ -274,7 +274,7 @@
 
 /* --- Styles pour l'indicateur d'avantage --- */
 .advantage-indicator {
-    display: none;
+    display: block;
     width: 100%;
     text-align: center;
     background: #878787;
@@ -306,9 +306,7 @@
     flex-direction: column;
 }
 
-.pj-opponents .creature-tab .advantage-indicator {
-    display: block;
-}
+
 
 .pj-opponents .creature-tab .tab-content {
     height: 50px; /* Fixer la hauteur de la partie token */
@@ -351,4 +349,13 @@
   border: 2px solid #ffeb3b; /* Highlight */
   z-index: 1000;
   box-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+}
+
+.creature-tab .advantage-indicator { display: none !important; }
+
+/* Styles for secondary adversary tab associations */
+.creature-tab.secondary {
+    background-color: #d3d3d3;
+    border: 2px dashed #999;
+    opacity: 0.8;
 }

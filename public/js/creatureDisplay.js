@@ -1,10 +1,8 @@
 let creatureCounter = 0;
-let creatureInstances = new Map(); // Stockage des instances d'adversaires
-let creaturePlayerAssociations = new Map(); // Stockage des associations adversaire-PJ (Set)
-let creatureInstanceAdvantages = new Map(); // Stockage des avantages par instance (+1D, 0, -1D)
-// Expose for external access
-window.creatureInstanceAdvantages = creatureInstanceAdvantages;
-
+let creatureInstances = window.creatureInstances || new Map();
+window.creatureInstances = creatureInstances; // Stockage des instances d'adversaires
+let creaturePlayerAssociations = window.creaturePlayerAssociations || new Map();
+window.creaturePlayerAssociations = creaturePlayerAssociations; // Stockage des associations adversaire-PJ (Set)
 window.dragPlaceholder = document.createElement('div');
 window.dragPlaceholder.className = 'drop-placeholder';
 
@@ -39,22 +37,13 @@ function displayCreature(creature, familyName, resetSelect = true) {
     
     const creatureInstance = creature.cloneNode(true);
     creatureInstances.set(instanceId, creatureInstance);
-    creatureInstanceAdvantages.set(instanceId, 0); // Initialiser à 0
 
     const tabElement = document.createElement('div');
     tabElement.className = 'creature-tab';
     tabElement.dataset.instanceId = instanceId;
     tabElement.dataset.familyName = familyName;
 
-    // Ajout de l'indicateur d'avantage
-    const advantageIndicator = document.createElement('div');
-    advantageIndicator.className = 'advantage-indicator';
-    advantageIndicator.textContent = '0';
-    advantageIndicator.addEventListener('click', (e) => {
-        e.stopPropagation();
-        cycleInstanceAdvantage(instanceId);
-    });
-    tabElement.appendChild(advantageIndicator);
+
 
     // --- ACTIVATION DRAG & DROP SUR L'ONGLET CRÉATURE ---
     tabElement.setAttribute('draggable', true);
@@ -91,7 +80,46 @@ function displayCreature(creature, familyName, resetSelect = true) {
             e.stopPropagation();
             const playerName = draggingPlayer.dataset.playerName;
             if (playerName) {
-                associatePlayer(instanceId, playerName);
+                // If dropping a PJ on a creature tab, we need to create a visual clone
+                // in the dropped PJ's opponents list, unless it's already there
+                const pjOpponents = draggingPlayer.querySelector('.pj-opponents');
+
+                // check if it's already associated visually
+                const existingAssoc = pjOpponents.querySelector(`.creature-tab[data-instance-id="${instanceId}"]`);
+                if (!existingAssoc) {
+                    const clonedTab = tabElement.cloneNode(true);
+                    clonedTab.classList.add('secondary');
+
+                    // We need to reattach dragging logic to the clone
+                    clonedTab.addEventListener('dragstart', (ev) => {
+                        clonedTab.classList.add('dragging-creature');
+                        ev.stopPropagation();
+                        ev.dataTransfer.setData('text/plain', instanceId);
+                        ev.dataTransfer.effectAllowed = 'move';
+                    });
+                    clonedTab.addEventListener('dragend', (ev) => {
+                        clonedTab.classList.remove('dragging-creature');
+                        if (window.dragPlaceholder && window.dragPlaceholder.parentNode) {
+                            window.dragPlaceholder.parentNode.removeChild(window.dragPlaceholder);
+                        }
+                        ev.stopPropagation();
+                    });
+
+                    clonedTab.addEventListener('click', function(ev) {
+                        ev.stopPropagation();
+                        document.querySelectorAll('.player-tab, .creature-tab').forEach(tab =>
+                            tab.classList.remove('active')
+                        );
+                        clonedTab.classList.add('active');
+                        const creatureInstance = creatureInstances.get(instanceId);
+                        if (creatureInstance) {
+                            displayCreatureDetails(creatureInstance, familyName);
+                        }
+                    });
+
+                    pjOpponents.appendChild(clonedTab);
+                    associatePlayer(instanceId, playerName);
+                }
             }
         }
     });
@@ -436,9 +464,11 @@ function deleteCreature(instanceId) {
     }
     creatureInstances.delete(instanceId);
     creaturePlayerAssociations.delete(instanceId);
-    creatureInstanceAdvantages.delete(instanceId);
     creatureCard.style.display = 'none';
 }
 
 // Charger les PJ au démarrage
 window.addEventListener('DOMContentLoaded', loadPlayerCharacters);
+
+window.associatePlayer = associatePlayer;
+window.dissociatePlayer = dissociatePlayer;

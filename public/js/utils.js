@@ -14,3 +14,5 @@ function getAdvantageText(value) {
         default: return '0';
     }
 }
+
+window.getAdvantageText = getAdvantageText;

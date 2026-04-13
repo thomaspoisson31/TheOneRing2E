@@ -104,6 +104,21 @@ function createPlayerTabs(pjDoc) {
 
             tabElement.appendChild(tabContent);
             
+            // --- AJOUT DE L'INDICATEUR D'AVANTAGE POUR LE PJ ---
+            const advantageIndicator = document.createElement('div');
+            advantageIndicator.className = 'advantage-indicator';
+            advantageIndicator.textContent = '0';
+            advantageIndicator.style.display = 'block'; // Toujours visible pour le PJ
+            advantageIndicator.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Utilise la fonction globale cyclePlayerAdvantage (que nous allons ajouter dans playerDisplay.js)
+                if (typeof cyclePlayerAdvantage === 'function') {
+                    cyclePlayerAdvantage(index, advantageIndicator);
+                }
+            });
+            tabElement.appendChild(advantageIndicator);
+            // --------------------------------------------------
+
             // Créer le bouton "Repoussé"
             const repousseBtn = document.createElement('button');
             repousseBtn.className = 'repousse-btn';
@@ -198,48 +213,7 @@ function createPlayerTabs(pjDoc) {
         }
     });
     
-    // Créer le bouton "Ordonner"
-    const sortButtonContainer = document.createElement('div');
-    sortButtonContainer.className = 'sort-button-container';
 
-    const sortButton = document.createElement('button');
-    sortButton.className = 'sort-button';
-    sortButton.innerHTML = '&#x1F504;'; // 🔄
-    sortButton.title = 'Ordonner';
-
-    sortButton.addEventListener('click', () => {
-        const wrappers = Array.from(playerTabsContainer.querySelectorAll('.player-wrapper'));
-
-        wrappers.sort((a, b) => {
-            const getSortValue = (wrapper) => {
-                const firstCreature = wrapper.querySelector('.pj-opponents .creature-tab');
-                if (!firstCreature) return 4; // Pas d'adversaire -> fin
-
-                const instanceId = parseInt(firstCreature.dataset.instanceId);
-                const advantage = window.creatureInstanceAdvantages ? window.creatureInstanceAdvantages.get(instanceId) : 0;
-
-                // Ordre: +1D (1) -> 0, 0 (0) -> 1, -1D (-1) -> 2, Dist (2) -> 3
-                switch(advantage) {
-                    case 1: return 0;
-                    case 0: return 1;
-                    case -1: return 2;
-                    case 2: return 3;
-                    default: return 4;
-                }
-            };
-
-            return getSortValue(a) - getSortValue(b);
-        });
-
-        // Réinsérer les wrappers triés
-        wrappers.forEach(wrapper => playerTabsContainer.appendChild(wrapper));
-
-        // S'assurer que le bouton reste à la fin
-        playerTabsContainer.appendChild(sortButtonContainer);
-    });
-
-    sortButtonContainer.appendChild(sortButton);
-    playerTabsContainer.appendChild(sortButtonContainer);
 
     // Insérer les onglets PJ avant les onglets des créatures
     if (tabsContainer.firstChild) {
@@ -268,13 +242,26 @@ function createPlayerTabs(pjDoc) {
             window.dragPlaceholder.remove();
         }
 
-        // Ajouter la créature au conteneur principal
-        tabsContainer.appendChild(draggingCreature);
-        
-        // Dissocier du joueur précédent si nécessaire
         const instanceId = parseInt(draggingCreature.dataset.instanceId);
-        // Note: La logique de dissociation complète pourrait nécessiter de parcourir creaturePlayerAssociations
-        // Mais comme creaturePlayerAssociations est Map<ID, Set<Name>>, on ne sait pas quel joueur on quitte juste avec le drop ici.
-        // Pour l'instant, le drop déplace visuellement. La dissociation explicite se fait via le bouton "x" dans la liste des associés.
+
+        // If it's a secondary clone, moving it to unassigned should just delete it and dissociate
+        if (draggingCreature.classList.contains('secondary')) {
+            // Find which player it belonged to by looking at parent wrapper
+            const parentWrapper = draggingCreature.closest('.player-wrapper');
+            if (parentWrapper) {
+                const playerName = parentWrapper.dataset.playerName;
+                if (playerName) {
+                    // Assuming dissociatePlayer is available
+                    if (typeof dissociatePlayer === 'function') {
+                        dissociatePlayer(instanceId, playerName);
+                    }
+                }
+            }
+            draggingCreature.remove();
+        } else {
+            // Ajouter la créature au conteneur principal
+            tabsContainer.appendChild(draggingCreature);
+            // Dissociation complete handled elsewhere or via close button
+        }
     });
 }

@@ -116,7 +116,7 @@ function createPlayerTabs(pjDoc) {
                     cyclePlayerAdvantage(index, advantageIndicator);
                 }
             });
-            tabElement.appendChild(advantageIndicator);
+            // On l'ajoute plus tard au wrapper, sous le tabElement
             // --------------------------------------------------
 
             // Créer le bouton "Repoussé"
@@ -165,21 +165,64 @@ function createPlayerTabs(pjDoc) {
                 e.preventDefault();
                 e.stopPropagation();
 
-                // Remplacer le placeholder par l'élément déplacé
-                if (window.dragPlaceholder && window.dragPlaceholder.parentNode === opponentsContainer) {
-                    opponentsContainer.insertBefore(draggingCreature, window.dragPlaceholder);
-                    window.dragPlaceholder.remove();
-                } else {
-                    opponentsContainer.appendChild(draggingCreature);
-                }
-
-                // Mise à jour des associations
                 const instanceId = parseInt(draggingCreature.dataset.instanceId);
                 const newPlayerName = wrapper.dataset.playerName;
 
-                if (instanceId && newPlayerName) {
-                    // Mettre à jour l'association
-                    // Note: associatePlayer est dans creatureDisplay.js
+                // Check if it's already engaged by ANOTHER PJ.
+                // It is engaged if its parent is a pj-opponents AND that parent is not THIS opponentsContainer
+                const isEngagedElsewhere = draggingCreature.parentNode &&
+                                           draggingCreature.parentNode.classList.contains('pj-opponents') &&
+                                           draggingCreature.parentNode !== opponentsContainer;
+
+                if (isEngagedElsewhere) {
+                    // Create a virtual clone instead of moving the original
+                    const clonedTab = draggingCreature.cloneNode(true);
+                    clonedTab.classList.remove('dragging-creature');
+                    clonedTab.classList.add('secondary');
+
+                    // Reattach dragging logic to clone
+                    clonedTab.addEventListener('dragstart', (ev) => {
+                        clonedTab.classList.add('dragging-creature');
+                        ev.stopPropagation();
+                        ev.dataTransfer.setData('text/plain', instanceId);
+                        ev.dataTransfer.effectAllowed = 'move';
+                    });
+                    clonedTab.addEventListener('dragend', (ev) => {
+                        clonedTab.classList.remove('dragging-creature');
+                        if (window.dragPlaceholder && window.dragPlaceholder.parentNode) {
+                            window.dragPlaceholder.parentNode.removeChild(window.dragPlaceholder);
+                        }
+                        ev.stopPropagation();
+                    });
+                    clonedTab.addEventListener('click', function(ev) {
+                        ev.stopPropagation();
+                        document.querySelectorAll('.player-tab, .creature-tab').forEach(tab =>
+                            tab.classList.remove('active')
+                        );
+                        clonedTab.classList.add('active');
+                        const creatureInstance = window.creatureInstances ? window.creatureInstances.get(instanceId) : null;
+                        if (creatureInstance && typeof displayCreatureDetails === 'function') {
+                            displayCreatureDetails(creatureInstance, clonedTab.dataset.familyName);
+                        }
+                    });
+
+                    if (window.dragPlaceholder && window.dragPlaceholder.parentNode === opponentsContainer) {
+                        opponentsContainer.insertBefore(clonedTab, window.dragPlaceholder);
+                        window.dragPlaceholder.remove();
+                    } else {
+                        opponentsContainer.appendChild(clonedTab);
+                    }
+                } else {
+                    // Normal move
+                    if (window.dragPlaceholder && window.dragPlaceholder.parentNode === opponentsContainer) {
+                        opponentsContainer.insertBefore(draggingCreature, window.dragPlaceholder);
+                        window.dragPlaceholder.remove();
+                    } else {
+                        opponentsContainer.appendChild(draggingCreature);
+                    }
+                }
+
+                if (instanceId && newPlayerName && typeof associatePlayer === 'function') {
                     associatePlayer(instanceId, newPlayerName);
                 }
             });
@@ -207,6 +250,7 @@ function createPlayerTabs(pjDoc) {
             });
             
             wrapper.appendChild(tabElement);
+            wrapper.appendChild(advantageIndicator);
             wrapper.appendChild(opponentsContainer);
             
             playerTabsContainer.appendChild(wrapper);

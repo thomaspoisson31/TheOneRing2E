@@ -82,7 +82,10 @@ function displayCreature(creature, familyName, resetSelect = true) {
             if (playerName) {
                 // If dropping a PJ on a creature tab, we need to create a visual clone
                 // in the dropped PJ's opponents list, unless it's already there
+                // Since draggingPlayer is .player-wrapper.dragging, .pj-opponents is inside it.
                 const pjOpponents = draggingPlayer.querySelector('.pj-opponents');
+
+                if (!pjOpponents) return; // safety check
 
                 // check if it's already associated visually
                 const existingAssoc = pjOpponents.querySelector(`.creature-tab[data-instance-id="${instanceId}"]`);
@@ -458,10 +461,9 @@ function dissociatePlayer(instanceId, playerName) {
 }
 
 function deleteCreature(instanceId) {
-    const tabElement = document.querySelector(`.creature-tab[data-instance-id="${instanceId}"]`);
-    if (tabElement) {
-        tabElement.remove();
-    }
+    const tabElements = document.querySelectorAll(`.creature-tab[data-instance-id="${instanceId}"]`);
+    tabElements.forEach(tab => tab.remove());
+
     creatureInstances.delete(instanceId);
     creaturePlayerAssociations.delete(instanceId);
     creatureCard.style.display = 'none';

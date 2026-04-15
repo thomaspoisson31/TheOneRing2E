@@ -288,24 +288,28 @@ function createPlayerTabs(pjDoc) {
 
         const instanceId = parseInt(draggingCreature.dataset.instanceId);
 
-        // If it's a secondary clone, moving it to unassigned should just delete it and dissociate
-        if (draggingCreature.classList.contains('secondary')) {
-            // Find which player it belonged to by looking at parent wrapper
-            const parentWrapper = draggingCreature.closest('.player-wrapper');
-            if (parentWrapper) {
-                const playerName = parentWrapper.dataset.playerName;
-                if (playerName) {
-                    // Assuming dissociatePlayer is available
-                    if (typeof dissociatePlayer === 'function') {
-                        dissociatePlayer(instanceId, playerName);
-                    }
-                }
+        // Retirer toutes les autres instances de cette créature dans le DOM
+        const allTabs = document.querySelectorAll(`.creature-tab[data-instance-id="${instanceId}"]`);
+        allTabs.forEach(tab => {
+            if (tab !== draggingCreature) {
+                tab.remove();
             }
-            draggingCreature.remove();
-        } else {
-            // Ajouter la créature au conteneur principal
-            tabsContainer.appendChild(draggingCreature);
-            // Dissociation complete handled elsewhere or via close button
+        });
+
+        // Nettoyer la classe secondary de l'élément déplacé si c'était un clone
+        draggingCreature.classList.remove('secondary');
+
+        // Ajouter la créature au conteneur principal (zone non assignée)
+        tabsContainer.appendChild(draggingCreature);
+
+        // Dissocier de tous les joueurs
+        if (window.creaturePlayerAssociations && window.creaturePlayerAssociations.has(instanceId)) {
+            window.creaturePlayerAssociations.get(instanceId).clear();
+        }
+
+        // Mettre à jour l'UI des associations
+        if (typeof updateAssociatedPlayersList === 'function') {
+            updateAssociatedPlayersList(instanceId);
         }
     });
 }

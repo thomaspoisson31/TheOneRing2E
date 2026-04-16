@@ -197,13 +197,16 @@ function loadPlayerCharacters() {
             const parser = new DOMParser();
             const pjDoc = parser.parseFromString(str, "text/xml");
             window.playerCharacters = Array.from(pjDoc.getElementsByTagName('Player_Character'))
-                .map(pc => {
+                .map((pc, index) => {
                     const nameElement = pc.getElementsByTagName('Name')[0];
                     const parryElement = pc.getElementsByTagName('Parry')[0];
+                    const tokenElement = pc.getElementsByTagName('token')[0];
                     if (nameElement && parryElement) {
                         return {
                             name: nameElement.textContent,
-                            parry: parryElement.textContent
+                            parry: parryElement.textContent,
+                            token: tokenElement ? tokenElement.textContent : null,
+                            index: index
                         };
                     }
                     return null;
@@ -230,11 +233,28 @@ function updateAssociatedPlayersList(instanceId) {
     playersSet.forEach(playerName => {
         const staticPC = window.playerCharacters ? window.playerCharacters.find(pc => pc.name === playerName) : null;
         const parry = staticPC ? staticPC.parry : '?';
+        const token = staticPC ? staticPC.token : null;
+        const playerIndex = staticPC ? staticPC.index : null;
+
+        let advantageText = '0';
+        let advantageClass = '';
+
+        if (playerIndex !== null && window.playerAdvantages) {
+            const advValue = window.playerAdvantages.get(playerIndex) || 0;
+            advantageText = typeof getAdvantageText === 'function' ? getAdvantageText(advValue) : advValue;
+            if (advValue === 1) advantageClass = 'positive';
+            else if (advValue === -1) advantageClass = 'negative';
+            else if (advValue === 2) advantageClass = 'distance';
+        }
 
         html += `
             <div class="associated-player-item">
+                ${token ? `<img src="images/PJ/${token}.png" alt="${playerName}" class="associated-player-token">` : ''}
                 <div class="player-info">
-                    <span class="player-name">${playerName}</span>
+                    <div class="player-name-row">
+                        <span class="player-name">${playerName}</span>
+                        <span class="advantage-badge ${advantageClass}">${advantageText}</span>
+                    </div>
                     <span class="player-stats">Parade: ${parry}</span>
                 </div>
                 <button class="icon-button delete-icon-small" onclick="dissociatePlayer(${instanceId}, '${playerName.replace(/'/g, "\\'")}')" title="Dissocier">×</button>

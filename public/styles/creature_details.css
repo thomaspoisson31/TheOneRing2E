@@ -266,11 +266,20 @@
 
 .associated-player-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     background: #ecf0f1;
     padding: 0.5rem;
     border-radius: 4px;
+    gap: 0.75rem;
+}
+
+.associated-player-token {
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .player-info {
@@ -279,9 +288,42 @@
     flex-grow: 1;
 }
 
+.player-name-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .player-name {
     font-weight: bold;
     color: #000;
+    font-size: 1.1rem;
+}
+
+.advantage-badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    min-width: 35px;
+    text-align: center;
+    background-color: #e2e8f0;
+    color: #4a5568;
+}
+
+.advantage-badge.positive {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.advantage-badge.negative {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.advantage-badge.distance {
+    background-color: #ffeeba;
+    color: #856404;
 }
 
 .player-stats {

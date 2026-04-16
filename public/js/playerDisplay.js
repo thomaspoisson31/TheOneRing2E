@@ -235,6 +235,12 @@ function cyclePlayerAdvantage(playerIndex, indicatorElement) {
         if (newValue === -1) indicatorElement.classList.add('negative');
         if (newValue === 2) indicatorElement.classList.add('distance');
     }
+
+    // Mettre à jour la carte créature ouverte si nécessaire
+    const activeTab = document.querySelector('.creature-tab.active');
+    if (activeTab && typeof window.updateAssociatedPlayersList === 'function') {
+        window.updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
+    }
 }
 
 window.cyclePlayerAdvantage = cyclePlayerAdvantage;

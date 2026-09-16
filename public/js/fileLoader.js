@@ -40,8 +40,8 @@ function loadSelectedFile() {
     if (selectedFile) {
         const fileName = selectedFile.dataset.file;
         
-        // Sauvegarder les onglets PJ existants
-        const playerTabs = document.querySelector('.player-tabs');
+        // Sauvegarder la section combat PJ existante (avec headers) ou player-tabs
+        const combatSection = document.querySelector('.combat-section') || document.querySelector('.player-tabs');
         
         // Charger le nouveau fichier XML
         fetch(`data/${fileName}`)
@@ -55,9 +55,9 @@ function loadSelectedFile() {
                 creatureCard.style.display = 'none';
                 creatureTabs.innerHTML = '';
                 
-                // Restaurer les onglets PJ s'ils existaient
-                if (playerTabs) {
-                    creatureTabs.appendChild(playerTabs);
+                // Restaurer la section combat s'il existait
+                if (combatSection) {
+                    creatureTabs.appendChild(combatSection);
                 }
                 
                 // Mettre à jour la liste des créatures

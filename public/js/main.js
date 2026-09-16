@@ -145,8 +145,8 @@ function createPlayerTabs(pjDoc) {
 
             // --- 3. POSTURE DE COMBAT / INDICATEUR MILIEU ---
             const advantageIndicator = document.createElement('div');
-            advantageIndicator.className = 'advantage-indicator posture-advantage';
-            advantageIndicator.textContent = '0';
+            advantageIndicator.className = 'advantage-indicator posture-advantage posture-expose';
+            advantageIndicator.textContent = 'EXPOSE';
             advantageIndicator.style.display = 'block';
             advantageIndicator.addEventListener('click', (e) => {
                 e.stopPropagation();

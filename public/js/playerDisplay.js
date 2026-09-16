@@ -223,11 +223,11 @@ function deletePlayer(playerIndex) {
 
 function cyclePlayerAdvantage(playerIndex, indicatorElement) {
     const currentValue = playerAdvantages.get(playerIndex) || 0;
-    const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
+    const newValue = typeof getNextPostureState === 'function' ? getNextPostureState(currentValue) : 0;
     playerAdvantages.set(playerIndex, newValue);
 
-    if (indicatorElement && typeof updateAdvantageElementStyle === 'function') {
-        updateAdvantageElementStyle(indicatorElement, newValue);
+    if (indicatorElement && typeof updatePostureElementStyle === 'function') {
+        updatePostureElementStyle(indicatorElement, newValue);
     }
 }
 

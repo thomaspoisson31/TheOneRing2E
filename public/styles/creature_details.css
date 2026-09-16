@@ -326,6 +326,26 @@
     color: #856404;
 }
 
+.advantage-badge.posture-expose {
+    background-color: #4a4a4a;
+    color: #ffffff;
+}
+
+.advantage-badge.posture-avance {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.advantage-badge.posture-arriere {
+    background-color: #888888;
+    color: #ffffff;
+}
+
+.advantage-badge.posture-defensif {
+    background-color: #d0d0d0;
+    color: #000000;
+}
+
 .player-stats {
     font-size: 0.8rem;
     color: #000;

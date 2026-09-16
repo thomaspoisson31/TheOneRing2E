@@ -38,6 +38,52 @@ function updateAdvantageElementStyle(element, value) {
     }
 }
 
+function getPostureText(value) {
+    switch (value) {
+        case 0: return 'EXPOSE';
+        case 1: return 'AVANCE';
+        case 2: return 'ARRIERE';
+        case 3: return 'DEFENSIF';
+        default: return 'EXPOSE';
+    }
+}
+
+function getNextPostureState(currentValue) {
+    switch (currentValue) {
+        case 0: return 1;
+        case 1: return 2;
+        case 2: return 3;
+        case 3: return 0;
+        default: return 0;
+    }
+}
+
+function updatePostureElementStyle(element, value) {
+    if (!element) return;
+    element.textContent = getPostureText(value);
+    element.classList.remove('posture-expose', 'posture-avance', 'posture-arriere', 'posture-defensif', 'positive', 'negative', 'distance');
+    switch (value) {
+        case 0:
+            element.classList.add('posture-expose');
+            break;
+        case 1:
+            element.classList.add('posture-avance');
+            break;
+        case 2:
+            element.classList.add('posture-arriere');
+            break;
+        case 3:
+            element.classList.add('posture-defensif');
+            break;
+        default:
+            element.classList.add('posture-expose');
+            break;
+    }
+}
+
 window.getAdvantageText = getAdvantageText;
 window.getNextCombatAdvantageValue = getNextCombatAdvantageValue;
 window.updateAdvantageElementStyle = updateAdvantageElementStyle;
+window.getPostureText = getPostureText;
+window.getNextPostureState = getNextPostureState;
+window.updatePostureElementStyle = updatePostureElementStyle;

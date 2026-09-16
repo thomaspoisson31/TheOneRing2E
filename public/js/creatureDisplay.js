@@ -241,10 +241,14 @@ function updateAssociatedPlayersList(instanceId) {
 
         if (playerIndex !== null && window.playerAdvantages) {
             const advValue = window.playerAdvantages.get(playerIndex) || 0;
-            advantageText = typeof getAdvantageText === 'function' ? getAdvantageText(advValue) : advValue;
-            if (advValue === 1) advantageClass = 'positive';
-            else if (advValue === -1) advantageClass = 'negative';
-            else if (advValue === 2) advantageClass = 'distance';
+            advantageText = typeof getPostureText === 'function' ? getPostureText(advValue) : 'EXPOSE';
+            switch (advValue) {
+                case 0: advantageClass = 'posture-expose'; break;
+                case 1: advantageClass = 'posture-avance'; break;
+                case 2: advantageClass = 'posture-arriere'; break;
+                case 3: advantageClass = 'posture-defensif'; break;
+                default: advantageClass = 'posture-expose'; break;
+            }
         }
 
         html += `

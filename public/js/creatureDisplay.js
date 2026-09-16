@@ -494,3 +494,4 @@ window.addEventListener('DOMContentLoaded', loadPlayerCharacters);
 
 window.associatePlayer = associatePlayer;
 window.dissociatePlayer = dissociatePlayer;
+window.updateAssociatedPlayersList = updateAssociatedPlayersList;

@@ -249,6 +249,12 @@ function cycleHeroBottomAdvantage(playerIndex, indicatorElement) {
     if (indicatorElement && typeof updateAdvantageElementStyle === 'function') {
         updateAdvantageElementStyle(indicatorElement, newValue);
     }
+
+    // Mettre à jour la carte créature ouverte si nécessaire
+    const activeTab = document.querySelector('.creature-tab.active');
+    if (activeTab && typeof window.updateAssociatedPlayersList === 'function') {
+        window.updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
+    }
 }
 
 window.cyclePlayerAdvantage = cyclePlayerAdvantage;

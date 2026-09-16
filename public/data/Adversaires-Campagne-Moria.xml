@@ -1166,6 +1166,241 @@
         </creature>
     </famille>
 
+    <famille nom="Moria - Orques de la Moria">
+
+        <son1>Orques.mp3</son1>
+        <son2>Orques2.mp3</son2>
+        <son3>Orques3.mp3</son3>
+        <son4>Orques4.mp3</son4>
+
+        <capacites_famille>
+                <capacite>
+                    <Titre_Capacite>Aversion pour le soleil</Titre_Capacite>
+                    <Detail_Capacite>Chaque round qu’elle passe exposée à la lumière directe du soleil, la créature perd 1 point de Haine.</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Habitants des Ténèbres</Titre_Capacite>
+                    <Detail_Capacite>Toutes les attaques effectuées dans l’obscurité sont favorisées.</Detail_Capacite>
+                </capacite>
+        </capacites_famille>
+
+        <creature>
+            <nom>Chef Grand Orque</nom>
+            <attributs>
+                <niveau>7</niveau>
+                <endurance>48</endurance>
+                <puissance>2</puissance>
+                <haine>7</haine>
+                <parade>3</parade>
+                <armure>4</armure>
+            </attributs>
+            <Particularités>Astucieux, Malin</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre lourd</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/18</degats_arme>
+                    <special_arme>Brise Bouclier</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Lance à pointe large</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Cri de triomphe</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour restaurer 1 point de Haine à tous les autres Orques</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Force effroyable</Titre_Capacite>
+                    <Detail_Capacite>En combat rapproché si une attaque inflige un Coup perforant, dépensez 1 point de Haine pour rendre le jet de Protection de la cible défavorisé</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Vitesse du serpent</Titre_Capacite>
+                    <Detail_Capacite>Quand la créature est ciblée par une attaque, dépenser 1 point de Haine pour rendre cette attaque défavorisée</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Orques%202%20(2).png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Garde du Corps Grand Orque</nom>
+            <attributs>
+                <niveau>6</niveau>
+                <endurance>24</endurance>
+                <puissance>2</puissance>
+                <haine>6</haine>
+                <parade>2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Circonspect, Impétueux</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Hache orque</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/18</degats_arme>
+                    <special_arme>Brise Bouclier</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Lance à pointe large</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>5/16</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Résistance abominable</Titre_Capacite>
+                    <Detail_Capacite>Quand une attaque inflige des dégâts censés faire tomber son Endurance à zéro, elle subit un Coup perforant à la place. Si elle est toujours en vie, ses points d'Endurance sont restaurés au maximum</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Orques%202%20(2).png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Archer Gobelin</nom>
+            <attributs>
+                <niveau>2</niveau>
+                <endurance>8</endurance>
+                <puissance>1</puissance>
+                <haine>2</haine>
+                <parade>-</parade>
+                <armure>1</armure>
+            </attributs>
+            <Particularités>Malin, Vue perçante</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Arc de corne</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Couteau à dents</nom_arme>
+                    <valeur_arme>2</valeur_arme>
+                    <degats_arme>2/14</degats_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Lâcheté</Titre_Capacite>
+                    <Detail_Capacite>Si elle est affectée par la manœuvre de combat Intimider l'adversaire, la créature perd également 1 point de Haine</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Poison orque</Titre_Capacite>
+                    <Detail_Capacite>Si une attaque provoque une Blessure, la cible est également empoisonnée</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Orques%202.png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Garde Orque</nom>
+            <attributs>
+                <niveau>4</niveau>
+                <endurance>16</endurance>
+                <puissance>1</puissance>
+                <haine>4</haine>
+                <parade>2</parade>
+                <armure>3</armure>
+            </attributs>
+            <Particularités>Fort, Vigilant</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/16</degats_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Lance</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Orques%202%20(1).png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Soldat Orque</nom>
+            <attributs>
+                <niveau>3</niveau>
+                <endurance>12</endurance>
+                <puissance>1</puissance>
+                <haine>3</haine>
+                <parade>1</parade>
+                <armure>2</armure>
+            </attributs>
+            <Particularités>Rebelle, Vengeur</Particularités>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/16</degats_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Lance</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Lâcheté</Titre_Capacite>
+                    <Detail_Capacite>Si elle est affectée par la manœuvre de combat Intimider l'adversaire, la créature perd également 1 point de Haine</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://raw.githubusercontent.com/thomaspoisson31/TOR2E-adversaries/refs/heads/main/Orques%202%20(1).png</url_image>
+        </creature>
+
+        <creature>
+            <nom>Chef Orque</nom>
+            <attributs>
+                <niveau>5</niveau>
+                <endurance>20</endurance>
+                <puissance>1</puissance>
+                <haine>5</haine>
+                <parade>3</parade>
+                <armure>3</armure>
+            </attributs>
+            <competences_combat>
+                <arme>
+                    <nom_arme>Cimeterre</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/16</degats_arme>
+                </arme>
+                <arme>
+                    <nom_arme>Lance</nom_arme>
+                    <valeur_arme>3</valeur_arme>
+                    <degats_arme>3/14</degats_arme>
+                    <special_arme>Perforation</special_arme>
+                </arme>
+            </competences_combat>
+            <capacites>
+                <capacite>
+                    <Titre_Capacite>Cri de triomphe</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour restaurer 1 point de Haine à tous les autres Orques</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Grand Bond</Titre_Capacite>
+                    <Detail_Capacite>Dépensez 1 point de Haine pour attaquer un Héros quelle que soit sa position de combat</Detail_Capacite>
+                </capacite>
+                <capacite>
+                    <Titre_Capacite>Vitesse du serpent</Titre_Capacite>
+                    <Detail_Capacite>Quand la créature est ciblée par une attaque, dépenser 1 point de Haine pour rendre cette attaque défavorisée</Detail_Capacite>
+                </capacite>
+            </capacites>
+            <url_image>https://github.com/thomaspoisson31/TOR2E-adversaries/blob/main/Orque.png?raw=true</url_image>
+        </creature>
+    </famille>
+
+
+
+    
     <famille nom="Moria - Orques d'Udûn">
         <capacites_famille>
             <capacite>

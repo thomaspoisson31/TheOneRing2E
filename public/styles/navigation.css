@@ -272,17 +272,45 @@
     margin-bottom: 0.5rem;
 }
 
+/* Section combat avec titres et colonnes */
+.combat-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.combat-section-header {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.combat-section-header.top-header {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.combat-section-header.bottom-header {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
 /* --- Styles pour l'indicateur d'avantage --- */
 .advantage-indicator {
     display: block;
     width: 100%;
     text-align: center;
     background: #878787;
+    color: #2d3748;
     font-size: 14px;
     cursor: pointer;
-    padding: 2px 0;
-    border-bottom: 1px solid #ddd;
+    padding: 3px 0;
+    border-radius: 2px;
     font-weight: bold;
+    user-select: none;
+    box-sizing: border-box;
 }
 
 .advantage-indicator.positive {

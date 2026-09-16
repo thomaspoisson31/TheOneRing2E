@@ -1,8 +1,12 @@
 // Stockage des instances de personnages
 let playerInstances = window.playerInstances || new Map();
 window.playerInstances = playerInstances;
-let playerAdvantages = new Map(); // Pour stocker l\'état des avantages
+let playerAdvantages = new Map(); // Pour stocker l'état de la posture de combat (zone du milieu)
 window.playerAdvantages = playerAdvantages;
+let heroTopAdvantages = new Map(); // Pour stocker les avantages de combat héros (zone du haut)
+window.heroTopAdvantages = heroTopAdvantages;
+let heroBottomAdvantages = new Map(); // Pour stocker les avantages de combat adversaires (zone du bas)
+window.heroBottomAdvantages = heroBottomAdvantages;
 
 function displayPlayerProfile(player) {
     const name = player.getElementsByTagName('Name')[0].textContent;
@@ -219,22 +223,34 @@ function deletePlayer(playerIndex) {
 
 function cyclePlayerAdvantage(playerIndex, indicatorElement) {
     const currentValue = playerAdvantages.get(playerIndex) || 0;
-    // Cycle: 1 -> 0 -> -1 -> 2 -> 1 (+1D -> 0 -> -1D -> Distance -> +1D)
-    let newValue;
-    if (currentValue === 1) newValue = 0;
-    else if (currentValue === 0) newValue = -1;
-    else if (currentValue === -1) newValue = 2;
-    else newValue = 1;
-
+    const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
     playerAdvantages.set(playerIndex, newValue);
 
-    if (indicatorElement && typeof getAdvantageText === 'function') {
-        indicatorElement.textContent = getAdvantageText(newValue);
-        indicatorElement.className = 'advantage-indicator'; // reset
-        if (newValue === 1) indicatorElement.classList.add('positive');
-        if (newValue === -1) indicatorElement.classList.add('negative');
-        if (newValue === 2) indicatorElement.classList.add('distance');
+    if (indicatorElement && typeof updateAdvantageElementStyle === 'function') {
+        updateAdvantageElementStyle(indicatorElement, newValue);
+    }
+}
+
+function cycleHeroTopAdvantage(playerIndex, indicatorElement) {
+    const currentValue = heroTopAdvantages.get(playerIndex) || 0;
+    const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
+    heroTopAdvantages.set(playerIndex, newValue);
+
+    if (indicatorElement && typeof updateAdvantageElementStyle === 'function') {
+        updateAdvantageElementStyle(indicatorElement, newValue);
+    }
+}
+
+function cycleHeroBottomAdvantage(playerIndex, indicatorElement) {
+    const currentValue = heroBottomAdvantages.get(playerIndex) || 0;
+    const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
+    heroBottomAdvantages.set(playerIndex, newValue);
+
+    if (indicatorElement && typeof updateAdvantageElementStyle === 'function') {
+        updateAdvantageElementStyle(indicatorElement, newValue);
     }
 }
 
 window.cyclePlayerAdvantage = cyclePlayerAdvantage;
+window.cycleHeroTopAdvantage = cycleHeroTopAdvantage;
+window.cycleHeroBottomAdvantage = cycleHeroBottomAdvantage;

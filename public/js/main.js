@@ -30,9 +30,24 @@ function createPlayerTabs(pjDoc) {
     const players = pjDoc.getElementsByTagName('Player_Character');
     const tabsContainer = document.getElementById('creatureTabs');
     
+    // Créer un conteneur principal incluant les titres de section et les colonnes
+    const combatSection = document.createElement('div');
+    combatSection.className = 'combat-section';
+
+    const topHeader = document.createElement('div');
+    topHeader.className = 'combat-section-header top-header';
+    topHeader.textContent = 'Avantages de combat - héros';
+    combatSection.appendChild(topHeader);
+
     // Créer un conteneur spécifique pour les onglets PJ
     const playerTabsContainer = document.createElement('div');
     playerTabsContainer.className = 'player-tabs';
+    combatSection.appendChild(playerTabsContainer);
+
+    const bottomHeader = document.createElement('div');
+    bottomHeader.className = 'combat-section-header bottom-header';
+    bottomHeader.textContent = 'Avantages de combat - adversaires';
+    combatSection.appendChild(bottomHeader);
 
     // --- LOGIQUE DRAG & DROP DU CONTENEUR ---
     playerTabsContainer.addEventListener('dragover', (e) => {
@@ -104,20 +119,17 @@ function createPlayerTabs(pjDoc) {
 
             tabElement.appendChild(tabContent);
             
-            // --- AJOUT DE L'INDICATEUR D'AVANTAGE POUR LE PJ ---
-            const advantageIndicator = document.createElement('div');
-            advantageIndicator.className = 'advantage-indicator';
-            advantageIndicator.textContent = '0';
-            advantageIndicator.style.display = 'block'; // Toujours visible pour le PJ
-            advantageIndicator.addEventListener('click', (e) => {
+            // --- 1. ZONE AVANTAGE COMBAT HÉROS (HAUT) ---
+            const heroTopAdvantage = document.createElement('div');
+            heroTopAdvantage.className = 'advantage-indicator hero-top-advantage';
+            heroTopAdvantage.textContent = '0';
+            heroTopAdvantage.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Utilise la fonction globale cyclePlayerAdvantage (que nous allons ajouter dans playerDisplay.js)
-                if (typeof cyclePlayerAdvantage === 'function') {
-                    cyclePlayerAdvantage(index, advantageIndicator);
+                if (typeof cycleHeroTopAdvantage === 'function') {
+                    cycleHeroTopAdvantage(index, heroTopAdvantage);
                 }
             });
-            // On l'ajoute plus tard au wrapper, sous le tabElement
-            // --------------------------------------------------
+            wrapper.appendChild(heroTopAdvantage);
 
             // Créer le bouton "Repoussé"
             const repousseBtn = document.createElement('button');
@@ -128,6 +140,20 @@ function createPlayerTabs(pjDoc) {
                 e.target.classList.toggle('active');
             });
             wrapper.appendChild(repousseBtn);
+
+            // --- 2. HÉRO PORTRAIT / TAB --- (wrapper.appendChild(tabElement) called later)
+
+            // --- 3. POSTURE DE COMBAT / INDICATEUR MILIEU ---
+            const advantageIndicator = document.createElement('div');
+            advantageIndicator.className = 'advantage-indicator posture-advantage';
+            advantageIndicator.textContent = '0';
+            advantageIndicator.style.display = 'block';
+            advantageIndicator.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (typeof cyclePlayerAdvantage === 'function') {
+                    cyclePlayerAdvantage(index, advantageIndicator);
+                }
+            });
 
             // Créer le conteneur des adversaires associés
             const opponentsContainer = document.createElement('div');
@@ -252,6 +278,18 @@ function createPlayerTabs(pjDoc) {
             wrapper.appendChild(tabElement);
             wrapper.appendChild(advantageIndicator);
             wrapper.appendChild(opponentsContainer);
+
+            // --- 4. ZONE AVANTAGE COMBAT ADVERSAIRES (BAS) ---
+            const heroBottomAdvantage = document.createElement('div');
+            heroBottomAdvantage.className = 'advantage-indicator hero-bottom-advantage';
+            heroBottomAdvantage.textContent = '0';
+            heroBottomAdvantage.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (typeof cycleHeroBottomAdvantage === 'function') {
+                    cycleHeroBottomAdvantage(index, heroBottomAdvantage);
+                }
+            });
+            wrapper.appendChild(heroBottomAdvantage);
             
             playerTabsContainer.appendChild(wrapper);
         }
@@ -259,11 +297,11 @@ function createPlayerTabs(pjDoc) {
     
 
 
-    // Insérer les onglets PJ avant les onglets des créatures
+    // Insérer les onglets PJ avec headers avant les onglets des créatures
     if (tabsContainer.firstChild) {
-        tabsContainer.insertBefore(playerTabsContainer, tabsContainer.firstChild);
+        tabsContainer.insertBefore(combatSection, tabsContainer.firstChild);
     } else {
-        tabsContainer.appendChild(playerTabsContainer);
+        tabsContainer.appendChild(combatSection);
     }
     
     // Configurer le drag & drop pour le conteneur principal des créatures (zone "non associés")

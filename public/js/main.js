@@ -26,6 +26,69 @@ window.addEventListener('DOMContentLoaded', function () {
         });
 });
 
+function calculateInitiative() {
+    // Retirer les anciennes pastilles d'initiative
+    document.querySelectorAll('.initiative-badge').forEach(badge => badge.remove());
+
+    const playerWrappers = Array.from(document.querySelectorAll('.player-wrapper'));
+    const totalHeroes = playerWrappers.length;
+
+    const getPosturePriority = (wrapper) => {
+        const playerIndex = parseInt(wrapper.dataset.playerIndex);
+        const postureValue = window.playerAdvantages ? (window.playerAdvantages.get(playerIndex) ?? 0) : 0;
+        // Posture values: 1: AVANCE, 0: EXPOSE, 3: DEFENSIF, 2: ARRIERE
+        switch (postureValue) {
+            case 1: return 1; // AVANCE
+            case 0: return 2; // EXPOSE
+            case 3: return 3; // DEFENSIF
+            case 2: return 4; // ARRIERE
+            default: return 2;
+        }
+    };
+
+    // Préparer les données des héros
+    const heroData = playerWrappers.map((wrapper, domIndex) => {
+        const wits = parseInt(wrapper.dataset.wits) || 0;
+        const priority = getPosturePriority(wrapper);
+        return { wrapper, wits, priority, domIndex };
+    });
+
+    // Trier les héros : 1) priorité de posture (croissant), 2) Esprit (décroissant), 3) ordre DOM (croissant)
+    heroData.sort((a, b) => {
+        if (a.priority !== b.priority) {
+            return a.priority - b.priority;
+        }
+        if (b.wits !== a.wits) {
+            return b.wits - a.wits;
+        }
+        return a.domIndex - b.domIndex;
+    });
+
+    // Attribuer l'initiative aux héros et à leurs adversaires
+    heroData.forEach((hero, sortedIndex) => {
+        const heroRank = sortedIndex + 1;
+        const playerTab = hero.wrapper.querySelector('.player-tab');
+        if (playerTab) {
+            const tabContent = playerTab.querySelector('.tab-content') || playerTab;
+            const badge = document.createElement('span');
+            badge.className = 'initiative-badge';
+            badge.textContent = heroRank;
+            tabContent.appendChild(badge);
+        }
+
+        // Calculer l'initiative des adversaires engagés
+        const opponentTabs = hero.wrapper.querySelectorAll('.pj-opponents .creature-tab');
+        const opponentRank = heroRank + totalHeroes;
+        opponentTabs.forEach(creatureTab => {
+            const tabContent = creatureTab.querySelector('.tab-content') || creatureTab;
+            const badge = document.createElement('span');
+            badge.className = 'initiative-badge';
+            badge.textContent = opponentRank;
+            tabContent.appendChild(badge);
+        });
+    });
+}
+
 function createPlayerTabs(pjDoc) {
     const players = pjDoc.getElementsByTagName('Player_Character');
     const tabsContainer = document.getElementById('creatureTabs');
@@ -66,9 +129,11 @@ function createPlayerTabs(pjDoc) {
             return e.clientX <= box.left + box.width / 2;
         });
 
-        // Déplacement visuel immédiat dans le DOM
+        // Déplacement visuel immédiat dans le DOM (en s'assurant de ne pas mettre après le bouton reload s'il est là)
         if (nextSibling) {
             playerTabsContainer.insertBefore(draggingItem, nextSibling);
+        } else if (reloadBtn && reloadBtn.parentNode === playerTabsContainer) {
+            playerTabsContainer.insertBefore(draggingItem, reloadBtn);
         } else {
             playerTabsContainer.appendChild(draggingItem);
         }
@@ -78,12 +143,14 @@ function createPlayerTabs(pjDoc) {
     Array.from(players).forEach((player, index) => {
         const name = player.getElementsByTagName('Name')[0]?.textContent;
         const tokenName = player.getElementsByTagName('token')[0]?.textContent;
+        const wits = player.getElementsByTagName('WITS')[0]?.textContent || '0';
         
         if (name) {
             const wrapper = document.createElement('div');
             wrapper.className = 'player-wrapper';
             wrapper.dataset.playerIndex = index;
             wrapper.dataset.playerName = name;
+            wrapper.dataset.wits = wits;
 
             // --- ACTIVATION DRAG & DROP SUR LE WRAPPER ---
             wrapper.setAttribute('draggable', true);
@@ -301,7 +368,13 @@ function createPlayerTabs(pjDoc) {
         }
     });
     
-
+    // Créer le bouton "reload" d'initiative à droite des héros
+    const reloadBtn = document.createElement('button');
+    reloadBtn.className = 'reload-initiative-btn';
+    reloadBtn.title = 'Calculer l\'initiative';
+    reloadBtn.textContent = '↻';
+    reloadBtn.addEventListener('click', calculateInitiative);
+    playerTabsContainer.appendChild(reloadBtn);
 
     // Insérer les onglets PJ avec headers avant les onglets des créatures
     if (tabsContainer.firstChild) {

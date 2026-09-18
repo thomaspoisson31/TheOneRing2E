@@ -190,6 +190,54 @@
     align-items: flex-start;
 }
 
+/* Bouton Reload Initiative */
+.reload-initiative-btn {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    font-size: 1.4rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    align-self: center;
+    margin-left: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.reload-initiative-btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.reload-initiative-btn:active {
+    transform: scale(0.95);
+}
+
+/* Pastille noire d'initiative surimpression */
+.initiative-badge {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
 .player-wrapper {
     display: flex;
     flex-direction: column;

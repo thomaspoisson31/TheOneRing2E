@@ -382,6 +382,28 @@ function createPlayerTabs(pjDoc) {
     } else {
         tabsContainer.appendChild(combatSection);
     }
+
+    // Créer le bouton "Association aléatoire" (icône dé) s'il n'existe pas encore
+    if (!document.getElementById('randomAssociationBtn')) {
+        const diceBtn = document.createElement('button');
+        diceBtn.id = 'randomAssociationBtn';
+        diceBtn.className = 'random-association-btn';
+        diceBtn.title = 'Association aléatoire';
+        diceBtn.style.display = 'none'; // Masqué par défaut
+        diceBtn.innerHTML = `
+            <svg viewBox="0 0 100 100" width="36" height="36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="10" y="10" width="80" height="80" rx="16" fill="#ffffff" stroke="#000000"/>
+                <circle cx="30" cy="30" r="6" fill="#000000" stroke="none"/>
+                <circle cx="70" cy="30" r="6" fill="#000000" stroke="none"/>
+                <circle cx="30" cy="50" r="6" fill="#000000" stroke="none"/>
+                <circle cx="70" cy="50" r="6" fill="#000000" stroke="none"/>
+                <circle cx="30" cy="70" r="6" fill="#000000" stroke="none"/>
+                <circle cx="70" cy="70" r="6" fill="#000000" stroke="none"/>
+            </svg>
+        `;
+        diceBtn.addEventListener('click', performRandomAssociation);
+        tabsContainer.appendChild(diceBtn);
+    }
     
     // Configurer le drag & drop pour le conteneur principal des créatures (zone "non associés")
     tabsContainer.addEventListener('dragover', (e) => {
@@ -428,5 +450,150 @@ function createPlayerTabs(pjDoc) {
         if (typeof updateAssociatedPlayersList === 'function') {
             updateAssociatedPlayersList(instanceId);
         }
+
+        // Mettre à jour la visibilité du bouton d'association aléatoire
+        updateRandomAssociationButtonVisibility();
     });
 }
+
+/**
+ * Récupère les onglets de créatures non engagées (directement dans #creatureTabs, pas dans .pj-opponents)
+ */
+function getUnassignedCreatureTabs() {
+    const tabsContainer = document.getElementById('creatureTabs');
+    if (!tabsContainer) return [];
+    return Array.from(tabsContainer.querySelectorAll(':scope > .creature-tab'));
+}
+
+/**
+ * Récupère la liste des héros éligibles (Endurance > 0) avec leur Endurance actuelle et leurs adversaires engagés
+ */
+function getEligibleHeroes() {
+    const playerWrappers = Array.from(document.querySelectorAll('.player-wrapper'));
+    const eligibleHeroes = [];
+
+    playerWrappers.forEach((wrapper) => {
+        const playerIndex = parseInt(wrapper.dataset.playerIndex);
+        const name = wrapper.dataset.playerName;
+
+        // Récupérer l'Endurance depuis l'instance XML ou l'input si ouvert
+        let endurance = 0;
+        const input = document.getElementById(`player-Endurance-${playerIndex}`);
+        if (input) {
+            endurance = parseInt(input.value) || 0;
+        } else if (window.playerInstances && window.playerInstances.has(playerIndex)) {
+            const instance = window.playerInstances.get(playerIndex);
+            const val = instance.getElementsByTagName('Endurance')[0]?.textContent;
+            endurance = parseInt(val) || 0;
+        } else if (window.playerCharacters && window.playerCharacters[playerIndex]) {
+            // Si l'instance n'est pas encore instanciée dans playerInstances, lire le XML d'origine
+            // mais par défaut dans l'app, endurance est chargée
+            endurance = 10; // valeur par défaut positive si introuvable
+        }
+
+        if (endurance > 0) {
+            const opponentsContainer = wrapper.querySelector('.pj-opponents');
+            eligibleHeroes.push({
+                wrapper: wrapper,
+                playerIndex: playerIndex,
+                name: name,
+                endurance: endurance,
+                opponentsContainer: opponentsContainer
+            });
+        }
+    });
+
+    return eligibleHeroes;
+}
+
+/**
+ * Met à jour la visibilité du bouton d'association aléatoire.
+ * Affiché si au moins 1 créature non engagée existe ET au moins 1 héros avec Endurance > 0 existe.
+ */
+function updateRandomAssociationButtonVisibility() {
+    const diceBtn = document.getElementById('randomAssociationBtn');
+    if (!diceBtn) return;
+
+    const unassignedTabs = getUnassignedCreatureTabs();
+    const eligibleHeroes = getEligibleHeroes();
+
+    if (unassignedTabs.length > 0 && eligibleHeroes.length > 0) {
+        diceBtn.style.display = 'flex';
+    } else {
+        diceBtn.style.display = 'none';
+    }
+}
+window.updateRandomAssociationButtonVisibility = updateRandomAssociationButtonVisibility;
+
+/**
+ * Effectue l'association aléatoire des adversaires non engagés aux héros selon les règles définies:
+ * 1. Priorité aux héros ayant le moins d'adversaires associés.
+ * 2. Si égalité du nombre d'adversaires, répartition sur les héros.
+ * 3. S'il reste moins d'adversaires à répartir que de héros éligibles, attribution aux héros ayant le moins d'Endurance (> 0).
+ *    En cas d'égalité d'Endurance, choix aléatoire parmi eux.
+ */
+function performRandomAssociation() {
+    const unassignedTabs = getUnassignedCreatureTabs();
+    let eligibleHeroes = getEligibleHeroes();
+
+    if (unassignedTabs.length === 0 || eligibleHeroes.length === 0) {
+        updateRandomAssociationButtonVisibility();
+        return;
+    }
+
+    // Mélanger initialement la liste des créatures pour un tirage aléatoire
+    const creaturesToAssign = [...unassignedTabs].sort(() => Math.random() - 0.5);
+
+    while (creaturesToAssign.length > 0) {
+        // Compter le nombre actuel d'adversaires pour chaque héros éligible
+        const heroCounts = eligibleHeroes.map(hero => ({
+            hero: hero,
+            count: hero.opponentsContainer ? hero.opponentsContainer.querySelectorAll('.creature-tab').length : 0
+        }));
+
+        // Trouver le nombre minimum d'adversaires parmi les héros
+        const minCount = Math.min(...heroCounts.map(h => h.count));
+
+        // Filtrer les héros qui ont le moins d'adversaires associés
+        const minCountHeroes = heroCounts.filter(h => h.count === minCount).map(h => h.hero);
+
+        let chosenHero = null;
+
+        if (creaturesToAssign.length >= minCountHeroes.length) {
+            // S'il y a assez d'adversaires pour en donner au moins un à chacun des héros ayant le minCount,
+            // on tire au sort parmi minCountHeroes
+            chosenHero = minCountHeroes[Math.floor(Math.random() * minCountHeroes.length)];
+        } else {
+            // S'il reste moins d'adversaires que de héros dans minCountHeroes,
+            // on choisit parmi minCountHeroes ceux qui ont le moins d'Endurance (> 0)
+            const minEndurance = Math.min(...minCountHeroes.map(h => h.endurance));
+            const lowestEnduranceHeroes = minCountHeroes.filter(h => h.endurance === minEndurance);
+
+            // Tirage aléatoire en cas d'égalité d'Endurance
+            chosenHero = lowestEnduranceHeroes[Math.floor(Math.random() * lowestEnduranceHeroes.length)];
+        }
+
+        if (chosenHero && creaturesToAssign.length > 0) {
+            const creatureTab = creaturesToAssign.shift();
+            const instanceId = parseInt(creatureTab.dataset.instanceId);
+
+            // Déplacer l'élément DOM dans le pj-opponents du héros
+            chosenHero.opponentsContainer.appendChild(creatureTab);
+
+            // Mettre à jour la structure de données des associations
+            if (instanceId && chosenHero.name && typeof associatePlayer === 'function') {
+                associatePlayer(instanceId, chosenHero.name);
+            }
+        }
+    }
+
+    // Mettre à jour l'affichage de l'association si une fiche créature est ouverte
+    const activeTab = document.querySelector('.creature-tab.active');
+    if (activeTab && typeof updateAssociatedPlayersList === 'function') {
+        updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
+    }
+
+    // Recalculer la visibilité du bouton
+    updateRandomAssociationButtonVisibility();
+}
+window.performRandomAssociation = performRandomAssociation;

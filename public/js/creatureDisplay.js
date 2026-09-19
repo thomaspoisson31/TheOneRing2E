@@ -188,6 +188,10 @@ function displayCreature(creature, familyName, resetSelect = true) {
 
     targetContainer.appendChild(tabElement);
     tabElement.click();
+
+    if (typeof updateRandomAssociationButtonVisibility === 'function') {
+        updateRandomAssociationButtonVisibility();
+    }
 }
 
 function loadPlayerCharacters() {
@@ -475,12 +479,18 @@ function associatePlayer(instanceId, playerName) {
     }
     creaturePlayerAssociations.get(instanceId).add(playerName);
     updateAssociatedPlayersList(instanceId);
+    if (typeof updateRandomAssociationButtonVisibility === 'function') {
+        updateRandomAssociationButtonVisibility();
+    }
 }
 
 function dissociatePlayer(instanceId, playerName) {
     if (creaturePlayerAssociations.has(instanceId)) {
         creaturePlayerAssociations.get(instanceId).delete(playerName);
         updateAssociatedPlayersList(instanceId);
+    }
+    if (typeof updateRandomAssociationButtonVisibility === 'function') {
+        updateRandomAssociationButtonVisibility();
     }
 }
 
@@ -491,6 +501,10 @@ function deleteCreature(instanceId) {
     creatureInstances.delete(instanceId);
     creaturePlayerAssociations.delete(instanceId);
     creatureCard.style.display = 'none';
+
+    if (typeof updateRandomAssociationButtonVisibility === 'function') {
+        updateRandomAssociationButtonVisibility();
+    }
 }
 
 // Charger les PJ au démarrage

@@ -218,6 +218,34 @@
     transform: scale(0.95);
 }
 
+/* Bouton Association Aléatoire (Dé) */
+.random-association-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+}
+
+.random-association-btn:hover {
+    transform: scale(1.1);
+}
+
+.random-association-btn:active {
+    transform: scale(0.95);
+}
+
+.random-association-btn svg,
+.random-association-btn img {
+    width: 36px;
+    height: 36px;
+}
+
 /* Pastille noire d'initiative surimpression */
 .initiative-badge {
     position: absolute;

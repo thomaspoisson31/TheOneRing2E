@@ -198,6 +198,9 @@ function updatePlayerValue(instanceId, field, value) {
             element.textContent = value;
         }
     }
+    if (field === 'Endurance' && typeof updateRandomAssociationButtonVisibility === 'function') {
+        updateRandomAssociationButtonVisibility();
+    }
 }
 
 function adjustPlayerStat(playerIndex, field, delta) {

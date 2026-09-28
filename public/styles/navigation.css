@@ -187,63 +187,85 @@
     display: flex;
     gap: 0.5rem;
     margin-right: 1rem;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
-/* Bouton Reload Initiative */
-.reload-initiative-btn {
+/* Colonne des boutons d'actions héros */
+.hero-actions-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 32px;
+    align-items: center;
+    margin-left: 0.25rem;
+}
+
+.action-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+}
+
+.action-slot.slot-top-advantage {
+    height: 22px;
+}
+
+.action-slot.slot-repousse {
+    height: 16px;
+}
+
+.action-slot.slot-reload {
+    height: 50px;
+}
+
+.action-slot.slot-posture {
+    height: 20px;
+}
+
+.action-slot.slot-opponents {
+    flex-grow: 1;
+    min-height: 20px;
+}
+
+.action-slot.slot-random {
+    height: 22px;
+    overflow: visible;
+}
+
+/* Style commun pour les boutons d'action (reload et random) */
+.action-icon-btn {
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 32px;
     height: 32px;
-    font-size: 1.4rem;
-    line-height: 1;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    align-self: center;
-    margin-left: 0.25rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s, transform 0.1s;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    overflow: hidden;
 }
 
-.reload-initiative-btn:hover {
+.action-icon-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+}
+
+.action-icon-btn:hover {
     background-color: #f0f0f0;
     transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.reload-initiative-btn:active {
+.action-icon-btn:active {
     transform: scale(0.95);
-}
-
-/* Bouton Association Aléatoire (Dé) */
-.random-association-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin-left: auto;
-    align-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.15s ease;
-}
-
-.random-association-btn:hover {
-    transform: scale(1.1);
-}
-
-.random-association-btn:active {
-    transform: scale(0.95);
-}
-
-.random-association-btn svg,
-.random-association-btn img {
-    width: 36px;
-    height: 36px;
 }
 
 /* Pastille noire d'initiative surimpression */
@@ -375,14 +397,17 @@
 
 /* --- Styles pour l'indicateur d'avantage --- */
 .advantage-indicator {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 22px;
     text-align: center;
     background: #878787;
     color: #2d3748;
     font-size: 14px;
     cursor: pointer;
-    padding: 3px 0;
+    padding: 0;
     border-radius: 2px;
     font-weight: bold;
     user-select: none;
@@ -411,7 +436,8 @@
 .advantage-indicator.posture-defensif {
     font-size: 8.5px;
     line-height: 1.2;
-    padding: 4px 0;
+    padding: 0;
+    height: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -453,13 +479,18 @@
 /* Bouton Repoussé */
 .repousse-btn {
     width: 100%;
+    height: 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #e0e0e0;
     color: #4a4a4a;
     border: none;
     border-radius: 4px;
     font-size: 8px; /* Small font to fit */
-    padding: 2px 0;
-    margin-bottom: 2px;
+    padding: 0;
+    margin-bottom: 0;
     cursor: pointer;
     text-align: center;
     line-height: 1.2;

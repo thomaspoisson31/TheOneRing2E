@@ -93,24 +93,14 @@ function createPlayerTabs(pjDoc) {
     const players = pjDoc.getElementsByTagName('Player_Character');
     const tabsContainer = document.getElementById('creatureTabs');
     
-    // Créer un conteneur principal incluant les titres de section et les colonnes
+    // Créer un conteneur principal incluant les colonnes de combat
     const combatSection = document.createElement('div');
     combatSection.className = 'combat-section';
-
-    const topHeader = document.createElement('div');
-    topHeader.className = 'combat-section-header top-header';
-    topHeader.textContent = 'Avantages de combat - héros';
-    combatSection.appendChild(topHeader);
 
     // Créer un conteneur spécifique pour les onglets PJ
     const playerTabsContainer = document.createElement('div');
     playerTabsContainer.className = 'player-tabs';
     combatSection.appendChild(playerTabsContainer);
-
-    const bottomHeader = document.createElement('div');
-    bottomHeader.className = 'combat-section-header bottom-header';
-    bottomHeader.textContent = 'Avantages de combat - adversaires';
-    combatSection.appendChild(bottomHeader);
 
     // --- LOGIQUE DRAG & DROP DU CONTENEUR ---
     playerTabsContainer.addEventListener('dragover', (e) => {
@@ -129,11 +119,12 @@ function createPlayerTabs(pjDoc) {
             return e.clientX <= box.left + box.width / 2;
         });
 
-        // Déplacement visuel immédiat dans le DOM (en s'assurant de ne pas mettre après le bouton reload s'il est là)
+        // Déplacement visuel immédiat dans le DOM (en s'assurant de ne pas mettre après la colonne d'actions s'il y en a une)
+        const actionsCol = playerTabsContainer.querySelector('.hero-actions-column');
         if (nextSibling) {
             playerTabsContainer.insertBefore(draggingItem, nextSibling);
-        } else if (reloadBtn && reloadBtn.parentNode === playerTabsContainer) {
-            playerTabsContainer.insertBefore(draggingItem, reloadBtn);
+        } else if (actionsCol && actionsCol.parentNode === playerTabsContainer) {
+            playerTabsContainer.insertBefore(draggingItem, actionsCol);
         } else {
             playerTabsContainer.appendChild(draggingItem);
         }
@@ -368,41 +359,69 @@ function createPlayerTabs(pjDoc) {
         }
     });
     
-    // Créer le bouton "reload" d'initiative à droite des héros
+    // Créer le conteneur de la colonne des boutons d'actions héros/combat
+    const actionsColumn = document.createElement('div');
+    actionsColumn.className = 'hero-actions-column';
+
+    // Emplacement supérieur (pour top advantage)
+    const slotTopAdv = document.createElement('div');
+    slotTopAdv.className = 'action-slot slot-top-advantage';
+    actionsColumn.appendChild(slotTopAdv);
+
+    // Emplacement repousse
+    const slotRepousse = document.createElement('div');
+    slotRepousse.className = 'action-slot slot-repousse';
+    actionsColumn.appendChild(slotRepousse);
+
+    // Emplacement pour le bouton reload (aligné avec la ligne des portraits héros)
+    const slotReload = document.createElement('div');
+    slotReload.className = 'action-slot slot-reload';
+
     const reloadBtn = document.createElement('button');
-    reloadBtn.className = 'reload-initiative-btn';
+    reloadBtn.className = 'reload-initiative-btn action-icon-btn';
     reloadBtn.title = 'Calculer l\'initiative';
-    reloadBtn.textContent = '↻';
+    const reloadImg = document.createElement('img');
+    reloadImg.src = 'images/Reload.png';
+    reloadImg.alt = 'Reload';
+    reloadBtn.appendChild(reloadImg);
     reloadBtn.addEventListener('click', calculateInitiative);
-    playerTabsContainer.appendChild(reloadBtn);
+    slotReload.appendChild(reloadBtn);
+    actionsColumn.appendChild(slotReload);
+
+    // Emplacement posture
+    const slotPosture = document.createElement('div');
+    slotPosture.className = 'action-slot slot-posture';
+    actionsColumn.appendChild(slotPosture);
+
+    // Emplacement pour les opposants (remplit le milieu)
+    const slotOpponents = document.createElement('div');
+    slotOpponents.className = 'action-slot slot-opponents';
+    actionsColumn.appendChild(slotOpponents);
+
+    // Emplacement pour le bouton random (aligné avec la ligne des modificateurs adversaires)
+    const slotRandom = document.createElement('div');
+    slotRandom.className = 'action-slot slot-random';
+
+    const randomBtn = document.createElement('button');
+    randomBtn.id = 'randomAssociationBtn';
+    randomBtn.className = 'random-association-btn action-icon-btn';
+    randomBtn.title = 'Association aléatoire';
+    randomBtn.style.display = 'none'; // Masqué par défaut
+    const randomImg = document.createElement('img');
+    randomImg.src = 'images/Random.png';
+    randomImg.alt = 'Random';
+    randomBtn.appendChild(randomImg);
+    randomBtn.addEventListener('click', performRandomAssociation);
+    slotRandom.appendChild(randomBtn);
+    actionsColumn.appendChild(slotRandom);
+
+    playerTabsContainer.appendChild(actionsColumn);
 
     // Insérer les onglets PJ avec headers avant les onglets des créatures
     if (tabsContainer.firstChild) {
         tabsContainer.insertBefore(combatSection, tabsContainer.firstChild);
     } else {
         tabsContainer.appendChild(combatSection);
-    }
-
-    // Créer le bouton "Association aléatoire" (icône dé) s'il n'existe pas encore
-    if (!document.getElementById('randomAssociationBtn')) {
-        const diceBtn = document.createElement('button');
-        diceBtn.id = 'randomAssociationBtn';
-        diceBtn.className = 'random-association-btn';
-        diceBtn.title = 'Association aléatoire';
-        diceBtn.style.display = 'none'; // Masqué par défaut
-        diceBtn.innerHTML = `
-            <svg viewBox="0 0 100 100" width="36" height="36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="10" y="10" width="80" height="80" rx="16" fill="#ffffff" stroke="#000000"/>
-                <circle cx="30" cy="30" r="6" fill="#000000" stroke="none"/>
-                <circle cx="70" cy="30" r="6" fill="#000000" stroke="none"/>
-                <circle cx="30" cy="50" r="6" fill="#000000" stroke="none"/>
-                <circle cx="70" cy="50" r="6" fill="#000000" stroke="none"/>
-                <circle cx="30" cy="70" r="6" fill="#000000" stroke="none"/>
-                <circle cx="70" cy="70" r="6" fill="#000000" stroke="none"/>
-            </svg>
-        `;
-        diceBtn.addEventListener('click', performRandomAssociation);
-        tabsContainer.appendChild(diceBtn);
     }
     
     // Configurer le drag & drop pour le conteneur principal des créatures (zone "non associés")

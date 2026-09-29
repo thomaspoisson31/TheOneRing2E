@@ -5,7 +5,8 @@
 .tabs-container {
     display: flex;
     align-items: flex-start; /* Alignement en haut pour gérer les colonnes */
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 1.5rem;
     margin-bottom: 1rem;
     min-height: 100px;
 }
@@ -18,12 +19,21 @@
     flex-grow: 1; /* Occuper l'espace restant */
 }
 
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 440px;
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
 .creature-selector {
     display: flex;
     gap: 0.5rem;
     align-items: center;
     margin-left: auto;
-    align-self: flex-start; /* Rester en haut même si la liste grandit */
+    align-self: flex-end; /* Rester à droite */
     flex-shrink: 0; /* Empêcher le rétrécissement */
     z-index: 100; /* Assurer qu'il est au-dessus */
 }

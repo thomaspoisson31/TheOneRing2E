@@ -332,7 +332,8 @@ function displayCreatureDetails(creature, familyName) {
     // Stats
     html += '<div class="stats-grid">';
     
-    // Niveau
+    // Ligne 1: Niveau, Parade, Armure
+    html += '<div class="stats-row stats-row-top">';
     html += `
         <div class="stat-diamond">
             <img src="images/diamond.png" alt="diamond">
@@ -340,7 +341,6 @@ function displayCreatureDetails(creature, familyName) {
             <div class="stat-value">${attributs.getElementsByTagName('niveau')[0].textContent}</div>
         </div>`;
     
-    // Parade
     html += `
         <div class="stat-diamond">
             <img src="images/diamond.png" alt="diamond">
@@ -348,15 +348,16 @@ function displayCreatureDetails(creature, familyName) {
             <div class="stat-value">${attributs.getElementsByTagName('parade')[0].textContent}</div>
         </div>`;
     
-    // Armure
     html += `
         <div class="stat-diamond">
             <img src="images/diamond.png" alt="diamond">
             <div class="stat-label">Armure</div>
             <div class="stat-value">${attributs.getElementsByTagName('armure')[0].textContent}</div>
         </div>`;
-    
-    // Endurance (modifiable)
+    html += '</div>';
+
+    // Ligne 2: Endurance, Haine
+    html += '<div class="stats-row stats-row-bottom">';
     html += `
         <div class="stat-wrapper">
             <button class="stat-btn" onclick="adjustCreatureStat(${instanceId}, 'endurance', -1)">-</button>
@@ -372,7 +373,6 @@ function displayCreatureDetails(creature, familyName) {
             <button class="stat-btn" onclick="adjustCreatureStat(${instanceId}, 'endurance', 1)">+</button>
         </div>`;
     
-    // Haine (modifiable)
     html += `
         <div class="stat-wrapper">
             <button class="stat-btn" onclick="adjustCreatureStat(${instanceId}, 'haine', -1)">-</button>
@@ -387,6 +387,7 @@ function displayCreatureDetails(creature, familyName) {
             </div>
             <button class="stat-btn" onclick="adjustCreatureStat(${instanceId}, 'haine', 1)">+</button>
         </div>`;
+    html += '</div>';
     
     html += '</div>';
 
@@ -415,11 +416,15 @@ function displayCreatureDetails(creature, familyName) {
             const diamonds = '&#9830;'.repeat(valeurArme);
 
             html += `<li>
-                <span class="weapon-name">${nomArme}</span> 
-                <span class="weapon-value">${diamonds}</span> 
-                (<span>${degatsArme}</span>)
-                ${specialArme ? `<span class="weapon-special" onclick="toggleSpecialDetails(this)">${specialArme}</span>
-                <div class="weapon-special-details">${specialDescriptions[specialArme] || ''}</div>` : ''}
+                <div class="weapon-line1">
+                    <span class="weapon-name">${nomArme}</span>
+                    <span class="weapon-value">${diamonds}</span>
+                </div>
+                <div class="weapon-line2">
+                    <span class="weapon-degats">(${degatsArme})</span>
+                    ${specialArme ? `<span class="weapon-special" onclick="toggleSpecialDetails(this)">${specialArme}</span>
+                    <div class="weapon-special-details">${specialDescriptions[specialArme] || ''}</div>` : ''}
+                </div>
             </li>`;
         }
         html += '</ul></div>';

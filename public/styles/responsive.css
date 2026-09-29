@@ -8,12 +8,18 @@
         align-items: flex-start;
     }
 
+    .right-panel {
+        width: 100%;
+        align-items: stretch;
+    }
+
     .creature-selector {
         width: auto;
         margin-left: 0;
         margin-top: 0.5rem;
         display: flex;
         gap: 0.5rem;
+        align-self: flex-start;
     }
 
     .creature-selector select {

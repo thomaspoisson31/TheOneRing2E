@@ -15,19 +15,21 @@
         <!-- Conteneur qui affichera les PJs en colonnes -->
         <div id="creatureTabs" class="creature-tabs player-columns-container"></div>
         
-        <!-- Le sélecteur est maintenant caché par défaut via CSS -->
-        <div class="creature-selector" id="creatureSelectorContainer">
-            <select id="familySelect">
-                <option value="">Choix Famille</option>
-            </select>
-            <select id="creatureSelect">
-                <option value="">Choix Adversaire</option>
-            </select>
-            <button id="addCreature" class="add-button">+</button>
+        <div class="right-panel">
+            <!-- Le sélecteur est maintenant caché par défaut via CSS -->
+            <div class="creature-selector" id="creatureSelectorContainer">
+                <select id="familySelect">
+                    <option value="">Choix Famille</option>
+                </select>
+                <select id="creatureSelect">
+                    <option value="">Choix Adversaire</option>
+                </select>
+                <button id="addCreature" class="add-button">+</button>
+            </div>
+
+            <div id="creatureCard" class="creature-card"></div>
         </div>
     </div>
-
-    <div id="creatureCard" class="creature-card"></div>
 
     <div id="fullScreenImage" class="full-screen-image">
         <img id="creatureImage" src="" alt="Image de la créature">

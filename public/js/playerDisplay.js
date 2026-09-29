@@ -57,7 +57,8 @@ function displayPlayerProfile(player) {
     // Grille de statistiques
     html += '<div class="stats-grid">';
     
-    // Esprit (non modifiable)
+    // Ligne 1: Esprit, Parade, Armure
+    html += '<div class="stats-row stats-row-top">';
     html += `
         <div class="stat-diamond">
             <img src="images/diamond.png" alt="diamond">
@@ -65,7 +66,6 @@ function displayPlayerProfile(player) {
             <div class="stat-value">${wits}</div>
         </div>`;
     
-    // Parade (non modifiable)
     html += `
         <div class="stat-diamond">
             <img src="images/diamond.png" alt="diamond">
@@ -73,15 +73,16 @@ function displayPlayerProfile(player) {
             <div class="stat-value">${parry}</div>
         </div>`;
     
-    // Armure (non modifiable)
     html += `
         <div class="stat-diamond">
             <img src="images/diamond.png" alt="diamond">
             <div class="stat-label">Armure</div>
             <div class="stat-value">${armourValue}</div>
         </div>`;
-    
-    // Endurance (modifiable)
+    html += '</div>';
+
+    // Ligne 2: Endurance, Espoir
+    html += '<div class="stats-row stats-row-bottom">';
     html += `
         <div class="stat-wrapper">
             <button class="stat-btn" onclick="adjustPlayerStat(${playerIndex}, 'Endurance', -1)">-</button>
@@ -97,7 +98,6 @@ function displayPlayerProfile(player) {
             <button class="stat-btn" onclick="adjustPlayerStat(${playerIndex}, 'Endurance', 1)">+</button>
         </div>`;
     
-    // Espoir (modifiable)
     html += `
         <div class="stat-wrapper">
             <button class="stat-btn" onclick="adjustPlayerStat(${playerIndex}, 'Hope', -1)">-</button>
@@ -112,6 +112,7 @@ function displayPlayerProfile(player) {
             </div>
             <button class="stat-btn" onclick="adjustPlayerStat(${playerIndex}, 'Hope', 1)">+</button>
         </div>`;
+    html += '</div>';
     
     html += '</div>';
 

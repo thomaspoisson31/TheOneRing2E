@@ -3,6 +3,8 @@ let creatureInstances = window.creatureInstances || new Map();
 window.creatureInstances = creatureInstances; // Stockage des instances d'adversaires
 let creaturePlayerAssociations = window.creaturePlayerAssociations || new Map();
 window.creaturePlayerAssociations = creaturePlayerAssociations; // Stockage des associations adversaire-PJ (Set)
+let creatureInstanceAdvantages = window.creatureInstanceAdvantages || new Map();
+window.creatureInstanceAdvantages = creatureInstanceAdvantages;
 window.dragPlaceholder = document.createElement('div');
 window.dragPlaceholder.className = 'drop-placeholder';
 
@@ -313,6 +315,12 @@ function displayCreatureDetails(creature, familyName) {
     const imageUrl = creature.getElementsByTagName('url_image')[0]?.textContent;
     const instanceId = parseInt(document.querySelector('.creature-tab.active')?.dataset.instanceId);
 
+    const currentAdvantage = creatureInstanceAdvantages.get(instanceId) || 0;
+    const advantageText = typeof getAdvantageText === 'function' ? getAdvantageText(currentAdvantage) : '0';
+    let advantageClass = 'neutral';
+    if (currentAdvantage === 1 || currentAdvantage === 2) advantageClass = 'positive';
+    else if (currentAdvantage === -1 || currentAdvantage === -2) advantageClass = 'negative';
+
     let html = `
         <div class="creature-header">
             <div class="creature-title">
@@ -320,6 +328,9 @@ function displayCreatureDetails(creature, familyName) {
                     <span class="creature-name" onclick="showImage('${imageUrl}')">${name}</span>
                     <img src="images/sound-icon.png" alt="Son" class="sound-icon" id="soundIcon">
                     <button class="icon-button delete-icon" onclick="deleteCreature(${instanceId})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
+                </div>
+                <div class="creature-title-right">
+                    <div class="combat-modifier-badge ${advantageClass}" onclick="cycleCreatureCombatAdvantageInCard(${instanceId})" title="Modificateur de combat">${advantageText}</div>
                 </div>
             </div>
         </div>`;
@@ -515,5 +526,21 @@ function deleteCreature(instanceId) {
 // Charger les PJ au démarrage
 window.addEventListener('DOMContentLoaded', loadPlayerCharacters);
 
+function cycleCreatureCombatAdvantageInCard(instanceId) {
+    const currentValue = creatureInstanceAdvantages.get(instanceId) || 0;
+    const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
+    creatureInstanceAdvantages.set(instanceId, newValue);
+
+    const badge = document.querySelector('.creature-title-right .combat-modifier-badge');
+    if (badge) {
+        badge.textContent = typeof getAdvantageText === 'function' ? getAdvantageText(newValue) : '0';
+        badge.classList.remove('positive', 'negative', 'neutral');
+        if (newValue === 1 || newValue === 2) badge.classList.add('positive');
+        else if (newValue === -1 || newValue === -2) badge.classList.add('negative');
+        else badge.classList.add('neutral');
+    }
+}
+
 window.associatePlayer = associatePlayer;
 window.dissociatePlayer = dissociatePlayer;
+window.cycleCreatureCombatAdvantageInCard = cycleCreatureCombatAdvantageInCard;

@@ -57,6 +57,63 @@
     background: #555;
 }
 
+.combat-modifier-badge {
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    min-width: 45px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, color 0.2s;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.combat-modifier-badge.positive {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.combat-modifier-badge.negative {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.combat-modifier-badge.neutral {
+    background-color: #e2e8f0;
+    color: #4a5568;
+}
+
+.card-repousse-btn {
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background-color: #e0e0e0;
+    color: #4a4a4a;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-repousse-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.card-repousse-btn.active {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 .associated-creatures-area {
     margin-top: 1rem;
     padding: 1rem;

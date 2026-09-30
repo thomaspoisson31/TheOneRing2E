@@ -235,28 +235,6 @@ function createPlayerTabs(pjDoc) {
             }
 
             tabElement.appendChild(tabContent);
-            
-            // --- 1. ZONE AVANTAGE COMBAT HÉROS (HAUT) ---
-            const heroTopAdvantage = document.createElement('div');
-            heroTopAdvantage.className = 'advantage-indicator hero-top-advantage';
-            heroTopAdvantage.textContent = '0';
-            heroTopAdvantage.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (typeof cycleHeroTopAdvantage === 'function') {
-                    cycleHeroTopAdvantage(index, heroTopAdvantage);
-                }
-            });
-            wrapper.appendChild(heroTopAdvantage);
-
-            // Créer le bouton "Repoussé"
-            const repousseBtn = document.createElement('button');
-            repousseBtn.className = 'repousse-btn';
-            repousseBtn.textContent = 'Repoussé';
-            repousseBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                e.target.classList.toggle('active');
-            });
-            wrapper.appendChild(repousseBtn);
 
             // --- 2. HÉRO PORTRAIT / TAB --- (wrapper.appendChild(tabElement) called later)
 
@@ -401,18 +379,6 @@ function createPlayerTabs(pjDoc) {
             wrapper.appendChild(tabElement);
             wrapper.appendChild(advantageIndicator);
             wrapper.appendChild(opponentsContainer);
-
-            // --- 4. ZONE AVANTAGE COMBAT ADVERSAIRES (BAS) ---
-            const heroBottomAdvantage = document.createElement('div');
-            heroBottomAdvantage.className = 'advantage-indicator hero-bottom-advantage';
-            heroBottomAdvantage.textContent = '0';
-            heroBottomAdvantage.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (typeof cycleHeroBottomAdvantage === 'function') {
-                    cycleHeroBottomAdvantage(index, heroBottomAdvantage);
-                }
-            });
-            wrapper.appendChild(heroBottomAdvantage);
             
             playerTabsContainer.appendChild(wrapper);
         }
@@ -421,16 +387,6 @@ function createPlayerTabs(pjDoc) {
     // Créer le conteneur de la colonne des boutons d'actions héros/combat
     const actionsColumn = document.createElement('div');
     actionsColumn.className = 'hero-actions-column';
-
-    // Emplacement supérieur (pour top advantage)
-    const slotTopAdv = document.createElement('div');
-    slotTopAdv.className = 'action-slot slot-top-advantage';
-    actionsColumn.appendChild(slotTopAdv);
-
-    // Emplacement repousse
-    const slotRepousse = document.createElement('div');
-    slotRepousse.className = 'action-slot slot-repousse';
-    actionsColumn.appendChild(slotRepousse);
 
     // Emplacement pour le bouton reload (aligné avec la ligne des portraits héros)
     const slotReload = document.createElement('div');

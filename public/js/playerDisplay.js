@@ -7,6 +7,8 @@ let heroTopAdvantages = new Map(); // Pour stocker les avantages de combat héro
 window.heroTopAdvantages = heroTopAdvantages;
 let heroBottomAdvantages = new Map(); // Pour stocker les avantages de combat adversaires (zone du bas)
 window.heroBottomAdvantages = heroBottomAdvantages;
+let heroRepousseStates = window.heroRepousseStates || new Map();
+window.heroRepousseStates = heroRepousseStates;
 
 function displayPlayerProfile(player) {
     const name = player.getElementsByTagName('Name')[0].textContent;
@@ -44,12 +46,24 @@ function displayPlayerProfile(player) {
     // Récupérer les créatures associées
     const associatedCreatures = getAssociatedCreatures(name);
 
+    const currentAdvantage = heroTopAdvantages.get(playerIndex) || 0;
+    const advantageText = typeof getAdvantageText === 'function' ? getAdvantageText(currentAdvantage) : '0';
+    let advantageClass = 'neutral';
+    if (currentAdvantage === 1 || currentAdvantage === 2) advantageClass = 'positive';
+    else if (currentAdvantage === -1 || currentAdvantage === -2) advantageClass = 'negative';
+
+    const isRepousse = heroRepousseStates.get(playerIndex) || false;
+
     let html = `
         <div class="creature-header">
             <div class="creature-title">
                 <div class="creature-title-left">
                     <span class="creature-name">${name}</span>
                     <button class="icon-button delete-icon" onclick="deletePlayer(${playerIndex})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
+                </div>
+                <div class="creature-title-right">
+                    <div class="combat-modifier-badge ${advantageClass}" onclick="cycleHeroCombatAdvantageInCard(${playerIndex})" title="Modificateur de combat">${advantageText}</div>
+                    <button class="card-repousse-btn ${isRepousse ? 'active' : ''}" onclick="toggleHeroRepousseInCard(${playerIndex})">Repoussé</button>
                 </div>
             </div>
         </div>`;
@@ -261,6 +275,37 @@ function cycleHeroBottomAdvantage(playerIndex, indicatorElement) {
     }
 }
 
+function cycleHeroCombatAdvantageInCard(playerIndex) {
+    const currentValue = heroTopAdvantages.get(playerIndex) || 0;
+    const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
+    heroTopAdvantages.set(playerIndex, newValue);
+
+    const badge = document.querySelector('.creature-title-right .combat-modifier-badge');
+    if (badge) {
+        badge.textContent = typeof getAdvantageText === 'function' ? getAdvantageText(newValue) : '0';
+        badge.classList.remove('positive', 'negative', 'neutral');
+        if (newValue === 1 || newValue === 2) badge.classList.add('positive');
+        else if (newValue === -1 || newValue === -2) badge.classList.add('negative');
+        else badge.classList.add('neutral');
+    }
+}
+
+function toggleHeroRepousseInCard(playerIndex) {
+    const currentState = !(heroRepousseStates.get(playerIndex) || false);
+    heroRepousseStates.set(playerIndex, currentState);
+
+    const btn = document.querySelector('.creature-title-right .card-repousse-btn');
+    if (btn) {
+        if (currentState) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    }
+}
+
 window.cyclePlayerAdvantage = cyclePlayerAdvantage;
 window.cycleHeroTopAdvantage = cycleHeroTopAdvantage;
 window.cycleHeroBottomAdvantage = cycleHeroBottomAdvantage;
+window.cycleHeroCombatAdvantageInCard = cycleHeroCombatAdvantageInCard;
+window.toggleHeroRepousseInCard = toggleHeroRepousseInCard;

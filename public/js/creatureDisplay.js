@@ -223,15 +223,14 @@ function loadPlayerCharacters() {
 }
 
 function updateAssociatedPlayersList(instanceId) {
-    const listContainer = document.getElementById('associated-players-list');
-    // Si la carte de cette créature n'est pas affichée, on ne fait rien
+    const listContainer = document.getElementById('opponent-cartouche-container');
     const activeTab = document.querySelector('.creature-tab.active');
     if (!listContainer || !activeTab || parseInt(activeTab.dataset.instanceId) !== instanceId) return;
 
     const playersSet = creaturePlayerAssociations.get(instanceId);
     
     if (!playersSet || playersSet.size === 0) {
-        listContainer.innerHTML = '<p class="no-association">Aucun PJ associé</p>';
+        listContainer.innerHTML = '';
         return;
     }
 
@@ -242,8 +241,8 @@ function updateAssociatedPlayersList(instanceId) {
         const token = staticPC ? staticPC.token : null;
         const playerIndex = staticPC ? staticPC.index : null;
 
-        let advantageText = '0';
-        let advantageClass = '';
+        let advantageText = 'EXPOSE';
+        let advantageClass = 'posture-expose';
 
         if (playerIndex !== null && window.playerAdvantages) {
             const advValue = window.playerAdvantages.get(playerIndex) || 0;
@@ -258,15 +257,13 @@ function updateAssociatedPlayersList(instanceId) {
         }
 
         html += `
-            <div class="associated-player-item">
-                ${token ? `<img src="images/PJ/${token}.png" alt="${playerName}" class="associated-player-token">` : ''}
-                <div class="player-info">
-                    <div class="player-name-row">
-                        <span class="player-name">${playerName}</span>
-                        <span class="advantage-badge ${advantageClass}">${advantageText}</span>
-                    </div>
-                    <span class="player-stats">Parade: ${parry}</span>
+            <div class="opponent-cartouche">
+                ${token ? `<img src="images/PJ/${token}.png" alt="${playerName}" class="opponent-token">` : ''}
+                <div class="opponent-info">
+                    <span class="opponent-name">${playerName}</span>
+                    <span class="opponent-stats">Parade: ${parry}</span>
                 </div>
+                <span class="advantage-badge ${advantageClass}">${advantageText}</span>
                 <button class="icon-button delete-icon-small" onclick="dissociatePlayer(${instanceId}, '${playerName.replace(/'/g, "\\'")}')" title="Dissocier">×</button>
             </div>
         `;
@@ -330,6 +327,7 @@ function displayCreatureDetails(creature, familyName) {
                     <button class="icon-button delete-icon" onclick="deleteCreature(${instanceId})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
                 </div>
                 <div class="creature-title-right">
+                    <div id="opponent-cartouche-container" class="opponent-cartouche-container"></div>
                     <div class="combat-modifier-badge ${advantageClass}" onclick="cycleCreatureCombatAdvantageInCard(${instanceId})" title="Modificateur de combat">${advantageText}</div>
                 </div>
             </div>
@@ -473,13 +471,6 @@ function displayCreatureDetails(creature, familyName) {
         html += '</div>';
     }
         
-    // Section PJ Associés déplacée APRÈS les compétences/capacités
-    html += `
-        <div class="associated-section">
-            <h3>PJ Associé</h3>
-            <div id="associated-players-list" class="associated-list"></div>
-        </div>
-    `;
 
     creatureCard.innerHTML = html;
     creatureCard.style.display = 'block';

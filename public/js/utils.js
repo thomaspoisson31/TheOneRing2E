@@ -41,9 +41,9 @@ function updateAdvantageElementStyle(element, value) {
 function getPostureText(value) {
     switch (value) {
         case 0: return 'EXPOSE';
-        case 1: return 'AVANCE';
+        case 1: return 'AVANCE: +1D';
         case 2: return 'ARRIERE';
-        case 3: return 'DEFENSIF';
+        case 3: return 'DEFENSIF: -1D';
         default: return 'EXPOSE';
     }
 }

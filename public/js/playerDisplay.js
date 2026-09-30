@@ -62,6 +62,25 @@ function displayPlayerProfile(player) {
                     <button class="icon-button delete-icon" onclick="deletePlayer(${playerIndex})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
                 </div>
                 <div class="creature-title-right">
+                    <div class="opponent-cartouche-container">
+                        ${associatedCreatures.map(creature => {
+                            const advVal = window.creatureInstanceAdvantages ? (window.creatureInstanceAdvantages.get(creature.id) || 0) : 0;
+                            const advText = typeof getAdvantageText === 'function' ? getAdvantageText(advVal) : '0';
+                            let advClass = '';
+                            if (advVal === 1 || advVal === 2) advClass = 'positive';
+                            else if (advVal === -1 || advVal === -2) advClass = 'negative';
+
+                            return `
+                                <div class="opponent-cartouche" onclick="displayCreatureFromId(${creature.id})">
+                                    <div class="opponent-info">
+                                        <span class="opponent-name">${creature.name}</span>
+                                        <span class="opponent-stats">Parade: ${creature.parade}</span>
+                                    </div>
+                                    <span class="advantage-badge ${advClass}">${advText}</span>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
                     <div class="combat-modifier-badge ${advantageClass}" onclick="cycleHeroCombatAdvantageInCard(${playerIndex})" title="Modificateur de combat">${advantageText}</div>
                     <button class="card-repousse-btn ${isRepousse ? 'active' : ''}" onclick="toggleHeroRepousseInCard(${playerIndex})">Repoussé</button>
                 </div>
@@ -130,25 +149,6 @@ function displayPlayerProfile(player) {
     
     html += '</div>';
 
-    // Zone des créatures associées
-    if (associatedCreatures.length > 0) {
-        html += '<div class="associated-creatures-area">';
-        html += '<h3>Créatures associées</h3>';
-        html += '<div class="creatures-grid">';
-        
-        associatedCreatures.forEach(creature => {
-            html += `
-                <div class="creature-item" onclick="displayCreatureFromId(${creature.id})">
-                    <div class="creature-number">${creature.id}</div>
-                    <div class="creature-details">
-                        <div class="creature-name">${creature.name}</div>
-                        <div class="creature-parade">Parade: ${creature.parade}</div>
-                    </div>
-                </div>`;
-        });
-        
-        html += '</div></div>';
-    }
         
     creatureCard.innerHTML = html;
     creatureCard.style.display = 'block';

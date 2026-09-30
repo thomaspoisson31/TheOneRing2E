@@ -453,9 +453,9 @@
 .advantage-indicator.posture-avance,
 .advantage-indicator.posture-arriere,
 .advantage-indicator.posture-defensif {
-    font-size: 8.5px;
+    font-size: 7px;
     line-height: 1.2;
-    padding: 0;
+    padding: 0 1px;
     height: 20px;
     white-space: nowrap;
     overflow: hidden;

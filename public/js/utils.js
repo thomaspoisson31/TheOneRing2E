@@ -60,7 +60,7 @@ function getNextPostureState(currentValue) {
 
 function updatePostureElementStyle(element, value) {
     if (!element) return;
-    element.textContent = getPostureText(value);
+    element.innerHTML = getPostureText(value).replace(': ', '<br>');
     element.classList.remove('posture-expose', 'posture-avance', 'posture-arriere', 'posture-defensif', 'positive', 'negative', 'distance');
     switch (value) {
         case 0:

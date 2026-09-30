@@ -278,6 +278,15 @@
     transform: scale(0.95);
 }
 
+@keyframes reload-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.action-icon-btn.spinning img {
+    animation: reload-spin 0.4s ease-in-out;
+}
+
 /* Pastille noire d'initiative surimpression */
 .initiative-badge {
     position: absolute;

@@ -31,6 +31,14 @@ function calculateInitiative() {
     document.querySelectorAll('.initiative-badge').forEach(badge => badge.remove());
 
     const playerWrappers = Array.from(document.querySelectorAll('.player-wrapper'));
+    if (playerWrappers.length === 0) return;
+
+    // Enregistrer les positions initiales pour l'animation FLIP
+    const firstPositions = new Map();
+    playerWrappers.forEach(wrapper => {
+        firstPositions.set(wrapper, wrapper.getBoundingClientRect());
+    });
+
     const totalHeroes = playerWrappers.length;
 
     const getPosturePriority = (wrapper) => {
@@ -64,6 +72,20 @@ function calculateInitiative() {
         return a.domIndex - b.domIndex;
     });
 
+    // Réordonner les héros dans le DOM (du rang 1 à gauche vers les rangs supérieurs à droite)
+    const playerTabsContainer = document.querySelector('.player-tabs');
+    const actionsCol = playerTabsContainer ? playerTabsContainer.querySelector('.hero-actions-column') : null;
+
+    heroData.forEach((hero) => {
+        if (playerTabsContainer) {
+            if (actionsCol && actionsCol.parentNode === playerTabsContainer) {
+                playerTabsContainer.insertBefore(hero.wrapper, actionsCol);
+            } else {
+                playerTabsContainer.appendChild(hero.wrapper);
+            }
+        }
+    });
+
     // Attribuer l'initiative aux héros et à leurs adversaires
     heroData.forEach((hero, sortedIndex) => {
         const heroRank = sortedIndex + 1;
@@ -85,6 +107,43 @@ function calculateInitiative() {
             badge.className = 'initiative-badge';
             badge.textContent = opponentRank;
             tabContent.appendChild(badge);
+        });
+    });
+
+    // Effet visuel de rotation rapide sur le bouton Reload
+    const reloadBtn = document.querySelector('.reload-initiative-btn');
+    if (reloadBtn) {
+        reloadBtn.classList.add('spinning');
+        setTimeout(() => reloadBtn.classList.remove('spinning'), 400);
+    }
+
+    // Animation FLIP : Déplacement fluide et rapide des colonnes de héros
+    requestAnimationFrame(() => {
+        heroData.forEach((hero) => {
+            const wrapper = hero.wrapper;
+            const firstPos = firstPositions.get(wrapper);
+            if (!firstPos) return;
+
+            const lastPos = wrapper.getBoundingClientRect();
+            const deltaX = firstPos.left - lastPos.left;
+            const deltaY = firstPos.top - lastPos.top;
+
+            if (deltaX !== 0 || deltaY !== 0) {
+                wrapper.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                wrapper.style.transition = 'none';
+
+                requestAnimationFrame(() => {
+                    wrapper.offsetHeight; // Force reflow
+                    wrapper.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1)';
+                    wrapper.style.transform = '';
+                });
+
+                const onTransitionEnd = () => {
+                    wrapper.style.transition = '';
+                    wrapper.removeEventListener('transitionend', onTransitionEnd);
+                };
+                wrapper.addEventListener('transitionend', onTransitionEnd);
+            }
         });
     });
 }

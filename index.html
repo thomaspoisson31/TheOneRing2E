@@ -12,11 +12,10 @@
     <header></header>
 
     <div class="tabs-container">
-        <!-- Conteneur qui affichera les PJs en colonnes -->
-        <div id="creatureTabs" class="creature-tabs player-columns-container"></div>
-        
-        <div class="right-panel">
-            <!-- Le sélecteur est maintenant caché par défaut via CSS -->
+        <div class="left-panel">
+            <!-- Conteneur qui affichera les PJs en colonnes -->
+            <div id="creatureTabs" class="creature-tabs player-columns-container"></div>
+
             <div class="creature-selector" id="creatureSelectorContainer">
                 <select id="familySelect">
                     <option value="">Choix Famille</option>
@@ -26,7 +25,9 @@
                 </select>
                 <button id="addCreature" class="add-button">+</button>
             </div>
+        </div>
 
+        <div class="right-panel">
             <div id="creatureCard" class="creature-card"></div>
         </div>
     </div>

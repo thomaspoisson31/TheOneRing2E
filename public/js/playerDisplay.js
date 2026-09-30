@@ -55,11 +55,11 @@ function displayPlayerProfile(player) {
     const isRepousse = heroRepousseStates.get(playerIndex) || false;
 
     let html = `
+        <button class="card-delete-btn" onclick="deletePlayer(${playerIndex})" title="Supprimer">×</button>
         <div class="creature-header">
             <div class="creature-title">
                 <div class="creature-title-left">
                     <span class="creature-name">${name}</span>
-                    <button class="icon-button delete-icon" onclick="deletePlayer(${playerIndex})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
                 </div>
                 <div class="creature-title-right">
                     <div class="opponent-cartouche-container">
@@ -72,11 +72,15 @@ function displayPlayerProfile(player) {
 
                             return `
                                 <div class="opponent-cartouche" onclick="displayCreatureFromId(${creature.id})">
-                                    <div class="opponent-info">
-                                        <span class="opponent-name">${creature.name}</span>
-                                        <span class="opponent-stats">Parade: ${creature.parade}</span>
+                                    <div class="opponent-content">
+                                        <div class="opponent-info">
+                                            <span class="opponent-name">${creature.name}</span>
+                                            <span class="opponent-stats">Parade: ${creature.parade}</span>
+                                        </div>
+                                        <div class="opponent-badge-row">
+                                            <span class="advantage-badge ${advClass}">${advText}</span>
+                                        </div>
                                     </div>
-                                    <span class="advantage-badge ${advClass}">${advText}</span>
                                 </div>
                             `;
                         }).join('')}

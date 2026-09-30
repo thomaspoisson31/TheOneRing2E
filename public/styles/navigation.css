@@ -19,6 +19,14 @@
     flex-grow: 1; /* Occuper l'espace restant */
 }
 
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1rem;
+    min-width: 0;
+}
+
 .right-panel {
     display: flex;
     flex-direction: column;
@@ -30,12 +38,21 @@
 
 .creature-selector {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     align-items: center;
-    margin-left: auto;
-    align-self: flex-end; /* Rester à droite */
-    flex-shrink: 0; /* Empêcher le rétrécissement */
-    z-index: 100; /* Assurer qu'il est au-dessus */
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    z-index: 100;
+}
+
+.creature-selector select {
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: white;
+    max-width: 100%;
 }
 
 .action-buttons {
@@ -453,13 +470,14 @@
 .advantage-indicator.posture-avance,
 .advantage-indicator.posture-arriere,
 .advantage-indicator.posture-defensif {
-    font-size: 7px;
-    line-height: 1.2;
-    padding: 0 1px;
-    height: 20px;
-    white-space: nowrap;
+    font-size: 8.5px;
+    line-height: 1.05;
+    padding: 2px 1px;
+    height: auto;
+    min-height: 22px;
+    white-space: normal;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
 }
 
 .advantage-indicator.posture-expose {

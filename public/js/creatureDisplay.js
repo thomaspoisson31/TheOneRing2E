@@ -259,11 +259,15 @@ function updateAssociatedPlayersList(instanceId) {
         html += `
             <div class="opponent-cartouche">
                 ${token ? `<img src="images/PJ/${token}.png" alt="${playerName}" class="opponent-token">` : ''}
-                <div class="opponent-info">
-                    <span class="opponent-name">${playerName}</span>
-                    <span class="opponent-stats">Parade: ${parry}</span>
+                <div class="opponent-content">
+                    <div class="opponent-info">
+                        <span class="opponent-name">${playerName}</span>
+                        <span class="opponent-stats">Parade: ${parry}</span>
+                    </div>
+                    <div class="opponent-badge-row">
+                        <span class="advantage-badge ${advantageClass}">${advantageText}</span>
+                    </div>
                 </div>
-                <span class="advantage-badge ${advantageClass}">${advantageText}</span>
                 <button class="icon-button delete-icon-small" onclick="dissociatePlayer(${instanceId}, '${playerName.replace(/'/g, "\\'")}')" title="Dissocier">×</button>
             </div>
         `;
@@ -319,12 +323,12 @@ function displayCreatureDetails(creature, familyName) {
     else if (currentAdvantage === -1 || currentAdvantage === -2) advantageClass = 'negative';
 
     let html = `
+        <button class="card-delete-btn" onclick="deleteCreature(${instanceId})" title="Supprimer">×</button>
         <div class="creature-header">
             <div class="creature-title">
                 <div class="creature-title-left">
                     <span class="creature-name" onclick="showImage('${imageUrl}')">${name}</span>
                     <img src="images/sound-icon.png" alt="Son" class="sound-icon" id="soundIcon">
-                    <button class="icon-button delete-icon" onclick="deleteCreature(${instanceId})" title="Supprimer" style="margin-left: 10px;">🗑️</button>
                 </div>
                 <div class="creature-title-right">
                     <div id="opponent-cartouche-container" class="opponent-cartouche-container"></div>

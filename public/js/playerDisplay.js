@@ -19,13 +19,14 @@ function displayPlayerProfile(player) {
     const armourValue = player.getElementsByTagName('Leather_shirt')[0]?.getElementsByTagName('Value')[0]?.textContent || '0';
     
     // Trouver l'index du joueur existant ou en créer un nouveau
-    let playerIndex = Array.from(playerInstances.entries())
+    const staticPC = window.playerCharacters ? window.playerCharacters.find(pc => pc.name === name) : null;
+    let playerIndex = staticPC !== null && staticPC !== undefined ? staticPC.index : Array.from(playerInstances.entries())
         .find(([_, p]) => p.getElementsByTagName('Name')[0].textContent === name)?.[0];
     
     if (playerIndex === undefined) {
         playerIndex = playerInstances.size;
-        playerInstances.set(playerIndex, player);
     }
+    playerInstances.set(playerIndex, player);
 
     // Initialiser l'avantage si nécessaire
     if (!playerAdvantages.has(playerIndex)) {
@@ -54,22 +55,31 @@ function displayPlayerProfile(player) {
 
     const isRepousse = heroRepousseStates.get(playerIndex) || false;
 
+    // Posture de combat du héros
+    const heroPostureVal = window.playerAdvantages ? (window.playerAdvantages.get(playerIndex) || 0) : 0;
+    const postureText = typeof getPostureText === 'function' ? getPostureText(heroPostureVal) : 'EXPOSE';
+    let postureClass = 'posture-expose';
+    switch (heroPostureVal) {
+        case 0: postureClass = 'posture-expose'; break;
+        case 1: postureClass = 'posture-avance'; break;
+        case 2: postureClass = 'posture-arriere'; break;
+        case 3: postureClass = 'posture-defensif'; break;
+        default: postureClass = 'posture-expose'; break;
+    }
+
     let html = `
         <button class="card-delete-btn" onclick="deletePlayer(${playerIndex})" title="Supprimer">×</button>
         <div class="creature-header">
             <div class="creature-title">
                 <div class="creature-title-left">
                     <span class="creature-name">${name}</span>
+                    <div class="creature-subtitle-row">
+                        <div class="combat-modifier-badge ${advantageClass}" onclick="cycleHeroCombatAdvantageInCard(${playerIndex})" title="Modificateur de combat">${advantageText}</div>
+                    </div>
                 </div>
                 <div class="creature-title-right">
                     <div class="opponent-cartouche-container">
                         ${associatedCreatures.map(creature => {
-                            const advVal = window.creatureInstanceAdvantages ? (window.creatureInstanceAdvantages.get(creature.id) || 0) : 0;
-                            const advText = typeof getAdvantageText === 'function' ? getAdvantageText(advVal) : '0';
-                            let advClass = '';
-                            if (advVal === 1 || advVal === 2) advClass = 'positive';
-                            else if (advVal === -1 || advVal === -2) advClass = 'negative';
-
                             return `
                                 <div class="opponent-cartouche" onclick="displayCreatureFromId(${creature.id})">
                                     <div class="opponent-content">
@@ -78,14 +88,13 @@ function displayPlayerProfile(player) {
                                             <span class="opponent-stats">Parade: ${creature.parade}</span>
                                         </div>
                                         <div class="opponent-badge-row">
-                                            <span class="advantage-badge ${advClass}">${advText}</span>
+                                            <span class="advantage-badge ${postureClass}">${postureText}</span>
                                         </div>
                                     </div>
                                 </div>
                             `;
                         }).join('')}
                     </div>
-                    <div class="combat-modifier-badge ${advantageClass}" onclick="cycleHeroCombatAdvantageInCard(${playerIndex})" title="Modificateur de combat">${advantageText}</div>
                     <button class="card-repousse-btn ${isRepousse ? 'active' : ''}" onclick="toggleHeroRepousseInCard(${playerIndex})">Repoussé</button>
                 </div>
             </div>
@@ -162,6 +171,7 @@ function displayPlayerProfile(player) {
     if (activeTab && typeof updateAssociatedPlayersList === 'function') {
         updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
     }
+
 }
 
 function cycleAdvantage(playerIndex) {
@@ -179,6 +189,18 @@ function cycleAdvantage(playerIndex) {
     const activeTab = document.querySelector('.creature-tab.active');
     if (activeTab && typeof updateAssociatedPlayersList === 'function') {
         updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
+    }
+
+    // Mettre à jour la carte héros ouverte si le héros actif est celui-ci
+    const activePlayerTab = document.querySelector('.player-tab.active');
+    if (activePlayerTab) {
+        const wrapper = activePlayerTab.closest('.player-wrapper');
+        if (wrapper && parseInt(wrapper.dataset.playerIndex) === playerIndex) {
+            const playerInstance = playerInstances.get(playerIndex);
+            if (playerInstance) {
+                displayPlayerProfile(playerInstance);
+            }
+        }
     }
 }
 
@@ -284,7 +306,7 @@ function cycleHeroCombatAdvantageInCard(playerIndex) {
     const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
     heroTopAdvantages.set(playerIndex, newValue);
 
-    const badge = document.querySelector('.creature-title-right .combat-modifier-badge');
+    const badge = document.querySelector('.combat-modifier-badge');
     if (badge) {
         badge.textContent = typeof getAdvantageText === 'function' ? getAdvantageText(newValue) : '0';
         badge.classList.remove('positive', 'negative', 'neutral');

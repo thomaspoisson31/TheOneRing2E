@@ -35,7 +35,7 @@
 
 .creature-title {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     width: 100%;
     padding: 0.5rem 0;
@@ -49,6 +49,13 @@
     max-width: 50%;
 }
 
+.creature-subtitle-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
 .creature-name {
     font-family: Georgia, serif;
     font-weight: bold;
@@ -56,7 +63,8 @@
     color: var(--title-color);
     cursor: pointer;
     word-wrap: break-word;
-    line-height: 1.2;
+    line-height: 1.1;
+    margin: 0;
 }
 
 .creature-title-right {

@@ -328,11 +328,13 @@ function displayCreatureDetails(creature, familyName) {
             <div class="creature-title">
                 <div class="creature-title-left">
                     <span class="creature-name" onclick="showImage('${imageUrl}')">${name}</span>
-                    <img src="images/sound-icon.png" alt="Son" class="sound-icon" id="soundIcon">
+                    <div class="creature-subtitle-row">
+                        <img src="images/sound-icon.png" alt="Son" class="sound-icon" id="soundIcon">
+                        <div class="combat-modifier-badge ${advantageClass}" onclick="cycleCreatureCombatAdvantageInCard(${instanceId})" title="Modificateur de combat">${advantageText}</div>
+                    </div>
                 </div>
                 <div class="creature-title-right">
                     <div id="opponent-cartouche-container" class="opponent-cartouche-container"></div>
-                    <div class="combat-modifier-badge ${advantageClass}" onclick="cycleCreatureCombatAdvantageInCard(${instanceId})" title="Modificateur de combat">${advantageText}</div>
                 </div>
             </div>
         </div>`;
@@ -526,7 +528,7 @@ function cycleCreatureCombatAdvantageInCard(instanceId) {
     const newValue = typeof getNextCombatAdvantageValue === 'function' ? getNextCombatAdvantageValue(currentValue) : 0;
     creatureInstanceAdvantages.set(instanceId, newValue);
 
-    const badge = document.querySelector('.creature-title-right .combat-modifier-badge');
+    const badge = document.querySelector('.combat-modifier-badge');
     if (badge) {
         badge.textContent = typeof getAdvantageText === 'function' ? getAdvantageText(newValue) : '0';
         badge.classList.remove('positive', 'negative', 'neutral');

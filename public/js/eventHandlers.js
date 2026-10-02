@@ -1,6 +1,4 @@
 // Sélection des éléments DOM
-const eyeButton = document.getElementById('eyeButton');
-const runeButton = document.getElementById('runeButton');
 const cardModal = document.getElementById('cardModal');
 const cardContent = document.getElementById('cardContent');
 const addButton = document.getElementById('addCreature');
@@ -50,8 +48,7 @@ function closeCardModal() {
     cardModal.style.display = 'none';
 }
 
-// Gestionnaire pour le bouton Eye (Désavantages)
-eyeButton.addEventListener('click', function() {
+function triggerEyeEvent() {
     fetch('data/evenements.xml')
         .then(response => response.text())
         .then(str => {
@@ -83,15 +80,18 @@ eyeButton.addEventListener('click', function() {
                 }
             }
             
-            cardContent.innerHTML = html;
-            cardContent.className = 'disadvantage';
-            cardModal.style.display = 'block';
+            const modalContent = document.getElementById('cardContent');
+            const modal = document.getElementById('cardModal');
+            if (modalContent && modal) {
+                modalContent.innerHTML = html;
+                modalContent.className = 'disadvantage';
+                modal.style.display = 'block';
+            }
         })
         .catch(error => console.error('Erreur lors du chargement des événements:', error));
-});
+}
 
-// Gestionnaire pour le bouton Rune (Avantages)
-runeButton.addEventListener('click', function() {
+function triggerRuneEvent() {
     fetch('data/evenements.xml')
         .then(response => response.text())
         .then(str => {
@@ -114,12 +114,19 @@ runeButton.addEventListener('click', function() {
                 html += '</div>';
             }
             
-            cardContent.innerHTML = html;
-            cardContent.className = 'advantage';
-            cardModal.style.display = 'block';
+            const modalContent = document.getElementById('cardContent');
+            const modal = document.getElementById('cardModal');
+            if (modalContent && modal) {
+                modalContent.innerHTML = html;
+                modalContent.className = 'advantage';
+                modal.style.display = 'block';
+            }
         })
         .catch(error => console.error('Erreur lors du chargement des événements:', error));
-});
+}
+
+window.triggerEyeEvent = triggerEyeEvent;
+window.triggerRuneEvent = triggerRuneEvent;
 
 // Fermer la fenêtre modale si on clique en dehors
 window.addEventListener('click', (e) => {

@@ -38,11 +38,6 @@ function displayPlayerProfile(player) {
         tab.classList.remove('active')
     );
 
-    // Feature b & c: Update icons visibility for PJ (Show Eye, Hide Rune)
-    const eyeButton = document.getElementById('eyeButton');
-    const runeButton = document.getElementById('runeButton');
-    if (eyeButton) eyeButton.style.display = 'flex'; // or 'block'
-    if (runeButton) runeButton.style.display = 'none';
 
     // Récupérer les créatures associées
     const associatedCreatures = getAssociatedCreatures(name);
@@ -161,6 +156,8 @@ function displayPlayerProfile(player) {
     html += '</div>';
     
     html += '</div>';
+
+    html += `<button class="icon-button card-bottom-left-btn" id="eyeButton" onclick="triggerEyeEvent()" title="Désavantages"><img src="images/Eye.png" alt="Eye"></button>`;
 
         
     creatureCard.innerHTML = html;

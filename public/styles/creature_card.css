@@ -9,12 +9,20 @@
     box-sizing: border-box;
     margin-top: 0.75rem;
     position: relative;
+    padding-bottom: 2.5rem;
+}
+
+.card-bottom-left-btn {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    z-index: 10;
 }
 
 .card-delete-btn {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 0;
+    left: 0;
     background: transparent;
     border: none;
     color: var(--title-color);

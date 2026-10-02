@@ -159,11 +159,6 @@ function displayCreature(creature, familyName, resetSelect = true) {
             updateSoundIconVisibility(this.dataset.familyName);
         }
 
-        // Feature b & c: Update icons visibility for Adversaire (Show Rune, Hide Eye)
-        const eyeButton = document.getElementById('eyeButton');
-        const runeButton = document.getElementById('runeButton');
-        if (eyeButton) eyeButton.style.display = 'none';
-        if (runeButton) runeButton.style.display = 'flex'; // or 'block' depending on CSS, flex is safer for centering
     });
     
     // Déterminer où ajouter l'onglet de la créature
@@ -476,7 +471,8 @@ function displayCreatureDetails(creature, familyName) {
         
         html += '</div>';
     }
-        
+
+    html += `<button class="icon-button card-bottom-left-btn" id="runeButton" onclick="triggerRuneEvent()" title="Avantages"><img src="images/Rune.png" alt="Rune"></button>`;
 
     creatureCard.innerHTML = html;
     creatureCard.style.display = 'block';

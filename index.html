@@ -37,21 +37,22 @@
 
                 <div class="adversaries-panel" id="adversariesPanel">
                     <div class="adversaries-header">
-                        <h2 class="adversaries-title">Adversaires</h2>
-                        <button id="openFileModalBtn" class="folder-btn" title="Changer de liste" onclick="openFileModal()">
-                            <img src="images/folder-outline-rounded.svg" alt="Dossier" class="folder-icon">
-                        </button>
+                        <div class="adversaries-title-group">
+                            <h2 class="adversaries-title">Adversaires</h2>
+                            <button id="openFileModalBtn" class="folder-btn" title="Changer de liste" onclick="openFileModal()">
+                                <img src="images/folder-outline-rounded.svg" alt="Dossier" class="folder-icon">
+                            </button>
+                        </div>
+                        <div class="engagement-actions">
+                            <button id="randomAssociationBtn" class="red-square-btn" title="Association aléatoire" style="display: none;" onclick="performRandomAssociation()">
+                                <img src="images/shuffle-line.svg" alt="Association aléatoire">
+                            </button>
+                            <button id="validateEngagementBtn" class="red-square-btn" title="Valider" onclick="validateEngagement()">
+                                <img src="images/check-outline.svg" alt="Valider">
+                            </button>
+                        </div>
                     </div>
                     <div id="adversariesListContainer" class="adversaries-list-container"></div>
-                </div>
-
-                <div class="engagement-actions">
-                    <button id="randomAssociationBtn" class="red-square-btn" title="Association aléatoire" style="display: none;" onclick="performRandomAssociation()">
-                        <img src="images/shuffle-line.svg" alt="Association aléatoire">
-                    </button>
-                    <button id="validateEngagementBtn" class="red-square-btn" title="Valider" onclick="validateEngagement()">
-                        <img src="images/check-outline.svg" alt="Valider">
-                    </button>
                 </div>
             </div>
         </div>

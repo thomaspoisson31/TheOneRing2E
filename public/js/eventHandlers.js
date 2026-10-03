@@ -7,39 +7,6 @@ const addButton = document.getElementById('addCreature');
 let selectedCreature = null;
 let selectedFamily = null;
 
-// Gestionnaire pour la sélection de la famille
-familySelect.addEventListener('change', function() {
-    if (this.value === "change_list") {
-        openFileModal();
-        this.value = "";
-        return;
-    }
-    updateCreatureList(this.value);
-});
-
-// Gestionnaire pour la sélection des créatures
-creatureSelect.addEventListener('change', function() {
-    if (this.value) {
-        try {
-            const selectedValue = JSON.parse(this.value);
-            const famille = Array.from(xmlDoc.getElementsByTagName('famille'))
-                .find(f => f.getAttribute('nom') === selectedValue.family);
-
-            if (famille) {
-                const creature = Array.from(famille.getElementsByTagName('creature'))
-                    .find(c => c.getElementsByTagName('nom')[0].textContent === selectedValue.creature);
-
-                if (creature) {
-                    displayCreature(creature, selectedValue.family);
-                    // Réinitialiser la sélection pour permettre d'ajouter la même créature plusieurs fois
-                    this.value = "";
-                }
-            }
-        } catch (error) {
-            console.error('Erreur lors de la sélection de la créature:', error);
-        }
-    }
-});
 
 // Le gestionnaire pour addButton est supprimé car le bouton est caché
 

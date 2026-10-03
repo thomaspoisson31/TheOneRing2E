@@ -2,6 +2,17 @@
    RESPONSIVE DESIGN
    ============================================== */
 
+@media (max-width: 768px) {
+    .engagement-layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .adversaries-panel {
+        width: 100%;
+    }
+}
+
 @media (max-width: 600px) {
     .tabs-container {
         flex-direction: column;

@@ -33,16 +33,16 @@
             <div class="engagement-layout">
                 <div class="engagement-left">
                     <div id="creatureTabs" class="creature-tabs player-columns-container"></div>
+                </div>
 
-                    <div class="creature-selector" id="creatureSelectorContainer">
-                        <select id="familySelect">
-                            <option value="">Choix Famille</option>
-                        </select>
-                        <select id="creatureSelect">
-                            <option value="">Choix Adversaire</option>
-                        </select>
-                        <button id="addCreature" class="add-button">+</button>
+                <div class="adversaries-panel" id="adversariesPanel">
+                    <div class="adversaries-header">
+                        <h2 class="adversaries-title">Adversaires</h2>
+                        <button id="openFileModalBtn" class="folder-btn" title="Changer de liste" onclick="openFileModal()">
+                            <img src="images/folder-outline-rounded.svg" alt="Dossier" class="folder-icon">
+                        </button>
                     </div>
+                    <div id="adversariesListContainer" class="adversaries-list-container"></div>
                 </div>
 
                 <div class="engagement-actions">

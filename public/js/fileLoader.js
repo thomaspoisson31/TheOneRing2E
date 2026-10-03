@@ -51,9 +51,9 @@ function loadSelectedFile() {
                 xmlDoc = parser.parseFromString(str, "text/xml");
                 
                 // Réinitialiser l'interface
-                creatureSelect.value = '';
-                creatureCard.style.display = 'none';
-                creatureTabs.innerHTML = '';
+                if (typeof creatureSelect !== 'undefined' && creatureSelect) creatureSelect.value = '';
+                if (creatureCard) creatureCard.style.display = 'none';
+                if (creatureTabs) creatureTabs.innerHTML = '';
                 
                 // Restaurer la section combat s'il existait
                 if (combatSection) {

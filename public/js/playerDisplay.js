@@ -70,6 +70,7 @@ function displayPlayerProfile(player) {
                     <span class="creature-name">${name}</span>
                     <div class="creature-subtitle-row">
                         <div class="combat-modifier-badge ${advantageClass}" onclick="cycleHeroCombatAdvantageInCard(${playerIndex})" title="Modificateur de combat">${advantageText}</div>
+                        <button class="card-repousse-btn ${isRepousse ? 'active' : ''}" onclick="toggleHeroRepousseInCard(${playerIndex})">Repoussé</button>
                     </div>
                 </div>
                 <div class="creature-title-right">
@@ -90,7 +91,6 @@ function displayPlayerProfile(player) {
                             `;
                         }).join('')}
                     </div>
-                    <button class="card-repousse-btn ${isRepousse ? 'active' : ''}" onclick="toggleHeroRepousseInCard(${playerIndex})">Repoussé</button>
                 </div>
             </div>
         </div>`;
@@ -271,10 +271,12 @@ function cyclePlayerAdvantage(playerIndex, indicatorElement) {
         updatePostureElementStyle(indicatorElement, newValue);
     }
 
-    // Mettre à jour la carte créature ouverte si nécessaire
-    const activeTab = document.querySelector('.creature-tab.active');
-    if (activeTab && typeof updateAssociatedPlayersList === 'function') {
-        updateAssociatedPlayersList(parseInt(activeTab.dataset.instanceId));
+    // Mettre à jour la carte créature ouverte si affichée
+    if (creatureCard && creatureCard.style.display !== 'none' && creatureCard.dataset.instanceId) {
+        const displayedInstanceId = parseInt(creatureCard.dataset.instanceId);
+        if (typeof updateAssociatedPlayersList === 'function' && !isNaN(displayedInstanceId)) {
+            updateAssociatedPlayersList(displayedInstanceId);
+        }
     }
 }
 
@@ -317,7 +319,7 @@ function toggleHeroRepousseInCard(playerIndex) {
     const currentState = !(heroRepousseStates.get(playerIndex) || false);
     heroRepousseStates.set(playerIndex, currentState);
 
-    const btn = document.querySelector('.creature-title-right .card-repousse-btn');
+    const btn = document.querySelector('.card-repousse-btn');
     if (btn) {
         if (currentState) {
             btn.classList.add('active');

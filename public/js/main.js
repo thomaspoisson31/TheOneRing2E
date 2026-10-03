@@ -388,47 +388,37 @@ function createPlayerTabs(pjDoc) {
     const actionsColumn = document.createElement('div');
     actionsColumn.className = 'hero-actions-column';
 
-    // Emplacement pour le bouton reload (aligné avec la ligne des portraits héros)
-    const slotReload = document.createElement('div');
-    slotReload.className = 'action-slot slot-reload';
+    // Spacer aligné avec les portraits des héros (50px)
+    const slotSpacer = document.createElement('div');
+    slotSpacer.className = 'action-slot slot-header-spacer';
+    actionsColumn.appendChild(slotSpacer);
+
+    // Emplacement pour les boutons d'action (reload et random), aligné avec la ligne des postures héros
+    const slotPostureActions = document.createElement('div');
+    slotPostureActions.className = 'action-slot slot-posture-actions';
 
     const reloadBtn = document.createElement('button');
     reloadBtn.className = 'reload-initiative-btn action-icon-btn';
     reloadBtn.title = 'Calculer l\'initiative';
-    const reloadImg = document.createElement('img');
-    reloadImg.src = 'images/Reload.png';
-    reloadImg.alt = 'Reload';
-    reloadBtn.appendChild(reloadImg);
+    reloadBtn.textContent = '🔄';
     reloadBtn.addEventListener('click', calculateInitiative);
-    slotReload.appendChild(reloadBtn);
-    actionsColumn.appendChild(slotReload);
-
-    // Emplacement posture
-    const slotPosture = document.createElement('div');
-    slotPosture.className = 'action-slot slot-posture';
-    actionsColumn.appendChild(slotPosture);
-
-    // Emplacement pour les opposants (remplit le milieu)
-    const slotOpponents = document.createElement('div');
-    slotOpponents.className = 'action-slot slot-opponents';
-    actionsColumn.appendChild(slotOpponents);
-
-    // Emplacement pour le bouton random (aligné avec la ligne des modificateurs adversaires)
-    const slotRandom = document.createElement('div');
-    slotRandom.className = 'action-slot slot-random';
+    slotPostureActions.appendChild(reloadBtn);
 
     const randomBtn = document.createElement('button');
     randomBtn.id = 'randomAssociationBtn';
     randomBtn.className = 'random-association-btn action-icon-btn';
     randomBtn.title = 'Association aléatoire';
     randomBtn.style.display = 'none'; // Masqué par défaut
-    const randomImg = document.createElement('img');
-    randomImg.src = 'images/Random.png';
-    randomImg.alt = 'Random';
-    randomBtn.appendChild(randomImg);
+    randomBtn.textContent = '🔀';
     randomBtn.addEventListener('click', performRandomAssociation);
-    slotRandom.appendChild(randomBtn);
-    actionsColumn.appendChild(slotRandom);
+    slotPostureActions.appendChild(randomBtn);
+
+    actionsColumn.appendChild(slotPostureActions);
+
+    // Emplacement pour les opposants (remplit le milieu)
+    const slotOpponents = document.createElement('div');
+    slotOpponents.className = 'action-slot slot-opponents';
+    actionsColumn.appendChild(slotOpponents);
 
     playerTabsContainer.appendChild(actionsColumn);
 
@@ -552,7 +542,7 @@ function updateRandomAssociationButtonVisibility() {
     const eligibleHeroes = getEligibleHeroes();
 
     if (unassignedTabs.length > 0 && eligibleHeroes.length > 0) {
-        diceBtn.style.display = 'flex';
+        diceBtn.style.display = 'inline-flex';
     } else {
         diceBtn.style.display = 'none';
     }

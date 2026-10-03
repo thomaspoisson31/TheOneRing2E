@@ -50,7 +50,7 @@
     padding: 0.35rem 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-size: 0.64rem;
     background-color: white;
     max-width: 100%;
 }
@@ -222,7 +222,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 32px;
     align-items: center;
     margin-left: 0.25rem;
 }
@@ -231,23 +230,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
+    width: 100%;
 }
 
-.action-slot.slot-top-advantage {
-    height: 22px;
-}
-
-.action-slot.slot-repousse {
-    height: 16px;
-}
-
-.action-slot.slot-reload {
+.action-slot.slot-header-spacer {
     height: 50px;
 }
 
-.action-slot.slot-posture {
-    height: 20px;
+.action-slot.slot-posture-actions {
+    min-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
 }
 
 .action-slot.slot-opponents {
@@ -255,34 +250,22 @@
     min-height: 20px;
 }
 
-.action-slot.slot-random {
-    height: 22px;
-    overflow: visible;
-}
-
 /* Style commun pour les boutons d'action (reload et random) */
 .action-icon-btn {
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    display: flex;
+    height: 22px;
+    padding: 0 4px;
+    min-width: 24px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
-    overflow: hidden;
-}
-
-.action-icon-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 3px;
+    font-size: 13px;
+    line-height: 1;
 }
 
 .action-icon-btn:hover {
@@ -300,7 +283,7 @@
     to { transform: rotate(360deg); }
 }
 
-.action-icon-btn.spinning img {
+.action-icon-btn.spinning {
     animation: reload-spin 0.4s ease-in-out;
 }
 

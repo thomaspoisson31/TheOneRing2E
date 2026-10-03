@@ -219,8 +219,8 @@ function loadPlayerCharacters() {
 
 function updateAssociatedPlayersList(instanceId) {
     const listContainer = document.getElementById('opponent-cartouche-container');
-    const activeTab = document.querySelector('.creature-tab.active');
-    if (!listContainer || !activeTab || parseInt(activeTab.dataset.instanceId) !== instanceId) return;
+    if (!listContainer) return;
+    if (creatureCard.style.display === 'none' || parseInt(creatureCard.dataset.instanceId) !== instanceId) return;
 
     const playersSet = creaturePlayerAssociations.get(instanceId);
     

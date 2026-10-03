@@ -21,8 +21,8 @@
 
 .card-delete-btn {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 6px;
+    right: 8px;
     background: transparent;
     border: none;
     color: var(--title-color);
@@ -81,6 +81,7 @@
     align-items: flex-end;
     gap: 0.5rem;
     flex-shrink: 0;
+    padding-top: 1.2rem;
 }
 
 .advantage-button {
@@ -99,11 +100,13 @@
 }
 
 .combat-modifier-badge {
-    padding: 6px 14px;
+    padding: 0 10px;
+    height: 28px;
+    box-sizing: border-box;
     border-radius: 4px;
     font-weight: bold;
-    font-size: 1rem;
-    min-width: 45px;
+    font-size: 0.8rem;
+    min-width: 40px;
     text-align: center;
     cursor: pointer;
     user-select: none;
@@ -131,9 +134,11 @@
 }
 
 .card-repousse-btn {
-    padding: 6px 14px;
+    padding: 0 10px;
+    height: 28px;
+    box-sizing: border-box;
     border-radius: 4px;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     background-color: #e0e0e0;
     color: #4a4a4a;
     border: none;

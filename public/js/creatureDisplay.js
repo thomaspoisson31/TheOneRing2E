@@ -118,7 +118,7 @@ function displayCreature(creature, familyName, resetSelect = true) {
                         clonedTab.classList.add('active');
                         const creatureInstance = creatureInstances.get(instanceId);
                         if (creatureInstance) {
-                            displayCreatureDetails(creatureInstance, familyName);
+                            displayCreatureDetails(creatureInstance, familyName, instanceId);
                         }
                     });
 
@@ -153,9 +153,10 @@ function displayCreature(creature, familyName, resetSelect = true) {
         
         this.classList.add('active');
         
-        const instance = creatureInstances.get(parseInt(this.dataset.instanceId));
+        const instId = parseInt(this.dataset.instanceId);
+        const instance = creatureInstances.get(instId);
         if (instance) {
-            displayCreatureDetails(instance, this.dataset.familyName);
+            displayCreatureDetails(instance, this.dataset.familyName, instId);
             updateSoundIconVisibility(this.dataset.familyName);
         }
 
@@ -220,7 +221,8 @@ function loadPlayerCharacters() {
 function updateAssociatedPlayersList(instanceId) {
     const listContainer = document.getElementById('opponent-cartouche-container');
     if (!listContainer) return;
-    if (creatureCard.style.display === 'none' || parseInt(creatureCard.dataset.instanceId) !== instanceId) return;
+    const cardInstanceId = parseInt(creatureCard.dataset.instanceId);
+    if (creatureCard.style.display === 'none' || (cardInstanceId !== instanceId && !isNaN(cardInstanceId) && !isNaN(instanceId))) return;
 
     const playersSet = creaturePlayerAssociations.get(instanceId);
     
@@ -306,10 +308,30 @@ function getFamilyCapacities(familyName) {
     return Array.from(capacites.getElementsByTagName('capacite'));
 }
 
-function displayCreatureDetails(creature, familyName) {
+function displayCreatureDetails(creature, familyName, instanceId = null) {
     const name = creature.getElementsByTagName('nom')[0].textContent;
     const imageUrl = creature.getElementsByTagName('url_image')[0]?.textContent;
-    const instanceId = parseInt(document.querySelector('.creature-tab.active')?.dataset.instanceId);
+
+    if (!instanceId || isNaN(instanceId)) {
+        const fighterTab = document.querySelector('.fighter-tab.active[data-type="creature"]');
+        if (fighterTab) {
+            instanceId = parseInt(fighterTab.dataset.instanceId);
+        } else {
+            const creatureTab = document.querySelector('.creature-tab.active');
+            if (creatureTab) {
+                instanceId = parseInt(creatureTab.dataset.instanceId);
+            }
+        }
+    }
+    if ((!instanceId || isNaN(instanceId)) && window.creatureInstances) {
+        for (const [id, inst] of window.creatureInstances.entries()) {
+            if (inst === creature) {
+                instanceId = id;
+                break;
+            }
+        }
+    }
+    instanceId = parseInt(instanceId);
 
     const currentAdvantage = creatureInstanceAdvantages.get(instanceId) || 0;
     const advantageText = typeof getAdvantageText === 'function' ? getAdvantageText(currentAdvantage) : '0';
@@ -377,6 +399,7 @@ function displayCreatureDetails(creature, familyName) {
                     value="${endurance}" 
                     class="stat-input"
                     id="creature-endurance-${instanceId}"
+                    oninput="updateInstanceValue(${instanceId}, 'endurance', this.value)"
                     onchange="updateInstanceValue(${instanceId}, 'endurance', this.value)">
             </div>
             <button class="stat-btn" onclick="adjustCreatureStat(${instanceId}, 'endurance', 1)">+</button>
@@ -392,6 +415,7 @@ function displayCreatureDetails(creature, familyName) {
                     value="${haine}" 
                     class="stat-input"
                     id="creature-haine-${instanceId}"
+                    oninput="updateInstanceValue(${instanceId}, 'haine', this.value)"
                     onchange="updateInstanceValue(${instanceId}, 'haine', this.value)">
             </div>
             <button class="stat-btn" onclick="adjustCreatureStat(${instanceId}, 'haine', 1)">+</button>

@@ -133,6 +133,7 @@ function displayPlayerProfile(player) {
                     value="${endurance}" 
                     class="stat-input"
                     id="player-Endurance-${playerIndex}"
+                    oninput="updatePlayerValue(${playerIndex}, 'Endurance', this.value)"
                     onchange="updatePlayerValue(${playerIndex}, 'Endurance', this.value)">
             </div>
             <button class="stat-btn" onclick="adjustPlayerStat(${playerIndex}, 'Endurance', 1)">+</button>
@@ -148,6 +149,7 @@ function displayPlayerProfile(player) {
                     value="${hope}" 
                     class="stat-input"
                     id="player-Hope-${playerIndex}"
+                    oninput="updatePlayerValue(${playerIndex}, 'Hope', this.value)"
                     onchange="updatePlayerValue(${playerIndex}, 'Hope', this.value)">
             </div>
             <button class="stat-btn" onclick="adjustPlayerStat(${playerIndex}, 'Hope', 1)">+</button>

@@ -85,5 +85,35 @@ window.getAdvantageText = getAdvantageText;
 window.getNextCombatAdvantageValue = getNextCombatAdvantageValue;
 window.updateAdvantageElementStyle = updateAdvantageElementStyle;
 window.getPostureText = getPostureText;
+function saveCurrentCardInputs() {
+    const card = document.getElementById('creatureCard');
+    if (!card) return;
+    const inputs = card.querySelectorAll('.stat-input');
+    inputs.forEach(input => {
+        if (!input.id || input.value === '') return;
+        const val = input.value;
+        if (input.id.startsWith('creature-')) {
+            const parts = input.id.split('-');
+            if (parts.length >= 3) {
+                const field = parts[1];
+                const instanceId = parseInt(parts[2]);
+                if (!isNaN(instanceId) && typeof updateInstanceValue === 'function') {
+                    updateInstanceValue(instanceId, field, val);
+                }
+            }
+        } else if (input.id.startsWith('player-')) {
+            const parts = input.id.split('-');
+            if (parts.length >= 3) {
+                const field = parts[1];
+                const playerIndex = parseInt(parts[2]);
+                if (!isNaN(playerIndex) && typeof updatePlayerValue === 'function') {
+                    updatePlayerValue(playerIndex, field, val);
+                }
+            }
+        }
+    });
+}
+
 window.getNextPostureState = getNextPostureState;
 window.updatePostureElementStyle = updatePostureElementStyle;
+window.saveCurrentCardInputs = saveCurrentCardInputs;

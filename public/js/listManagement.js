@@ -41,6 +41,7 @@ function renderAdversariesList() {
 
                 const tile = document.createElement('button');
                 tile.className = 'adversary-tile-btn';
+                tile.title = creatureName;
 
                 const nameSpan = document.createElement('span');
                 nameSpan.className = 'adversary-tile-name';

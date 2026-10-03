@@ -5,37 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOR2E - Visualiseur d'adversaires</title>
     <link rel="stylesheet" href="/styles/main.css">
-    <!-- J'ajoute un lien vers un CSS spécifique pour ces nouvelles fonctionnalités si besoin, 
-         mais ici je vais tout mettre dans main.css pour faire simple -->
 </head>
 <body>
     <header></header>
 
-    <div class="tabs-container">
-        <div class="left-panel">
-            <!-- Conteneur qui affichera les PJs en colonnes -->
-            <div id="creatureTabs" class="creature-tabs player-columns-container"></div>
+    <!-- Main Navigation Tab Bar -->
+    <div class="main-tab-bar-container">
+        <div class="main-tab-bar">
+            <!-- Pinned Engagement Tab (Stage 1) -->
+            <button id="engagementTab" class="tab-btn engagement-tab active" title="Engagement" onclick="switchTab('engagement')">
+                <img src="images/sword-line.svg" alt="Engagement" class="tab-icon">
+            </button>
 
-            <div class="creature-selector" id="creatureSelectorContainer">
-                <select id="familySelect">
-                    <option value="">Choix Famille</option>
-                </select>
-                <select id="creatureSelect">
-                    <option value="">Choix Adversaire</option>
-                </select>
-                <button id="addCreature" class="add-button">+</button>
+            <!-- Stage 2 Fighter Tabs Strip -->
+            <div class="fighter-tabs-wrapper">
+                <button id="scrollLeftBtn" class="scroll-arrow-btn left" onclick="scrollFighterTabs(-1)" style="display: none;">&#9664;</button>
+                <div id="fighterTabsContainer" class="fighter-tabs-scroll"></div>
+                <button id="scrollRightBtn" class="scroll-arrow-btn right" onclick="scrollFighterTabs(1)" style="display: none;">&#9654;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Framed Box with Red Border -->
+    <div class="main-content-frame">
+        <!-- Stage 1: Engagement View -->
+        <div id="engagementView" class="engagement-view">
+            <div class="engagement-layout">
+                <div class="engagement-left">
+                    <div id="creatureTabs" class="creature-tabs player-columns-container"></div>
+
+                    <div class="creature-selector" id="creatureSelectorContainer">
+                        <select id="familySelect">
+                            <option value="">Choix Famille</option>
+                        </select>
+                        <select id="creatureSelect">
+                            <option value="">Choix Adversaire</option>
+                        </select>
+                        <button id="addCreature" class="add-button">+</button>
+                    </div>
+                </div>
+
+                <div class="engagement-actions">
+                    <button id="randomAssociationBtn" class="red-square-btn" title="Association aléatoire" style="display: none;" onclick="performRandomAssociation()">
+                        <img src="images/shuffle-line.svg" alt="Association aléatoire">
+                    </button>
+                    <button id="validateEngagementBtn" class="red-square-btn" title="Valider" onclick="validateEngagement()">
+                        <img src="images/check-outline.svg" alt="Valider">
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div class="right-panel">
-            <div id="creatureCard" class="creature-card"></div>
+        <!-- Stage 2: Fighter View (Detail Card + Left Illustration) -->
+        <div id="fighterView" class="fighter-view" style="display: none;">
+            <div class="fighter-view-layout">
+                <div id="fighterImageContainer" class="fighter-image-container">
+                    <img id="fighterIllustrationImg" src="" alt="Illustration" class="fighter-illustration-img">
+                </div>
+                <div class="fighter-card-container">
+                    <div id="creatureCard" class="creature-card"></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="fullScreenImage" class="full-screen-image">
         <img id="creatureImage" src="" alt="Image de la créature">
     </div>
-
 
     <!-- Fenêtre modale pour les cartes -->
     <div id="cardModal" class="modal">
@@ -52,11 +88,6 @@
             <h3>Choisir une liste</h3>
             <ul id="fileList" class="file-list">
                 <li data-file="Adversaires-Campagne-Moria.xml">Adversaires Campagne Moria</li>
-               <!--
-                <li data-file="Adversaires2.xml">Livre de base</li>
-                <li data-file="Adversaires_Ruines.xml">Ruines du Royaume Perdu</li>
-                <li data-file="Adversaires_Recits.xml">Récits des Terres Solitaires</li>
-                <li data-file="Adversaires-Moria.xml">Adversaires Moria</li> -->
             </ul>
             <button onclick="loadSelectedFile()" class="load-button">Charger</button>
         </div>

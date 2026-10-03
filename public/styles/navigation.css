@@ -489,8 +489,6 @@
     flex-direction: column;
 }
 
-
-
 .pj-opponents .creature-tab .tab-content {
     height: 50px; /* Fixer la hauteur de la partie token */
     width: 100%;
@@ -546,4 +544,307 @@
     background-color: #d3d3d3;
     border: 2px dashed #999;
     opacity: 0.8;
+}
+
+/* ==============================================
+   BARRE DE NAVIGATION ET ONGLETS (ÉTAPES 1 & 2)
+   ============================================== */
+
+.main-tab-bar-container {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.main-tab-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    width: 100%;
+    position: relative;
+}
+
+/* Onglet Engagement fixe */
+.engagement-tab {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border: 2px solid var(--title-color, #b30f04);
+    border-bottom: 2px solid var(--title-color, #b30f04);
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+    padding: 0;
+    position: relative;
+    top: 2px;
+}
+
+.engagement-tab.active {
+    background-color: var(--title-color, #b30f04);
+    border-bottom: 2px solid var(--title-color, #b30f04);
+    z-index: 12;
+}
+
+.engagement-tab .tab-icon {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(5412%) hue-rotate(352deg) brightness(84%) contrast(106%);
+}
+
+.engagement-tab.active .tab-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Défilement des onglets de l'Étape 2 */
+.fighter-tabs-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.25rem;
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.scroll-arrow-btn {
+    background: transparent;
+    border: none;
+    color: var(--title-color, #b30f04);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 4px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 15;
+    user-select: none;
+}
+
+.scroll-arrow-btn:hover {
+    color: #8b0000;
+}
+
+.fighter-tabs-scroll {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-top: 10px; /* Espace pour le bouton x */
+    padding-bottom: 0;
+}
+
+.fighter-tabs-scroll::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Onglets des combattants */
+.fighter-tab {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+    top: 2px;
+}
+
+.fighter-tab:hover {
+    background-color: #f8f9fa;
+}
+
+.fighter-tab.active {
+    background-color: #ffffff;
+    border: 2px solid var(--title-color, #b30f04);
+    border-bottom: 2px solid #ffffff;
+    z-index: 12;
+}
+
+/* Jetons et noms dans les onglets de l'étape 2 */
+.fighter-tab-token {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+}
+
+.fighter-tab-name {
+    font-size: 0.65rem;
+    line-height: 1.1;
+    word-break: break-word;
+    padding: 2px;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Bouton de suppression en cercle rouge foncé sur l'onglet actif (Précision 2) */
+.tab-delete-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background-color: #8b0000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    padding: 0;
+}
+
+.tab-delete-btn:hover {
+    background-color: #a50000;
+    transform: scale(1.1);
+}
+
+/* Cadre principal entouré de rouge */
+.main-content-frame {
+    border: 2px solid var(--title-color, #b30f04);
+    border-radius: 0 8px 8px 8px;
+    padding: 1.25rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 5;
+    margin-bottom: 2rem;
+    min-height: 350px;
+}
+
+/* Layout Vue Engagement */
+.engagement-view {
+    width: 100%;
+}
+
+.engagement-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.engagement-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.engagement-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-end;
+    align-self: flex-end;
+    padding-bottom: 0.25rem;
+}
+
+/* Boutons carrés rouges (Valider & Shuffle) */
+.red-square-btn {
+    width: 48px;
+    height: 48px;
+    background-color: var(--title-color, #b30f04);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    padding: 0;
+}
+
+.red-square-btn img {
+    width: 26px;
+    height: 26px;
+    filter: brightness(0) invert(1);
+}
+
+.red-square-btn:hover {
+    background-color: #8b0000;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.red-square-btn:active {
+    transform: scale(0.95);
+}
+
+/* Layout Vue Combattant Étape 2 */
+.fighter-view {
+    width: 100%;
+}
+
+.fighter-view-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.fighter-image-container {
+    width: 320px;
+    max-width: 40%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    max-height: 520px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.fighter-illustration-img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.fighter-card-container {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+/* Masquer l'image de gauche si largeur écran < 800px */
+@media (max-width: 799px) {
+    .fighter-image-container {
+        display: none !important;
+    }
 }

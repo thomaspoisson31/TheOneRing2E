@@ -63,7 +63,6 @@ function displayPlayerProfile(player) {
     }
 
     let html = `
-        <button class="card-delete-btn" onclick="deletePlayer(${playerIndex})" title="Supprimer">×</button>
         <div class="creature-header">
             <div class="creature-title">
                 <div class="creature-title-left">

@@ -318,7 +318,6 @@ function displayCreatureDetails(creature, familyName) {
     else if (currentAdvantage === -1 || currentAdvantage === -2) advantageClass = 'negative';
 
     let html = `
-        <button class="card-delete-btn" onclick="deleteCreature(${instanceId})" title="Supprimer">×</button>
         <div class="creature-header">
             <div class="creature-title">
                 <div class="creature-title-left">

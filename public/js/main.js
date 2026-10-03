@@ -269,6 +269,9 @@ function buildFighterTabs(orderedFighters) {
 }
 
 function switchTab(tabType, fighterData = null) {
+    if (typeof saveCurrentCardInputs === 'function') {
+        saveCurrentCardInputs();
+    }
     const engagementTab = document.getElementById('engagementTab');
     const engagementView = document.getElementById('engagementView');
     const fighterView = document.getElementById('fighterView');
@@ -293,6 +296,9 @@ function switchTab(tabType, fighterData = null) {
 window.switchTab = switchTab;
 
 function selectFighterTab(fighter) {
+    if (typeof saveCurrentCardInputs === 'function') {
+        saveCurrentCardInputs();
+    }
     const engagementTab = document.getElementById('engagementTab');
     const engagementView = document.getElementById('engagementView');
     const fighterView = document.getElementById('fighterView');
@@ -338,9 +344,17 @@ function selectFighterTab(fighter) {
         if (imgEl && fighter.token) {
             imgEl.src = `images/PJ/${fighter.token}.png`;
             imgEl.alt = fighter.name;
-            if (imgContainer) imgContainer.style.display = 'flex';
+            if (imgContainer) {
+                imgContainer.style.display = 'flex';
+                imgContainer.style.visibility = 'visible';
+            }
         } else if (imgContainer) {
-            imgContainer.style.display = 'none';
+            if (imgEl) {
+                imgEl.src = '';
+                imgEl.alt = '';
+            }
+            imgContainer.style.display = 'flex';
+            imgContainer.style.visibility = 'hidden';
         }
 
         // Afficher le profil du héros
@@ -362,13 +376,21 @@ function selectFighterTab(fighter) {
         if (imgEl && urlImage) {
             imgEl.src = urlImage;
             imgEl.alt = fighter.name;
-            if (imgContainer) imgContainer.style.display = 'flex';
+            if (imgContainer) {
+                imgContainer.style.display = 'flex';
+                imgContainer.style.visibility = 'visible';
+            }
         } else if (imgContainer) {
-            imgContainer.style.display = 'none';
+            if (imgEl) {
+                imgEl.src = '';
+                imgEl.alt = '';
+            }
+            imgContainer.style.display = 'flex';
+            imgContainer.style.visibility = 'hidden';
         }
 
         if (creatureInstance && typeof displayCreatureDetails === 'function') {
-            displayCreatureDetails(creatureInstance, fighter.familyName);
+            displayCreatureDetails(creatureInstance, fighter.familyName, fighter.instanceId);
         }
     }
 }
@@ -582,7 +604,7 @@ function createPlayerTabs(pjDoc) {
                         clonedTab.classList.add('active');
                         const creatureInstance = window.creatureInstances ? window.creatureInstances.get(instanceId) : null;
                         if (creatureInstance && typeof displayCreatureDetails === 'function') {
-                            displayCreatureDetails(creatureInstance, clonedTab.dataset.familyName);
+                            displayCreatureDetails(creatureInstance, clonedTab.dataset.familyName, instanceId);
                         }
                     });
 

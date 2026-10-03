@@ -141,11 +141,6 @@ function displayCreature(creature, familyName, resetSelect = true) {
     tabElement.appendChild(tabContent);
     
     tabElement.addEventListener('click', function() {
-        // creatureSelect est global (id="creatureSelect" dans HTML) mais ici on parle peut-être du dropdown header
-        // qui est maintenant supprimé de displayCreatureDetails, mais l'élément global existe.
-        const globalSelect = document.getElementById('creatureSelect');
-        if (globalSelect) globalSelect.value = '';
-        
         // Désélectionner tous les onglets
         document.querySelectorAll('.player-tab, .creature-tab').forEach(tab => 
             tab.classList.remove('active')
